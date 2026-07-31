@@ -1,0 +1,8 @@
+node_modules/
+*.pyc
+__pycache__/
+.env
+*.token
+keys.json
+.DS_Store
+Thumbs.db

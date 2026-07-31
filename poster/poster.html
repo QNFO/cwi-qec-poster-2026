@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>CWI 2026 — Ultrametric p-Adic Metrology Poster</title>
+<style>
+  @page { size: A0 portrait; margin: 0; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    width: 841mm; height: 1189mm;
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background: #ffffff;
+    color: #2d3436;
+    overflow: hidden;
+    display: grid;
+    grid-template-rows: 100mm 1fr 60mm;
+    grid-template-columns: 1fr;
+  }
+
+  /* ── HEADER ── */
+  .header {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    color: white;
+    display: flex; flex-direction: column; justify-content: center; align-items: center;
+    padding: 15mm 30mm;
+    position: relative;
+  }
+  .header h1 {
+    font-size: 42pt; font-weight: 800; letter-spacing: 1pt;
+    text-align: center; line-height: 1.15; margin-bottom: 8mm;
+  }
+  .header h1 .accent { color: #00b894; }
+  .header .subtitle {
+    font-size: 20pt; font-weight: 400; color: #b2bec3;
+    text-align: center; margin-bottom: 6mm;
+  }
+  .header .event-line {
+    font-size: 13pt; color: #636e72; text-align: center;
+  }
+  .header .event-line strong { color: #dfe6e9; }
+
+  /* ── MAIN BODY ── */
+  .main {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    gap: 0;
+    padding: 12mm 20mm;
+    background: #ffffff;
+  }
+
+  /* ── LEFT: Questions ── */
+  .questions-col {
+    display: flex; flex-direction: column; gap: 8mm;
+    padding-right: 10mm;
+    border-right: 1.5pt solid #dfe6e9;
+  }
+  .questions-col h2 {
+    font-size: 20pt; font-weight: 700; color: #1a1a2e;
+    margin-bottom: 2mm;
+  }
+  .questions-col h2 span { color: #d63031; }
+
+  .question-box {
+    background: #f8f9fa; border-left: 5pt solid #6c5ce7;
+    border-radius: 0 6pt 6pt 0;
+    padding: 6mm 8mm;
+    transition: all 0.2s;
+  }
+  .question-box:nth-child(2) { border-left-color: #6c5ce7; }
+  .question-box:nth-child(3) { border-left-color: #e17055; }
+  .question-box:nth-child(4) { border-left-color: #fdcb6e; }
+  .question-box:nth-child(5) { border-left-color: #00b894; }
+  .question-box:nth-child(6) { border-left-color: #0984e3; }
+
+  .question-box .q-num {
+    font-size: 12pt; font-weight: 800; color: #b2bec3;
+    margin-bottom: 2mm;
+  }
+  .question-box .q-title {
+    font-size: 14pt; font-weight: 700; color: #2d3436;
+    margin-bottom: 2mm;
+    line-height: 1.3;
+  }
+  .question-box .q-body {
+    font-size: 10.5pt; color: #636e72; line-height: 1.45;
+  }
+  .question-box .q-body em { color: #2d3436; font-style: normal; font-weight: 600; }
+
+  /* ── RIGHT: Experiment + Diagram ── */
+  .experiment-col {
+    display: flex; flex-direction: column; gap: 8mm;
+    padding-left: 10mm;
+  }
+  .experiment-col h2 {
+    font-size: 20pt; font-weight: 700; color: #1a1a2e;
+    margin-bottom: 2mm;
+  }
+  .experiment-col h2 span { color: #00b894; }
+
+  .tree-container {
+    background: #f8f9ff; border-radius: 8pt;
+    padding: 6mm; text-align: center;
+    border: 1pt solid #dfe6e9;
+  }
+  .tree-container img {
+    max-width: 100%; height: auto;
+  }
+
+  .key-insight {
+    background: #1a1a2e; color: white;
+    border-radius: 8pt; padding: 7mm 10mm;
+    text-align: center;
+  }
+  .key-insight .insight-line1 {
+    font-size: 14pt; font-weight: 600; color: #dfe6e9;
+    margin-bottom: 3mm;
+  }
+  .key-insight .insight-line2 {
+    font-size: 13pt; color: #81ecec;
+    margin-bottom: 3mm;
+  }
+  .key-insight .insight-line3 {
+    font-size: 14pt; font-weight: 800; color: #00b894;
+  }
+
+  .experiment-section {
+    background: #f0faf5; border-radius: 8pt;
+    padding: 6mm 8mm; border: 1pt solid #55efc4;
+  }
+  .experiment-section h3 {
+    font-size: 16pt; font-weight: 700; color: #00b894;
+    margin-bottom: 3mm;
+  }
+  .experiment-section p {
+    font-size: 10.5pt; color: #2d3436; line-height: 1.45;
+    margin-bottom: 3mm;
+  }
+  .experiment-section .highlight {
+    font-weight: 700; color: #00a381;
+  }
+
+  .upshot-box {
+    background: #fff3e0; border-radius: 8pt;
+    padding: 6mm 8mm; border: 1pt solid #fdcb6e;
+  }
+  .upshot-box p {
+    font-size: 12pt; color: #2d3436; line-height: 1.5;
+    font-weight: 600; text-align: center;
+  }
+  .upshot-box p em { color: #e17055; font-style: normal; }
+
+  /* ── FOOTER ── */
+  .footer {
+    background: #f8f9fa; border-top: 1.5pt solid #dfe6e9;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: center;
+    padding: 8mm 25mm;
+    font-size: 10pt; color: #636e72;
+  }
+  .footer .refs { line-height: 1.5; }
+  .footer .refs strong { color: #2d3436; }
+  .footer .contact { text-align: center; }
+  .footer .contact .name { font-size: 13pt; font-weight: 700; color: #2d3436; }
+  .footer .qr { text-align: right; font-size: 16pt; font-weight: 700; color: #6c5ce7; }
+
+  @media print {
+    body { width: 841mm; height: 1189mm; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════════ HEADER ═══════════ -->
+<div class="header">
+  <h1>Open Questions That Led Me<br>From Fault-Tolerant <span class="accent">QEC</span><br>to <span class="accent">p-Adic Metrology</span></h1>
+  <div class="subtitle">I'm not presenting answers. I'm presenting puzzles I couldn't solve — and one experiment I tried as a result.</div>
+  <div class="event-line">
+    <strong>CWI Summer School on Quantum Algorithms &amp; Quantum Error Correction</strong> · 24–28 August 2026 · Poster Session: Wed 26 Aug
+  </div>
+</div>
+
+<!-- ═══════════ MAIN ═══════════ -->
+<div class="main">
+
+  <!-- ── LEFT: Five Questions ── -->
+  <div class="questions-col">
+    <h2>Things I've been wondering about <span>(and can't find clear answers to)</span></h2>
+
+    <div class="question-box">
+      <div class="q-num">QUESTION ①</div>
+      <div class="q-title">The Energy Wall</div>
+      <div class="q-body">
+        Landauer's principle says erasing one bit costs energy — <em>kT ln 2</em> at minimum.
+        Each round of active error correction — syndrome measurement, decoding, feedback —
+        erases information. I'm struggling to see how the total energy cost doesn't scale
+        with the number of rounds and qubits. <em>Is there an accepted scaling law for the
+        thermodynamic cost of fault-tolerant computation at utility scale?</em> If so, where
+        is it published? I've been looking and haven't found it.
+      </div>
+    </div>
+
+    <div class="question-box">
+      <div class="q-num">QUESTION ②</div>
+      <div class="q-title">The Classical Shadow</div>
+      <div class="q-body">
+        The decoder must process syndrome data and return corrective actions within the
+        coherence time. As qubit numbers grow, this becomes a real-time processing task
+        with its own energy and latency footprint. <em>At what scale does the classical
+        co-processor's own dissipation become a significant error source?</em> I don't
+        understand the full system-level energy budget — does anyone in this room?
+      </div>
+    </div>
+
+    <div class="question-box">
+      <div class="q-num">QUESTION ③</div>
+      <div class="q-title">The Geometry of Noise</div>
+      <div class="q-body">
+        In many physical platforms — spin systems, cold atoms, photonic clusters —
+        noise correlations exhibit nested, hierarchical structure. This is an
+        <em>ultrametric property</em>: errors within a branch look similar to each other
+        and different from errors in other branches. Standard error models largely
+        assume independent or short-range correlated noise. <em>If noise already
+        self-organizes hierarchically, are we leaving a source of passive resilience
+        unused</em> by not designing codes or sensors that match that geometry?
+      </div>
+    </div>
+
+    <div class="question-box">
+      <div class="q-num">QUESTION ④</div>
+      <div class="q-title">Why a Circuit?</div>
+      <div class="q-body">
+        The circuit model digitizes continuous quantum evolution into discrete gates.
+        Active QEC then enforces that digital abstraction against physical drift.
+        In other areas of physics, when a natural system requires intense external
+        control just to stay in the model, it's often a sign the model isn't the best
+        fit. <em>Is there a deep reason the circuit model is forced upon us</em> — or
+        is it a historical choice we've stopped questioning?
+      </div>
+    </div>
+
+    <div class="question-box">
+      <div class="q-num">QUESTION ⑤</div>
+      <div class="q-title">What Would Falsify the Roadmap?</div>
+      <div class="q-body">
+        The timeline has been "roughly ten years" since the mid-1990s. I'm not arguing
+        it's wrong. I'm asking: <em>what empirical result would demonstrate that the
+        fault-tolerant digital QC roadmap needs a fundamental revision</em> rather than
+        more time and money? What is the falsification condition? If we don't have one,
+        how do we distinguish a research programme from a belief?
+      </div>
+    </div>
+  </div>
+
+  <!-- ── RIGHT: Diagram + Experiment ── -->
+  <div class="experiment-col">
+    <h2>Where the questions <span>led me</span></h2>
+
+    <div class="tree-container">
+      <img src="tree-diagram.svg" alt="Bruhat-Tits Tree — Ultrametric Error Hierarchy" style="width:100%;height:auto;">
+    </div>
+
+    <div class="key-insight">
+      <div class="insight-line1">The Ultrametric Triangle Inequality</div>
+      <div class="insight-line2">Noise organizes into nested clusters that a single global measurement washes out automatically.</div>
+      <div class="insight-line3">No ancillas. No syndrome extraction. No feedback loop. Error resilience by geometry.</div>
+    </div>
+
+    <div class="experiment-section">
+      <h3>The Experiment (Not an Answer)</h3>
+      <p>
+        These questions made me wonder: what if we stopped fighting noise and started
+        reading it in its native geometry? In a <span class="highlight">p-adic (ultrametric)
+        framework</span>, noise clusters hierarchically. A carefully chosen global measurement
+        averages local fluctuations automatically.
+      </p>
+      <p>
+        This is a <span class="highlight">sensor architecture</span>, not a computer. It exploits
+        exactly the noise structure that active QEC treats as an enemy — using
+        <span class="highlight">~10 entangled photons at room temperature</span>, no dilution
+        fridge, no error correction.
+      </p>
+      <p>
+        <span class="highlight">Preliminary data:</span> beating the standard quantum limit
+        in a room-temperature photonic platform. I'm not claiming this scales to universal
+        computation. I'm claiming it already beats classical sensors with hardware that
+        exists today.
+      </p>
+    </div>
+
+    <div class="upshot-box">
+      <p>
+        If noise has structure we can exploit <em>passively</em>, why is the entire field
+        betting on active correction?<br>
+        <span style="font-size:10pt;color:#636e72;">I don't know the answer. I'm hoping someone in this room does.</span>
+      </p>
+    </div>
+  </div>
+
+</div>
+
+<!-- ═══════════ FOOTER ═══════════ -->
+<div class="footer">
+  <div class="refs">
+    <strong>References (Zenodo DOIs)</strong><br>
+    Adelic Shannon Theory v2.1 — 10.5281/zenodo.21698976<br>
+    Adelic Entropic Numbers v1.1 — 10.5281/zenodo.21698978<br>
+    Adelic Rate-Distortion Theory v1.0 — 10.5281/zenodo.21705076
+  </div>
+  <div class="contact">
+    <div class="name">Rowan Quni-Gudzinas</div>
+    Independent Researcher · Adelic Physics Programme<br>
+    zenodo.org/communities/qnfo · papers.qnfo.org
+  </div>
+  <div class="qr">
+    Scan for papers<br>
+    <span style="font-size:10pt;font-weight:400;">or visit papers.qnfo.org</span>
+  </div>
+</div>
+
+</body>
+</html>

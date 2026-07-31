@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>CWI 2026 Handout — Ultrametric p-Adic Metrology</title>
+<style>
+  @page { size: A4; margin: 8mm; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    font-size: 9pt; color: #2d3436; line-height: 1.45;
+    max-width: 190mm; margin: 0 auto; padding: 8mm;
+  }
+  h1 { font-size: 16pt; font-weight: 800; color: #1a1a2e; margin-bottom: 2mm; text-align: center; }
+  h1 span { color: #00b894; }
+  .tagline { text-align: center; font-size: 9pt; color: #636e72; margin-bottom: 5mm; font-style: italic; }
+  .section { margin-bottom: 4mm; }
+  .section h2 { font-size: 11pt; font-weight: 700; color: #1a1a2e; border-bottom: 1.5pt solid #6c5ce7; padding-bottom: 1mm; margin-bottom: 2mm; }
+  .question-box { border-left: 3pt solid #6c5ce7; padding: 1.5mm 3mm; margin-bottom: 2.5mm; background: #f8f9fa; border-radius: 0 3pt 3pt 0; }
+  .question-box:nth-child(1) { border-left-color: #6c5ce7; }
+  .question-box:nth-child(2) { border-left-color: #e17055; }
+  .question-box:nth-child(3) { border-left-color: #fdcb6e; }
+  .question-box:nth-child(4) { border-left-color: #00b894; }
+  .question-box:nth-child(5) { border-left-color: #0984e3; }
+  .question-box .q-num { font-weight: 800; font-size: 8pt; color: #b2bec3; }
+  .question-box .q-title { font-weight: 700; font-size: 9.5pt; margin-bottom: 1mm; }
+  .question-box .q-body { font-size: 8pt; color: #636e72; }
+  .insight-box { background: #1a1a2e; color: white; padding: 3mm; text-align: center; border-radius: 4pt; margin-bottom: 3mm; }
+  .insight-box .big { font-size: 10pt; font-weight: 700; color: #00b894; }
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 3mm; }
+  .refs { font-size: 7.5pt; color: #636e72; margin-top: 3mm; border-top: 0.5pt solid #dfe6e9; padding-top: 2mm; }
+  .refs strong { color: #2d3436; }
+  .contact { text-align: center; margin-top: 3mm; font-size: 9pt; font-weight: 700; }
+</style>
+</head>
+<body>
+
+<h1>Open Questions That Led Me From Fault-Tolerant QEC to <span>p-Adic Metrology</span></h1>
+<div class="tagline">CWI Summer School on QA &amp; QEC · 24–28 August 2026 · Poster Session Wed 26 Aug</div>
+
+<div class="section">
+  <h2>Five Questions I Couldn't Answer</h2>
+
+  <div class="question-box">
+    <div class="q-num">① THE ENERGY WALL</div>
+    <div class="q-body">Landauer's principle: erasing one bit costs <em>kT ln 2</em>. Each round of active QEC erases information. Is there an accepted scaling law for the thermodynamic cost of fault-tolerant computation at utility scale? I've been looking and haven't found it.</div>
+  </div>
+
+  <div class="question-box">
+    <div class="q-num">② THE CLASSICAL SHADOW</div>
+    <div class="q-body">The decoder must process syndromes faster than decoherence. At what scale does the classical co-processor's own dissipation become a dominant error source?</div>
+  </div>
+
+  <div class="question-box">
+    <div class="q-num">③ THE GEOMETRY OF NOISE</div>
+    <div class="q-body">Noise correlations in real systems exhibit nested, hierarchical (ultrametric) structure. If noise already self-organizes hierarchically, are we leaving free passive resilience unused by not matching our codes to that geometry?</div>
+  </div>
+
+  <div class="question-box">
+    <div class="q-num">④ WHY A CIRCUIT?</div>
+    <div class="q-body">Active QEC enforces a digital circuit abstraction on continuous quantum dynamics. When physics requires this much external control to suppress natural dynamics, is the model the problem?</div>
+  </div>
+
+  <div class="question-box">
+    <div class="q-num">⑤ WHAT FALSIFIES THE ROADMAP?</div>
+    <div class="q-body">"Roughly ten years" since the mid-1990s. What empirical result would demonstrate the FTQC roadmap needs fundamental revision? If we don't have a falsification condition, how do we distinguish research from belief?</div>
+  </div>
+</div>
+
+<div class="insight-box">
+  <div class="big">In an ultrametric space, all triangles are isosceles. Noise clusters hierarchically. A single global measurement cancels local errors automatically — no ancillas, no syndrome extraction, no feedback loop.</div>
+</div>
+
+<div class="two-col">
+  <div>
+    <div class="section">
+      <h2>Where This Led Me</h2>
+      <p style="font-size:8pt;">p-Adic quantum metrology exploits the hierarchical noise structure that active QEC ignores. A room-temperature photonic platform with ~10 entangled photons already beats the standard quantum limit.</p>
+      <p style="font-size:8pt;margin-top:1mm;"><strong>Resource comparison:</strong> Surface-code QC needs ~10⁶ physical qubits at millikelvin. A p-adic sensor needs ~10 photons at room temperature.</p>
+    </div>
+  </div>
+  <div>
+    <div class="section">
+      <h2>References</h2>
+      <p style="font-size:7.5pt;">
+        Adelic Shannon Theory v2.1<br>DOI: 10.5281/zenodo.21698976<br>
+        Adelic Entropic Numbers v1.1<br>DOI: 10.5281/zenodo.21698978<br>
+        Adelic Rate-Distortion Theory v1.0<br>DOI: 10.5281/zenodo.21705076
+      </p>
+    </div>
+  </div>
+</div>
+
+<div class="contact">
+  Rowan Quni-Gudzinas · Independent Researcher<br>
+  papers.qnfo.org · zenodo.org/communities/qnfo
+</div>
+
+</body>
+</html>

@@ -1,0 +1,189 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 650" font-family="'Segoe UI', system-ui, sans-serif">
+  <defs>
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#f8f9ff"/>
+      <stop offset="100%" stop-color="#ffffff"/>
+    </linearGradient>
+    <linearGradient id="rootGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#6c5ce7"/>
+      <stop offset="100%" stop-color="#4834d4"/>
+    </linearGradient>
+    <linearGradient id="midGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#e17055"/>
+      <stop offset="100%" stop-color="#d63031"/>
+    </linearGradient>
+    <linearGradient id="leafGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#00b894"/>
+      <stop offset="100%" stop-color="#00a381"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="shadow">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#00000022"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="650" fill="url(#bgGrad)"/>
+
+  <!-- Title -->
+  <text x="400" y="35" text-anchor="middle" font-size="18" font-weight="700" fill="#2d3436" letter-spacing="1">BRUHAT–TITS TREE (p = 3)</text>
+  <text x="400" y="55" text-anchor="middle" font-size="12" fill="#636e72">Ultrametric Error Hierarchy — Noise Self-Averages at Each Level</text>
+
+  <!-- ===== LEVEL 0: ROOT ===== -->
+  <circle cx="400" cy="95" r="22" fill="url(#rootGrad)" filter="url(#glow)" stroke="#4834d4" stroke-width="2"/>
+  <text x="400" y="99" text-anchor="middle" font-size="10" fill="white" font-weight="700">L₀</text>
+  <text x="400" y="132" text-anchor="middle" font-size="12" fill="#4834d4" font-weight="600">GLOBAL STRUCTURE</text>
+  <text x="400" y="148" text-anchor="middle" font-size="10" fill="#636e72">Immune to local noise</text>
+
+  <!-- ===== LEVEL 1: 3 internal nodes ===== -->
+  <line x1="400" y1="117" x2="180" y2="220" stroke="#b2bec3" stroke-width="1.5"/>
+  <line x1="400" y1="117" x2="400" y2="220" stroke="#b2bec3" stroke-width="1.5"/>
+  <line x1="400" y1="117" x2="620" y2="220" stroke="#b2bec3" stroke-width="1.5"/>
+
+  <circle cx="180" cy="230" r="16" fill="#e17055" filter="url(#shadow)" stroke="#d63031" stroke-width="1.5"/>
+  <text x="180" y="234" text-anchor="middle" font-size="9" fill="white" font-weight="700">L₁ₐ</text>
+
+  <circle cx="400" cy="230" r="16" fill="#e17055" filter="url(#shadow)" stroke="#d63031" stroke-width="1.5"/>
+  <text x="400" y="234" text-anchor="middle" font-size="9" fill="white" font-weight="700">L₁₆</text>
+
+  <circle cx="620" cy="230" r="16" fill="#e17055" filter="url(#shadow)" stroke="#d63031" stroke-width="1.5"/>
+  <text x="620" y="234" text-anchor="middle" font-size="9" fill="white" font-weight="700">L₁c</text>
+
+  <!-- Level 1 label -->
+  <text x="400" y="265" text-anchor="middle" font-size="12" fill="#d63031" font-weight="600">COARSE ERROR SUBSPACE</text>
+  <text x="400" y="280" text-anchor="middle" font-size="10" fill="#636e72">Hierarchical clustering begins</text>
+
+  <!-- ===== LEVEL 2: 9 nodes ===== -->
+  <!-- Branch from L1a -->
+  <line x1="180" y1="246" x2="110" y2="340" stroke="#b2bec3" stroke-width="1.2"/>
+  <line x1="180" y1="246" x2="180" y2="340" stroke="#b2bec3" stroke-width="1.2"/>
+  <line x1="180" y1="246" x2="250" y2="340" stroke="#b2bec3" stroke-width="1.2"/>
+
+  <!-- Branch from L1b -->
+  <line x1="400" y1="246" x2="320" y2="340" stroke="#b2bec3" stroke-width="1.2"/>
+  <line x1="400" y1="246" x2="400" y2="340" stroke="#b2bec3" stroke-width="1.2"/>
+  <line x1="400" y1="246" x2="480" y2="340" stroke="#b2bec3" stroke-width="1.2"/>
+
+  <!-- Branch from L1c -->
+  <line x1="620" y1="246" x2="550" y2="340" stroke="#b2bec3" stroke-width="1.2"/>
+  <line x1="620" y1="246" x2="620" y2="340" stroke="#b2bec3" stroke-width="1.2"/>
+  <line x1="620" y1="246" x2="690" y2="340" stroke="#b2bec3" stroke-width="1.2"/>
+
+  <!-- Level 2 nodes -->
+  <circle cx="110" cy="350" r="12" fill="#fdcb6e" filter="url(#shadow)" stroke="#e17055" stroke-width="1"/>
+  <text x="110" y="353" text-anchor="middle" font-size="8" fill="#2d3436" font-weight="700">L₂</text>
+  <circle cx="180" cy="350" r="12" fill="#fdcb6e" filter="url(#shadow)" stroke="#e17055" stroke-width="1"/>
+  <text x="180" y="353" text-anchor="middle" font-size="8" fill="#2d3436" font-weight="700">L₂</text>
+  <circle cx="250" cy="350" r="12" fill="#fdcb6e" filter="url(#shadow)" stroke="#e17055" stroke-width="1"/>
+  <text x="250" y="353" text-anchor="middle" font-size="8" fill="#2d3436" font-weight="700">L₂</text>
+
+  <circle cx="320" cy="350" r="12" fill="#fdcb6e" filter="url(#shadow)" stroke="#e17055" stroke-width="1"/>
+  <text x="320" y="353" text-anchor="middle" font-size="8" fill="#2d3436" font-weight="700">L₂</text>
+  <circle cx="400" cy="350" r="12" fill="#fdcb6e" filter="url(#shadow)" stroke="#e17055" stroke-width="1"/>
+  <text x="400" y="353" text-anchor="middle" font-size="8" fill="#2d3436" font-weight="700">L₂</text>
+  <circle cx="480" cy="350" r="12" fill="#fdcb6e" filter="url(#shadow)" stroke="#e17055" stroke-width="1"/>
+  <text x="480" y="353" text-anchor="middle" font-size="8" fill="#2d3436" font-weight="700">L₂</text>
+
+  <circle cx="550" cy="350" r="12" fill="#fdcb6e" filter="url(#shadow)" stroke="#e17055" stroke-width="1"/>
+  <text x="550" y="353" text-anchor="middle" font-size="8" fill="#2d3436" font-weight="700">L₂</text>
+  <circle cx="620" cy="350" r="12" fill="#fdcb6e" filter="url(#shadow)" stroke="#e17055" stroke-width="1"/>
+  <text x="620" y="353" text-anchor="middle" font-size="8" fill="#2d3436" font-weight="700">L₂</text>
+  <circle cx="690" cy="350" r="12" fill="#fdcb6e" filter="url(#shadow)" stroke="#e17055" stroke-width="1"/>
+  <text x="690" y="353" text-anchor="middle" font-size="8" fill="#2d3436" font-weight="700">L₂</text>
+
+  <!-- Level 2 label -->
+  <text x="400" y="380" text-anchor="middle" font-size="12" fill="#e17055" font-weight="600">FINE ERROR SUBSPACE</text>
+  <text x="400" y="395" text-anchor="middle" font-size="10" fill="#636e72">Sub-clusters resolve independently</text>
+
+  <!-- ===== LEVEL 3: LEAF CLUSTERS (simplified visual) ===== -->
+  <!-- Show 9 leaf cluster blocks instead of 27 individual leaves -->
+
+  <g filter="url(#shadow)">
+    <rect x="70" y="430" width="80" height="45" rx="6" fill="#00b894" opacity="0.9"/>
+    <text x="110" y="450" text-anchor="middle" font-size="8" fill="white" font-weight="600">qudits</text>
+    <text x="110" y="463" text-anchor="middle" font-size="7" fill="white">1–3</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="155" y="430" width="80" height="45" rx="6" fill="#00b894" opacity="0.9"/>
+    <text x="195" y="450" text-anchor="middle" font-size="8" fill="white" font-weight="600">qudits</text>
+    <text x="195" y="463" text-anchor="middle" font-size="7" fill="white">4–6</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="240" y="430" width="80" height="45" rx="6" fill="#00b894" opacity="0.9"/>
+    <text x="280" y="450" text-anchor="middle" font-size="8" fill="white" font-weight="600">qudits</text>
+    <text x="280" y="463" text-anchor="middle" font-size="7" fill="white">7–9</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="310" y="430" width="80" height="45" rx="6" fill="#00b894" opacity="0.9"/>
+    <text x="350" y="450" text-anchor="middle" font-size="8" fill="white" font-weight="600">qudits</text>
+    <text x="350" y="463" text-anchor="middle" font-size="7" fill="white">10–12</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="395" y="430" width="80" height="45" rx="6" fill="#00b894" opacity="0.9"/>
+    <text x="435" y="450" text-anchor="middle" font-size="8" fill="white" font-weight="600">qudits</text>
+    <text x="435" y="463" text-anchor="middle" font-size="7" fill="white">13–15</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="465" y="430" width="80" height="45" rx="6" fill="#00b894" opacity="0.9"/>
+    <text x="505" y="450" text-anchor="middle" font-size="8" fill="white" font-weight="600">qudits</text>
+    <text x="505" y="463" text-anchor="middle" font-size="7" fill="white">16–18</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="545" y="430" width="80" height="45" rx="6" fill="#00b894" opacity="0.9"/>
+    <text x="585" y="450" text-anchor="middle" font-size="8" fill="white" font-weight="600">qudits</text>
+    <text x="585" y="463" text-anchor="middle" font-size="7" fill="white">19–21</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="625" y="430" width="80" height="45" rx="6" fill="#00b894" opacity="0.9"/>
+    <text x="665" y="450" text-anchor="middle" font-size="8" fill="white" font-weight="600">qudits</text>
+    <text x="665" y="463" text-anchor="middle" font-size="7" fill="white">22–24</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="710" y="430" width="80" height="45" rx="6" fill="#00b894" opacity="0.9"/>
+    <text x="750" y="450" text-anchor="middle" font-size="8" fill="white" font-weight="600">qudits</text>
+    <text x="750" y="463" text-anchor="middle" font-size="7" fill="white">25–27</text>
+  </g>
+
+  <!-- Connections from L2 to leaf clusters (simplified) -->
+  <line x1="110" y1="362" x2="110" y2="428" stroke="#81ecec" stroke-width="1"/>
+  <line x1="180" y1="362" x2="195" y2="428" stroke="#81ecec" stroke-width="1"/>
+  <line x1="250" y1="362" x2="280" y2="428" stroke="#81ecec" stroke-width="1"/>
+  <line x1="320" y1="362" x2="350" y2="428" stroke="#81ecec" stroke-width="1"/>
+  <line x1="400" y1="362" x2="435" y2="428" stroke="#81ecec" stroke-width="1"/>
+  <line x1="480" y1="362" x2="505" y2="428" stroke="#81ecec" stroke-width="1"/>
+  <line x1="550" y1="362" x2="585" y2="428" stroke="#81ecec" stroke-width="1"/>
+  <line x1="620" y1="362" x2="665" y2="428" stroke="#81ecec" stroke-width="1"/>
+  <line x1="690" y1="362" x2="750" y2="428" stroke="#81ecec" stroke-width="1"/>
+
+  <!-- Level 3 label -->
+  <text x="400" y="498" text-anchor="middle" font-size="12" fill="#00b894" font-weight="600">PHYSICAL QUDITS</text>
+  <text x="400" y="513" text-anchor="middle" font-size="10" fill="#636e72">Local fluctuations cancel automatically</text>
+
+  <!-- ===== KEY INSIGHT BOX ===== -->
+  <rect x="60" y="545" width="680" height="80" rx="8" fill="#2d3436" opacity="0.92"/>
+  <text x="400" y="572" text-anchor="middle" font-size="14" fill="#dfe6e9" font-weight="600">In an ultrametric space, all triangles are isosceles with a short base.</text>
+  <text x="400" y="592" text-anchor="middle" font-size="13" fill="#81ecec">Noise organizes into nested clusters that a single global measurement washes out automatically.</text>
+  <text x="400" y="614" text-anchor="middle" font-size="13" fill="#00b894" font-weight="700">No ancillas. No syndrome extraction. No feedback loop. Error resilience by geometry.</text>
+
+  <!-- Legend -->
+  <rect x="60" y="630" width="12" height="12" rx="3" fill="#6c5ce7"/>
+  <text x="78" y="641" font-size="9" fill="#2d3436">Global (immune)</text>
+  <rect x="200" y="630" width="12" height="12" rx="3" fill="#e17055"/>
+  <text x="218" y="641" font-size="9" fill="#2d3436">Coarse subspace</text>
+  <rect x="350" y="630" width="12" height="12" rx="3" fill="#fdcb6e"/>
+  <text x="368" y="641" font-size="9" fill="#2d3436">Fine subspace</text>
+  <rect x="500" y="630" width="12" height="12" rx="3" fill="#00b894"/>
+  <text x="518" y="641" font-size="9" fill="#2d3436">Physical qudits</text>
+</svg>
