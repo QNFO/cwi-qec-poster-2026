@@ -26,6 +26,7 @@
 
 ## Related Publications
 
+- Archimedean Shadows: The QEC-Darwinism Tradeoff in Ultrametric Spaces (v1.10) — [DOI: 10.5281/zenodo.21819232](https://doi.org/10.5281/zenodo.21819232) — companion working paper; toy-model exploration of a Bruhat-Tits tree code, reported honestly (quantized redundancy suggested, own falsification test applied)
 - Adelic Shannon Theory v2.1 — [DOI: 10.5281/zenodo.21698976](https://doi.org/10.5281/zenodo.21698976)
 - Adelic Entropic Numbers v1.1 — [DOI: 10.5281/zenodo.21698978](https://doi.org/10.5281/zenodo.21698978)
 - Adelic Rate-Distortion Theory v1.0 — [DOI: 10.5281/zenodo.21705076](https://doi.org/10.5281/zenodo.21705076)
