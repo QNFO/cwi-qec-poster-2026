@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>CWI 2026 Handout v2 — Ultrametric QEC</title>
+<style>
+  @page { size: A4; margin: 8mm; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    font-size: 9pt; color: #2d3436; line-height: 1.45;
+    max-width: 190mm; margin: 0 auto; padding: 8mm;
+  }
+  h1 { font-size: 16pt; font-weight: 800; color: #1a1a2e; margin-bottom: 2mm; text-align: center; }
+  h1 span { color: #00b894; }
+  .tagline { text-align: center; font-size: 9pt; color: #636e72; margin-bottom: 5mm; font-style: italic; }
+  .section { margin-bottom: 4mm; }
+  .section h2 { font-size: 11pt; font-weight: 700; color: #1a1a2e; border-bottom: 1.5pt solid #6c5ce7; padding-bottom: 1mm; margin-bottom: 2mm; }
+  .box { border-left: 3pt solid #6c5ce7; padding: 1.5mm 3mm; margin-bottom: 2.5mm; background: #f8f9fa; border-radius: 0 3pt 3pt 0; font-size: 8.5pt; }
+  .null { border-left-color: #00b894; background: #f0faf5; }
+  .refs { font-size: 7.5pt; color: #636e72; margin-top: 3mm; border-top: 0.5pt solid #dfe6e9; padding-top: 2mm; }
+  .refs strong { color: #2d3436; }
+  .contact { text-align: center; margin-top: 3mm; font-size: 9pt; font-weight: 700; }
+</style>
+</head>
+<body>
+
+<h1>Ultrametric <span>Quantum Error Correction</span></h1>
+<div class="tagline">Testing Discrete Geometry in the Redundancy–Fidelity Tradeoff · CWI Summer School on QA &amp; QEC · 24–28 August 2026 · Poster Session Wed 26 Aug</div>
+
+<div class="section">
+  <h2>Core Idea</h2>
+  <div class="box">
+    Standard QEC assumes noise accumulates over a continuous topology and fidelity scales
+    smoothly with redundancy. We are testing an alternative: error propagation follows a
+    discrete, hierarchical Bruhat–Tits tree geometry, where redundancy quantizes in units of
+    (p+1). <strong>Signature: a "staircase"</strong> of flat plateaus and sudden fidelity jumps
+    instead of a smooth curve. <em>Hypothesis only — no result claimed.</em>
+  </div>
+</div>
+
+<div class="section">
+  <h2>Proposed Protocol (not yet run)</h2>
+  <div class="box">
+    1. Encode one logical qubit in the Shor [[9,1,3]] code.<br>
+    2. Interact with a structured spectator-qubit environment.<br>
+    3. Correct and measure final logical fidelity.<br>
+    4. Group environment qubits into larger hierarchical fragments; track fidelity across
+    fragment boundaries.
+  </div>
+</div>
+
+<div class="section">
+  <h2>The Cross-Check Already Run — and It Mostly Failed (reported in full)</h2>
+  <div class="box null">
+    A 2-adic valuation witness (v_p^max of the Mahler spectrum) separates the Golay CSS
+    [[23,1,7]] code (v_p^max = 28) from random codes (~4) — but does <strong>NOT</strong>
+    generalize: Shor (2), Steane (2), Perfect (1), surface codes (2–6) all cluster at the
+    random baseline. The gap is a Golay-symmetry artifact, not an optimality witness.
+    <strong>Open:</strong> which witness can detect ultrametric structure?
+  </div>
+</div>
+
+<div class="section">
+  <h2>Working Papers (Zenodo concept DOIs)</h2>
+  <div class="refs">
+    Ultrametric Code Spaces — 10.5281/zenodo.21824194<br>
+    Archimedean Shadows (QEC–Darwinism tradeoff) — 10.5281/zenodo.21809888<br>
+    Number-Theoretic Ultrametric Foundations (C7.3) — 10.5281/zenodo.21193003<br>
+    ACRP-06: Extending v_p^max Code Classification — 10.5281/zenodo.21737221<br>
+    Adelic Cross-Domain Program v5 — 10.5281/zenodo.21691414<br>
+    "What Remains" (computing/QEC implications) — 10.5281/zenodo.21922812
+  </div>
+</div>
+
+<div class="contact">
+  Rowan Quni-Gudzinas · Independent Researcher<br>
+  papers.qnfo.org · zenodo.org/communities/qnfo
+</div>
+
+</body>
+</html>

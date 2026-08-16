@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>CWI 2026 — Ultrametric Quantum Error Correction (v2)</title>
+<style>
+  @page { size: A0 portrait; margin: 0; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    width: 841mm; height: 1189mm;
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background: #ffffff;
+    color: #2d3436;
+    overflow: hidden;
+    display: grid;
+    grid-template-rows: 110mm 1fr 52mm;
+  }
+
+  /* ── HEADER ── */
+  .header {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    color: white;
+    display: flex; flex-direction: column; justify-content: center; align-items: center;
+    padding: 12mm 30mm;
+  }
+  .header h1 { font-size: 40pt; font-weight: 800; letter-spacing: 1pt; text-align: center; line-height: 1.15; }
+  .header h1 .accent { color: #00b894; }
+  .header .subtitle { font-size: 19pt; color: #b2bec3; text-align: center; margin-top: 5mm; }
+  .header .event-line { font-size: 12pt; color: #636e72; text-align: center; margin-top: 4mm; }
+  .header .event-line strong { color: #dfe6e9; }
+
+  /* ── MAIN: 2x2 panels ── */
+  .main {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 6mm;
+    padding: 10mm 16mm;
+  }
+  .panel { border: 1pt solid #dfe6e9; border-radius: 8pt; padding: 7mm 9mm; overflow: hidden; }
+  .panel h2 { font-size: 20pt; font-weight: 700; color: #1a1a2e; margin-bottom: 4mm; }
+  .panel h2 span { color: #00b894; }
+  .panel.p3 h2 span { color: #e17055; }
+  .panel p, .panel li { font-size: 11pt; line-height: 1.5; margin-bottom: 2.5mm; }
+  .panel ul, .panel ol { padding-left: 7mm; margin-bottom: 3mm; }
+  .panel .status-tag {
+    display: inline-block; background: #fff3e0; color: #e17055; font-weight: 700;
+    font-size: 10pt; padding: 1.5mm 4mm; border-radius: 3pt; border: 1pt solid #fdcb6e;
+    margin-bottom: 3mm;
+  }
+  .panel .null-box {
+    background: #f0faf5; border-left: 4pt solid #00b894; border-radius: 0 4pt 4pt 0;
+    padding: 3mm 4mm; font-size: 10.5pt; line-height: 1.45; margin-top: 2mm;
+  }
+
+  table { border-collapse: collapse; width: 100%; font-size: 10pt; margin: 2mm 0 3mm; }
+  th, td { border: 0.5pt solid #dfe6e9; padding: 1.6mm 3mm; text-align: left; }
+  th { background: #f8f9fa; color: #1a1a2e; font-weight: 700; }
+  td.hot { font-weight: 800; color: #e17055; }
+
+  /* ── FOOTER ── */
+  .footer {
+    background: #f8f9fa; border-top: 1.5pt solid #dfe6e9;
+    display: grid; grid-template-columns: 1.6fr 1fr 1fr; align-items: center;
+    padding: 6mm 18mm; font-size: 9pt; color: #636e72;
+  }
+  .footer .refs { line-height: 1.55; }
+  .footer .refs strong { color: #2d3436; }
+  .footer .contact { text-align: center; }
+  .footer .contact .name { font-size: 12pt; font-weight: 700; color: #2d3436; }
+  .footer .note { text-align: right; font-size: 10pt; font-weight: 700; color: #6c5ce7; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>Ultrametric <span class="accent">Quantum Error Correction</span></h1>
+  <div class="subtitle">Testing Discrete Geometry in the Redundancy–Fidelity Tradeoff</div>
+  <div class="event-line">
+    <strong>CWI Summer School on Quantum Algorithms &amp; Quantum Error Correction</strong> · 24–28 August 2026 ·<br>
+    Poster Session: Wed 26 Aug, 16:30–18:00 · Poster Award Ceremony: Thu 27 Aug, 08:50
+  </div>
+</div>
+
+<div class="main">
+
+  <div class="panel">
+    <h2>Panel 1 — <span>The Hypothesis</span></h2>
+    <ul>
+      <li><strong>Standard view:</strong> QEC assumes noise accumulates over a continuous topology; logical fidelity improves smoothly as redundancy is added.</li>
+      <li><strong>Alternative to test:</strong> error propagation follows a discrete, hierarchical geometry — a Bruhat–Tits tree <em>T<sub>p</sub></em> — and redundancy quantizes in units of (<em>p</em>+1).</li>
+      <li><strong>Signature to look for:</strong> a staircase — flat plateaus followed by sudden jumps — instead of a smooth curve.</li>
+    </ul>
+    <span class="status-tag">STATUS: HYPOTHESIS ONLY — NO EXPERIMENTAL RESULT CLAIMED</span>
+    <div class="null-box"><strong>Figure 1:</strong> smooth fidelity curve (continuous topology, left) vs. staircase (ultrametric hypothesis, right). <em>Hypothesis only; not observed.</em></div>
+  </div>
+
+  <div class="panel">
+    <h2>Panel 2 — <span>A Proposed Experiment</span> (not yet run)</h2>
+    <ol>
+      <li><strong>Encode:</strong> one logical qubit in the Shor [[9,1,3]] code.</li>
+      <li><strong>Interact:</strong> expose it to a fixed, structured environment of spectator qubits.</li>
+      <li><strong>Correct:</strong> run the full error-correction circuit; measure final logical fidelity.</li>
+      <li><strong>Scale:</strong> group environment qubits into larger hierarchical fragments; track fidelity across fragment boundaries.</li>
+    </ol>
+    <p>Smooth shift with fragment size = continuous model. Staircase = ultrametric model.</p>
+    <div class="null-box"><strong>What exists today:</strong> a provisional numerical toy model (Archimedean Shadows) suggested redundancy may quantize in discrete steps (earlier versions reported 3, 6, 12, 24) — reported provisionally — and its own most seductive signature (the "forbidden window") <strong>failed its own falsification test</strong>. Null reported, not hidden.</div>
+  </div>
+
+  <div class="panel p3">
+    <h2>Panel 3 — <span>The Cross-Check I Already Ran</span><br>(it mostly failed — honestly)</h2>
+    <p><strong>Witness idea:</strong> 2-adic valuations as a structural fingerprint. Conjecture C7.3: the Mahler-spectrum valuation <em>v<sub>p</sub><sup>max</sup></em> separates "optimal" codes (28) from random codes (≈4).</p>
+    <table>
+      <tr><th>Code family</th><th><em>v<sub>p</sub><sup>max</sup></em></th></tr>
+      <tr><td>Golay CSS [[23,1,7]]</td><td class="hot">28</td></tr>
+      <tr><td>Extended Golay [[24,1,8]]</td><td class="hot">28</td></tr>
+      <tr><td>Perfect [[5,1,3]]</td><td>1</td></tr>
+      <tr><td>Steane [[7,1,3]]</td><td>2</td></tr>
+      <tr><td>Shor [[9,1,3]]</td><td>2</td></tr>
+      <tr><td>Surface [[16,1,4]] / [[25,1,5]] / [[36,1,6]]</td><td>4 / 2 / 6</td></tr>
+      <tr><td>Random ensemble (100 trials, n=16, k=4)</td><td>mean 4.0, range 2–10</td></tr>
+    </table>
+    <p><strong>Result: the conjecture does NOT generalize.</strong> Shor, Steane, perfect and surface codes are indistinguishable from the random baseline. The 28-vs-4 gap is specific to Golay-type self-dual symmetry — not a general "optimality" witness.</p>
+    <div class="null-box"><strong>What it teaches:</strong> the first witness mostly failed, and the failure is informative — structure lives in an extreme-symmetry corner. <strong>Open:</strong> is there a refined witness (valuations of the full weight distribution <em>v<sub>2</sub>(A<sub>j</sub>)</em>, not just the Mahler maximum) that discriminates where <em>v<sub>p</sub><sup>max</sup></em> fails — and does any witness connect to the staircase?</div>
+  </div>
+
+  <div class="panel">
+    <h2>Panel 4 — <span>Value &amp; Open Questions</span></h2>
+    <p>A smooth curve validates continuous models; a staircase would force code architectures designed for hierarchical noise.</p>
+    <ul>
+      <li>What physical mechanism would produce tree-like error geometry?</li>
+      <li>Does any valuation witness predict where the staircase should be most visible? (<em>v<sub>p</sub><sup>max</sup></em> does not.)</li>
+      <li>How would discrete geometry alter asymptotic fault-tolerance thresholds?</li>
+    </ul>
+    <p><strong>I'm here to learn:</strong> has anyone in this room seen staircase-like scaling — or a reason it must be wrong?</p>
+  </div>
+
+</div>
+
+<div class="footer">
+  <div class="refs">
+    <strong>References (Zenodo concept DOIs — verified 2026-08-16)</strong><br>
+    Ultrametric Code Spaces — 10.5281/zenodo.21824194<br>
+    Archimedean Shadows (v1.11) — 10.5281/zenodo.21809888<br>
+    Ultrametric Foundations (C7.3) — 10.5281/zenodo.21193003<br>
+    ACRP-06 v_p^max extension — 10.5281/zenodo.21737221<br>
+    Adelic Cross-Domain Program v5 — 10.5281/zenodo.21691414<br>
+    "What Remains" — 10.5281/zenodo.21922812
+  </div>
+  <div class="contact">
+    <div class="name">Rowan Quni-Gudzinas</div>
+    Independent Researcher · Adelic Physics Programme<br>
+    papers.qnfo.org · zenodo.org/communities/qnfo
+  </div>
+  <div class="note">
+    Acknowledgment: CWI Summer School —<br>
+    Research Semester Programme<br>
+    "Quantum Algorithms &amp; QEC"<br>
+    <span style="font-weight:400;">(no external funding)</span>
+  </div>
+</div>
+
+</body>
+</html>
