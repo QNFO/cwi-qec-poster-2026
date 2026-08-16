@@ -31,6 +31,6 @@ Working papers (Zenodo concept DOIs):
 - Adelic Cross-Domain Program v5: 10.5281/zenodo.21691414
 - "What Remains" (computing/QEC implications): 10.5281/zenodo.21922812
 
-Contact: Rowan Quni-Gudzinas . papers.qnfo.org . zenodo.org/communities/qnfo
+Contact: Rowan Quni-Gudzinas . Independent Researcher . Adelic Physics Programme . papers.qnfo.org . zenodo.org/communities/qnfo
 ========================================================================
 ```

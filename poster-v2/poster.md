@@ -86,7 +86,7 @@
 
 ## Footer
 
-- **Contact:** Rowan Quni-Gudzinas · Independent Researcher · papers.qnfo.org ·
-  zenodo.org/communities/qnfo
+- **Contact:** Rowan Quni-Gudzinas · Independent Researcher · Adelic Physics Programme ·
+  papers.qnfo.org · zenodo.org/communities/qnfo
 - **Acknowledgment:** CWI Summer School — Research Semester Programme "Quantum Algorithms and
   Quantum Error Correction". No external funding.

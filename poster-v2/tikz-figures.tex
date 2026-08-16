@@ -1,9 +1,13 @@
 % ============================================================
-% CWI 2026 poster visuals - TikZ source (FIXED 2026-08-16)
+% CWI 2026 poster visuals - TikZ source (FIXED 2026-08-16, rev2)
 % Fixes vs the 2026-08-16 draft notes:
 %  F1: "line width=pt" (invalid LaTeX) -> 0.4pt / 0.8pt   [x4]
 %  F2: figure caption "Shor [[1]" -> "Shor [[9,1,3]]"
 %  F3: \pgfmathtruncatemacro{\angle}{...} redefined \angle -> \ang
+%  F4 (red-team S-1): Figure 2 node names (E1-\a etc.) were literal inside
+%      \foreach (TikZ names don't expand) - misrendered. Rewritten to
+%      coordinate-only drawing: every edge now targets computed polar
+%      coordinates, so no node-name expansion is needed at all.
 % ============================================================
 
 % ---- Figure 1 (Panel 1): Continuous vs. staircase fidelity ----
@@ -83,18 +87,18 @@
   % Central Logical Hub (Shor Code Node)
   \node[circle, draw=black, fill=blue!80, text=white, font=\bfseries, inner sep=4pt] (Shor) at (0,0) {Shor [[9,1,3]]};
 
-  % Tier 1 Environment Qubits (Inner Ring)
+  % Tier 1 Environment Qubits (Inner Ring) -- coordinate-only edges (F4)
   \foreach \a in {0, 120, 240} {
-    \node[circle, draw=black, fill=red!70, inner sep=2pt] (E1-\a) at (\a:0.9cm) {};
-    \draw[thick, gray!70] (Shor) -- (E1-\a);
+    \node[circle, draw=black, fill=red!70, inner sep=2pt] at (\a:0.9cm) {};
+    \draw[thick, gray!70] (0,0) -- (\a:0.9cm);
   }
 
   % Tier 2 Environment Qubits (Middle Ring branching off Tier 1)
   \foreach \a in {0, 120, 240} {
     \foreach \b in {-30, 30} {
-      \pgfmathtruncatemacro{\ang}{\a + \b}
-      \node[circle, draw=black, fill=red!50, inner sep=1.8pt] (E2-\ang) at (\ang:1.8cm) {};
-      \draw[thick, gray!50] (E1-\a) -- (E2-\ang);
+      \pgfmathsetmacro{\ang}{\a + \b}
+      \node[circle, draw=black, fill=red!50, inner sep=1.8pt] at (\ang:1.8cm) {};
+      \draw[thick, gray!50] (\a:0.9cm) -- (\ang:1.8cm);
     }
   }
 
@@ -102,10 +106,10 @@
   \foreach \a in {0, 120, 240} {
     \foreach \b in {-30, 30} {
       \foreach \c in {-15, 15} {
-        \pgfmathtruncatemacro{\ang}{\a + \b + \c}
-        \node[circle, draw=black, fill=red!30, inner sep=1.5pt] (E3-\ang) at (\ang:2.8cm) {};
-        \pgfmathtruncatemacro{\parent}{\a + \b}
-        \draw[thick, gray!30] (E2-\parent) -- (E3-\ang);
+        \pgfmathsetmacro{\ang}{\a + \b + \c}
+        \pgfmathsetmacro{\parent}{\a + \b}
+        \node[circle, draw=black, fill=red!30, inner sep=1.5pt] at (\ang:2.8cm) {};
+        \draw[thick, gray!30] (\parent:1.8cm) -- (\ang:2.8cm);
       }
     }
   }
