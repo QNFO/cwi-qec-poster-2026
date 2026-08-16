@@ -1,0 +1,25 @@
+<svg viewBox="0 0 640 240" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+  <!-- FIGURE 1 (Panel 1): Continuous vs. staircase fidelity scaling.
+       Hypothesis only; not observed. Verified content 2026-08-16. -->
+  <g transform="translate(15,8)">
+    <rect x="0" y="0" width="295" height="225" fill="#f8f9fa" stroke="#dfe6e9"/>
+    <text x="147" y="16" text-anchor="middle" font-size="11" font-weight="bold" fill="#1a1a2e">Continuous Topology (Standard QEC)</text>
+    <line x1="28" y1="190" x2="285" y2="190" stroke="#2d3436"/>
+    <line x1="28" y1="190" x2="28" y2="28" stroke="#2d3436"/>
+    <path d="M 28 185 C 80 140, 130 88, 190 52 S 265 38, 285 34" fill="none" stroke="#0984e3" stroke-width="3"/>
+    <text x="156" y="206" text-anchor="middle" font-size="9" fill="#636e72">Redundancy</text>
+    <text x="10" y="110" text-anchor="middle" font-size="9" fill="#636e72" transform="rotate(-90 10 110)">Fidelity</text>
+  </g>
+  <g transform="translate(330,8)">
+    <rect x="0" y="0" width="295" height="225" fill="#f8f9fa" stroke="#dfe6e9"/>
+    <text x="147" y="16" text-anchor="middle" font-size="11" font-weight="bold" fill="#1a1a2e">Ultrametric Topology (Hypothesis)</text>
+    <line x1="28" y1="190" x2="285" y2="190" stroke="#2d3436"/>
+    <line x1="28" y1="190" x2="28" y2="28" stroke="#2d3436"/>
+    <polyline points="28,175 105,175 105,118 185,118 185,58 245,58 245,38 285,38" fill="none" stroke="#e17055" stroke-width="3"/>
+    <line x1="105" y1="175" x2="105" y2="118" stroke="#e17055" stroke-width="1.5" stroke-dasharray="4 3"/>
+    <line x1="185" y1="118" x2="185" y2="58" stroke="#e17055" stroke-width="1.5" stroke-dasharray="4 3"/>
+    <line x1="245" y1="58" x2="245" y2="38" stroke="#e17055" stroke-width="1.5" stroke-dasharray="4 3"/>
+    <text x="156" y="206" text-anchor="middle" font-size="9" fill="#636e72">Redundancy</text>
+    <text x="10" y="110" text-anchor="middle" font-size="9" fill="#636e72" transform="rotate(-90 10 110)">Fidelity</text>
+  </g>
+</svg>

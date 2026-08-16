@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>CWI 2026 — Poster Figures Preview</title>
+<style>
+  body { font-family: 'Segoe UI', system-ui, sans-serif; margin: 20mm auto; max-width: 200mm; color: #2d3436; }
+  h1 { font-size: 16pt; color: #1a1a2e; }
+  h2 { font-size: 13pt; color: #1a1a2e; border-bottom: 1.5pt solid #6c5ce7; padding-bottom: 1mm; margin-top: 10mm; }
+  .fig { border: 1pt solid #dfe6e9; border-radius: 6pt; padding: 6mm; margin: 4mm 0; background: #fff; }
+  .fig.small img { width: 60%; }
+  .fig img { width: 100%; height: auto; display: block; margin: 0 auto; }
+  .note { font-size: 8.5pt; color: #636e72; margin-top: 2mm; text-align: center; }
+  @media print { body { margin: 5mm; } .pagebreak { page-break-before: always; } }
+</style>
+</head>
+<body>
+<h1>CWI 2026 — Poster Figures Preview (print check)</h1>
+<p style="font-size:9.5pt;color:#636e72;">All figures verified 2026-08-16. Print this page on A4 to check sizing; the poster itself embeds inline copies.</p>
+
+<h2>Figure 1 — Panel 1: The Hypothesis</h2>
+<div class="fig small"><img src="fig1-redundancy-staircase.svg" alt="Figure 1"></div>
+<div class="note">Smooth fidelity curve (continuous topology, left) vs. staircase (ultrametric hypothesis, right). Hypothesis only; not observed.</div>
+
+<h2>Figure 2 — Panel 2: The Proposed Experiment</h2>
+<div class="fig"><img src="fig2-hierarchical-fragments.svg" alt="Figure 2"></div>
+<div class="note">Shor [[9,1,3]] logical qubit embedded in a hierarchical environmental matrix; shaded rings are fragment boundaries (p+1).</div>
+
+<h2>Figure 3 — Panel 3: The Cross-Check (v_p^max witness)</h2>
+<div class="fig"><img src="fig3-vpmax-witness.svg" alt="Figure 3"></div>
+<div class="note">Only Golay-type self-dual codes (28) separate from the random-ensemble baseline (mean 4.0, range 2–10). Shor, Steane, Perfect, and surface codes cluster at the baseline.</div>
+
+<h2 class="pagebreak">Figure 0 — Spare: Bruhat–Tits Tree</h2>
+<div class="fig"><img src="fig0-bruhat-tits-tree.svg" alt="Figure 0"></div>
+<div class="note">The Bruhat–Tits tree itself (from poster v1). Not used in the v2 poster — spare asset.</div>
+
+</body>
+</html>

@@ -4,7 +4,8 @@
 
 | File | Description | Print Size |
 |---|---|---|
-| `poster-v2/poster.html` | **RECOMMENDED** — Ultrametric QEC poster v2 (hypothesis-testing framing + verified cross-check). Verified 2026-08-16; all references resolve. | A0 (841×1189 mm) |
+| `poster-v2/poster.html` | **RECOMMENDED** — Ultrametric QEC poster v2 (hypothesis-testing framing + verified cross-check). Figures 1–3 embedded inline (self-contained). Verified 2026-08-16; all references resolve. | A0 (841×1189 mm) |
+| `poster-v2/figures/` | **Standalone print-ready figures** — fig0 (Bruhat–Tits tree, spare), fig1 (staircase), fig2 (hierarchical fragments), fig3 (v_p^max witness chart) + preview.html | Scalable vector |
 | `poster-v2/handout.html` | v2 A4 handout — leave-behind matching poster v2 | A4 (210×297 mm) |
 | `poster-v2/poster.md` / `abstract.md` | v2 content source + formal abstract | — |
 | `poster-v2/tikz-figures.tex` | Fixed LaTeX/TikZ figures (grid line-width bug + caption typo fixed) | — |
