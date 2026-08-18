@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>CWI 2026 Handout v4 — Things I Don't Understand About QEC</title>
+<style>
+  @page { size: A4; margin: 8mm; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    font-size: 8.5pt; color: #2d3436; line-height: 1.42;
+    max-width: 190mm; margin: 0 auto; padding: 8mm;
+  }
+  h1 { font-size: 14pt; font-weight: 800; color: #1a1a2e; margin-bottom: 1.5mm; text-align: center; }
+  h1 span { color: #e17055; }
+  .tagline { text-align: center; font-size: 8.5pt; color: #636e72; margin-bottom: 4mm; font-style: italic; }
+  .section { margin-bottom: 3.5mm; }
+  .section h2 { font-size: 10.5pt; font-weight: 700; color: #1a1a2e; border-bottom: 1.5pt solid #6c5ce7; padding-bottom: 0.8mm; margin-bottom: 1.8mm; }
+  .box { border-left: 3pt solid #6c5ce7; padding: 1.5mm 3mm; margin-bottom: 2.2mm; background: #f8f9fa; border-radius: 0 3pt 3pt 0; font-size: 8.2pt; }
+  .seam { border-left-color: #e17055; background: #fff5f3; }
+  .statement { background: #1a1a2e; color: #ffffff; border-radius: 4pt; padding: 2.2mm 3.5mm; margin-bottom: 2.2mm; font-size: 8.8pt; line-height: 1.5; }
+  .statement em { color: #a29bfe; font-style: normal; font-weight: 700; }
+  .honest { border-left: 3pt solid #00b894; background: #f0faf5; padding: 1.5mm 3mm; border-radius: 0 3pt 3pt 0; font-size: 8.2pt; margin-bottom: 2.2mm; }
+  ol.q { padding-left: 6mm; }
+  ol.q li { margin-bottom: 1.4mm; font-size: 8.4pt; }
+  ol.q li .why { color: #636e72; }
+  .refs { font-size: 7.2pt; color: #636e72; margin-top: 2.5mm; border-top: 0.5pt solid #dfe6e9; padding-top: 1.8mm; }
+  .refs strong { color: #2d3436; }
+  .contact { text-align: center; margin-top: 2.5mm; font-size: 8.5pt; font-weight: 700; }
+</style>
+</head>
+<body>
+
+<h1>Things I Don't Understand About <span>Quantum Error Correction</span></h1>
+<div class="tagline">A naive audit of the constructs · CWI Summer School on QA &amp; QEC · 24–28 August 2026 · Poster Session Wed 26 Aug</div>
+
+<div class="section">
+  <h2>The Thesis (one paragraph)</h2>
+  <div class="box">
+    Every human construct for understanding quantum computing is <strong>internally consistent</strong> — and the
+    imports <strong>contradict each other</strong>. Spiders (categorical algebra), Pauli webs (stabilizer/QEC), and
+    gadgets (MBQC/compilation) are maps drawn by different cartographers: coherent in the computational domain,
+    contradictory where 3+1D particle physics and 1D thermodynamics are mixed into a 2D drawing plane without a
+    compatibility check. <em>The diagrams are not wrong — they are maps. The discipline of using a map is knowing
+    where it ends.</em> (Anchor: "ZX Diagrams at the Seam", 10.5281/zenodo.21992118)
+  </div>
+</div>
+
+<div class="section">
+  <h2>The Method: feigned naivete as probe</h2>
+  <div class="box">
+    I learned the room's language (the Bruhat–Tits tree T₂ as a ZX graph state — fig4) — <strong>and that is when
+    the seams became visible</strong>. I ask the questions I'm not supposed to need to ask. The naive question is
+    the external structural probe: where imports contradict, understanding breaks — and <strong>that break is data,
+    not deficit</strong>.
+  </div>
+</div>
+
+<div class="section">
+  <h2>Things I don't understand about QEC</h2>
+  <ol class="q">
+    <li><strong>Why the discreteness?</strong> <span class="why">Is it physical, or imported from the circuit model? If the abstraction is a choice, fault tolerance is the tax on the choice.</span></li>
+    <li><strong>What is a logical qubit, physically?</strong> <span class="why">Hardware is bosonic; codes assume qubits. The map is 2D; the machine is continuous.</span></li>
+    <li><strong>What does a threshold actually guarantee?</strong> <span class="why">Proofs assume stochastic local noise; coherent/correlated errors are unpriced seams.</span></li>
+    <li><strong>Where is the quantum in the loop?</strong> <span class="why">Syndrome → classical decoder → feedback. QEC is quantum memory + classical control.</span></li>
+    <li><strong>Why isn't the decoder part of the code?</strong> <span class="why">A classical algorithm decides a quantum code's performance — two silos, never audited together.</span></li>
+    <li><strong>Why 2D geometry?</strong> <span class="why">Why a surface code and not a tree? What if error topology is ultrametric — the staircase nobody has looked for?</span></li>
+    <li><strong>Why count T gates, not joules?</strong> <span class="why">The field prices the algebraic resource; nobody prices the ancilla factory, the retries, the decoder.</span></li>
+    <li><strong>Why is the cat the unit of protection?</strong> <span class="why">Shor states are cat states — exponentially fragile, verified ancillas go stale. Protection from something that fragile?</span></li>
+  </ol>
+</div>
+
+<div class="section">
+  <h2>The statement &amp; the honest caption</h2>
+  <div class="statement">
+    <em>The one-line statement:</em> "I cannot grasp quantum computing through the practitioners' constructs because
+    the constructs are maps drawn by different cartographers — internally consistent, mutually contradictory.
+    <strong>My confusions are the fault lines.</strong>"
+  </div>
+  <div class="honest">
+    <strong>Honest caption:</strong> feigned naivete is a method, not a pose — the naive question finds the seam.
+    I am not claiming the field is wrong; I am claiming the imports were never checked against each other.
+    <em>If the constructs were compatible, the naive questions would answer themselves.</em>
+  </div>
+</div>
+
+<div class="section">
+  <h2>Questions for the room</h2>
+  <div class="box">
+    1. "Is the discreteness of the circuit model physical or imported?" · 2. "Has anyone priced the energy of the
+    decoder — per correct solution?" · 3. "Why a 2D cluster and not a tree?"
+  </div>
+</div>
+
+<div class="refs">
+  <strong>References:</strong> ZX Diagrams at the Seam — 10.5281/zenodo.21992118 (concept 21991895) · Universal
+  Ignorance Audit — 10.5281/zenodo.21901984 · Knowing What We Do Not Know — 10.5281/zenodo.21901983 · Ultrametric
+  Code Spaces — 10.5281/zenodo.21824194 · JPCUB — 10.5281/zenodo.21945415 · arXiv:2601.04467 · arXiv:2410.17992 ·
+  arXiv:2012.13966 · arXiv:1902.03178
+</div>
+
+<div class="contact">
+  Rowan Quni-Gudzinas · Independent Researcher · Adelic Physics Programme<br>
+  papers.qnfo.org · zenodo.org/communities/qnfo
+</div>
+
+</body>
+</html>

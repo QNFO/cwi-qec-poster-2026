@@ -4,7 +4,9 @@
 
 | File | Description | Print Size |
 |---|---|---|
-| `poster-v3/poster.html` | **RECOMMENDED** — Ultrametric QEC poster **v3**: v2 (panels 1–4, verified 2026-08-16) + **Panel 5 — The Diagrammatic Bridge (ZX-calculus)** with fig4 (Bruhat–Tits tree as ZX graph state), the one-line legitimacy statement, the honest map≠territory caption, and 4 arXiv-verified ZX references. PDF: `poster-v3.pdf` (A0). | A0 (841×1189 mm) |
+| `poster-v4/poster.html` | **CANDIDATE (user's current direction, 2026-08-18)** — "Things I Don't Understand About Quantum Error Correction": naive-audit framing anchored on *ZX Diagrams at the Seam* (10.5281/zenodo.21992118) — 8 honest questions, 6 seams, fig4 method panel. PDF: `poster-v4.pdf` (A0). | A0 (841×1189 mm) |
+| `poster-v4/handout.html` | v4 A4 handout — thesis + method + questions + statement. PDF: `handout-v4.pdf`. | A4 (210×297 mm) |
+| `poster-v3/poster.html` | **RECOMMENDED until user decides** — Ultrametric QEC poster **v3**: v2 (panels 1–4, verified 2026-08-16) + **Panel 5 — The Diagrammatic Bridge (ZX-calculus)** with fig4 (Bruhat–Tits tree as ZX graph state), the one-line legitimacy statement, the honest map≠territory caption, and 4 arXiv-verified ZX references. PDF: `poster-v3.pdf` (A0). | A0 (841×1189 mm) |
 | `poster-v3/handout.html` | v3 A4 handout — leave-behind matching poster v3 (+ ZX section). PDF: `handout-v3.pdf`. | A4 (210×297 mm) |
 | `poster-v3/zx-cheat-card.html` | Pocket card for the session: three ZX terms, one-line statement, honest seam, two questions. PDF: `zx-cheat-card.pdf`. | A4 (210×297 mm) |
 | `poster-v3/figures/` | fig4-zx-bruhat-tits.svg (22 spiders / 21 H-boxes, verified) | Scalable vector |
@@ -41,7 +43,11 @@
 
 ## Which poster to print?
 
-- **poster-v3 (recommended):** v2 content (hypothesis → proposed experiment → verified
+- **poster-v4 (candidate — user's current direction):** "Things I Don't Understand About QEC" —
+  naive-audit framing anchored on *ZX Diagrams at the Seam* (10.5281/zenodo.21992118, published
+  2026-08-18): 8 honest questions + 6 seams + fig4 method panel ("learning the language is when
+  the seams became visible"). Verified 2026-08-18 (record + all refs).
+- **poster-v3:** v2 content (hypothesis → proposed experiment → verified
   cross-check that mostly failed → open questions) + **Panel 5 — The Diagrammatic Bridge
   (ZX-calculus)** (fig4: Bruhat–Tits tree as ZX graph state; spiders/Pauli webs/gadgets;
   one-line legitimacy statement; honest map≠territory caption). All claims verified

@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>CWI 2026 — Things I Don't Understand About QEC (v4)</title>
+<style>
+  @page { size: A0 portrait; margin: 0; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    width: 841mm; height: 1189mm;
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background: #ffffff;
+    color: #2d3436;
+    overflow: hidden;
+    display: grid;
+    grid-template-rows: 120mm minmax(0,1fr) minmax(0,1fr) minmax(0,1fr) 60mm;
+  }
+
+  /* ── HEADER ── */
+  .header {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    color: white;
+    display: flex; flex-direction: column; justify-content: center; align-items: center;
+    padding: 12mm 30mm;
+  }
+  .header h1 { font-size: 38pt; font-weight: 800; letter-spacing: 0.5pt; text-align: center; line-height: 1.18; }
+  .header h1 .accent { color: #e17055; }
+  .header .subtitle { font-size: 18pt; color: #b2bec3; text-align: center; margin-top: 5mm; font-style: italic; }
+  .header .event-line { font-size: 12pt; color: #636e72; text-align: center; margin-top: 4mm; }
+  .header .event-line strong { color: #dfe6e9; }
+
+  /* ── PANELS ── */
+  .main { display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr 1fr; gap: 6mm; padding: 9mm 16mm; }
+  .panel { border: 1pt solid #dfe6e9; border-radius: 8pt; padding: 6.5mm 8mm; overflow: hidden; }
+  .panel h2 { font-size: 19pt; font-weight: 700; color: #1a1a2e; margin-bottom: 3.5mm; }
+  .panel h2 span { color: #6c5ce7; }
+  .panel p, .panel li { font-size: 10.8pt; line-height: 1.48; margin-bottom: 2.2mm; }
+  .panel ul, .panel ol { padding-left: 6.5mm; margin-bottom: 2.5mm; }
+  .panel .status-tag {
+    display: inline-block; background: #fff3e0; color: #e17055; font-weight: 700;
+    font-size: 9.5pt; padding: 1.2mm 3.5mm; border-radius: 3pt; border: 1pt solid #fdcb6e;
+    margin-bottom: 3mm;
+  }
+  .panel .null-box {
+    background: #f0faf5; border-left: 4pt solid #00b894; border-radius: 0 4pt 4pt 0;
+    padding: 2.8mm 3.5mm; font-size: 10pt; line-height: 1.42; margin-top: 2mm;
+  }
+  .panel .seam-box {
+    background: #fff5f3; border-left: 4pt solid #e17055; border-radius: 0 4pt 4pt 0;
+    padding: 2.8mm 3.5mm; font-size: 10pt; line-height: 1.42; margin-top: 2mm;
+  }
+
+  table { border-collapse: collapse; width: 100%; font-size: 9.6pt; margin: 2mm 0 3mm; }
+  th, td { border: 0.5pt solid #dfe6e9; padding: 1.5mm 2.5mm; text-align: left; vertical-align: top; }
+  th { background: #f8f9fa; color: #1a1a2e; font-weight: 700; }
+
+  .q-item { margin-bottom: 2.6mm; }
+  .q-item .q { font-weight: 700; color: #1a1a2e; font-size: 11.2pt; }
+  .q-item .why { font-size: 9.8pt; color: #636e72; margin-top: 0.6mm; }
+
+  /* ── FOOTER ── */
+  .footer {
+    background: #f8f9fa; border-top: 1.5pt solid #dfe6e9;
+    display: grid; grid-template-columns: 1.6fr 1fr 1fr; align-items: center;
+    padding: 6mm 18mm; font-size: 9pt; color: #636e72;
+  }
+  .footer .refs { line-height: 1.55; }
+  .footer .refs strong { color: #2d3436; }
+  .footer .contact { text-align: center; }
+  .footer .contact .name { font-size: 12pt; font-weight: 700; color: #2d3436; }
+  .footer .note { text-align: right; font-size: 10pt; font-weight: 700; color: #e17055; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>Things I Don't Understand About <span class="accent">Quantum Error Correction</span></h1>
+  <div class="subtitle">A naive audit of the constructs — the confusions of a self-taught researcher, treated as data</div>
+  <div class="event-line">
+    <strong>CWI Summer School on Quantum Algorithms &amp; Quantum Error Correction</strong> · 24–28 August 2026 ·<br>
+    Poster Session: Wed 26 Aug, 16:30–18:00 · Rowan Quni-Gudzinas · Independent Researcher
+  </div>
+</div>
+
+<div class="main">
+
+  <div class="panel">
+    <h2>Panel 1 — <span>The Thesis</span>: the constructs are cafeteria imports</h2>
+    <p>Every human construct for understanding quantum computing is <strong>internally consistent</strong> —
+      and the imports <strong>contradict each other</strong>. Tools and systems are valid in their own silos;
+      they were never checked for mutual compatibility.</p>
+    <table>
+      <tr><th>Construct</th><th>Home silo</th><th>What it silently carries</th></tr>
+      <tr><td><strong>Spiders</strong></td><td>Categorical algebra (2D diagrammatic)</td><td>Drawing-plane topology; completeness proves facts about the <em>algebra</em>, nothing about spacetime</td></tr>
+      <tr><td><strong>Pauli webs</strong></td><td>Stabilizer formalism / QEC</td><td>2+1D code-over-time; in holographic use: entropy, wormholes, black holes</td></tr>
+      <tr><td><strong>Gadgets</strong></td><td>MBQC / compilation</td><td>Graph-state resources; rewrite soundness — not physical realization</td></tr>
+    </table>
+    <p>Fault lines appear exactly where <strong>3+1D particle physics and 1D thermodynamics</strong> are mixed
+      into a <strong>2D map</strong> without any compatibility check. The diagrams are not wrong — they are maps.
+      The discipline of using a map is knowing where it ends.</p>
+    <div class="seam-box"><strong>Anchor:</strong> "ZX Diagrams at the Seam: Spiders, Pauli Webs, Gadgets, and the
+      Cafeteria Problem of Cross-Disciplinary Imports" — 10.5281/zenodo.21992118 (2026-08-18).</div>
+  </div>
+
+  <div class="panel">
+    <h2>Panel 2 — <span>The Method</span>: feigned naivete as probe</h2>
+    <div style="text-align:center;margin:0 0 2mm;">
+      <svg viewBox="0 0 640 640" xmlns="http://www.w3.org/2000/svg" style="width:42%;height:auto;"><svg viewBox="0 0 640 640" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;">
+  <!-- fig4: Bruhat-Tits tree (p=2, 3-regular, truncated depth 3) as ZX graph state -->
+  <!-- Convention: green spider (0 in, 1 out, phase 0) = |+> ; yellow H-box (2 in, 2 out) = CZ = graph-state edge -->
+  <title>Bruhat–Tits tree as ZX graph state (p=2, depth 3)</title>
+  <style>
+    .spider { fill: #2ecc71; stroke: #1a1a2e; stroke-width: 3; }
+    .hbox   { fill: #f1c40f; stroke: #1a1a2e; stroke-width: 3; }
+    .wire   { stroke: #2d3436; stroke-width: 2.5; fill: none; }
+    .ring   { stroke: #95a5a6; stroke-width: 1.5; stroke-dasharray: 6 4; fill: none; }
+    .lbl    { font-family: sans-serif; font-size: 12px; fill: #2d3436; }
+    .lblsm  { font-family: sans-serif; font-size: 11px; fill: #636e72; }
+    .lblbig { font-family: sans-serif; font-size: 15px; font-weight: bold; fill: #1a1a2e; }
+  </style>
+  <!-- concentric truncation rings -->
+  <circle class="ring" cx="320" cy="320" r="130"/>
+  <circle class="ring" cx="320" cy="320" r="225"/>
+  <circle class="ring" cx="320" cy="320" r="320"/>
+
+  <!-- EDGES (wires with CZ H-boxes at midpoints): center->tier1 -->
+  <line class="wire" x1="320" y1="320" x2="367" y2="305"/>
+  <rect class="hbox" x="335" y="298" width="14" height="14" rx="2"/>
+  <line class="wire" x1="320" y1="320" x2="296" y2="279"/>
+  <rect class="hbox" x="294" y="284" width="14" height="14" rx="2"/>
+  <line class="wire" x1="320" y1="320" x2="296" y2="361"/>
+  <rect class="hbox" x="294" y="352" width="14" height="14" rx="2"/>
+  <!-- tier1->tier2 -->
+  <line class="wire" x1="415" y1="320" x2="450" y2="272"/>
+  <rect class="hbox" x="426" y="282" width="14" height="14" rx="2"/>
+  <line class="wire" x1="415" y1="320" x2="450" y2="368"/>
+  <rect class="hbox" x="426" y="350" width="14" height="14" rx="2"/>
+  <line class="wire" x1="272.5" y1="237.7" x2="296" y2="184"/>
+  <rect class="hbox" x="278" y="196" width="14" height="14" rx="2"/>
+  <line class="wire" x1="272.5" y1="237.7" x2="213" y2="252"/>
+  <rect class="hbox" x="230" y="230" width="14" height="14" rx="2"/>
+  <line class="wire" x1="272.5" y1="402.3" x2="213" y2="388"/>
+  <rect class="hbox" x="230" y="382" width="14" height="14" rx="2"/>
+  <line class="wire" x1="272.5" y1="402.3" x2="296" y2="456"/>
+  <rect class="hbox" x="278" y="440" width="14" height="14" rx="2"/>
+  <!-- tier2->tier3 (12 edges) -->
+  <line class="wire" x1="484.5" y1="225" x2="525" y2="161"/>
+  <rect class="hbox" x="500" y="178" width="14" height="14" rx="2"/>
+  <line class="wire" x1="484.5" y1="225" x2="552" y2="272"/>
+  <rect class="hbox" x="516" y="238" width="14" height="14" rx="2"/>
+  <line class="wire" x1="484.5" y1="415" x2="525" y2="479"/>
+  <rect class="hbox" x="500" y="440" width="14" height="14" rx="2"/>
+  <line class="wire" x1="484.5" y1="415" x2="552" y2="368"/>
+  <rect class="hbox" x="516" y="382" width="14" height="14" rx="2"/>
+  <line class="wire" x1="320" y1="130" x2="362" y2="86"/>
+  <rect class="hbox" x="336" y="88" width="14" height="14" rx="2"/>
+  <line class="wire" x1="320" y1="130" x2="278" y2="86"/>
+  <rect class="hbox" x="286" y="88" width="14" height="14" rx="2"/>
+  <line class="wire" x1="155.5" y1="225" x2="115" y2="161"/>
+  <rect class="hbox" x="128" y="178" width="14" height="14" rx="2"/>
+  <line class="wire" x1="155.5" y1="225" x2="88" y2="272"/>
+  <rect class="hbox" x="110" y="238" width="14" height="14" rx="2"/>
+  <line class="wire" x1="155.5" y1="415" x2="88" y2="368"/>
+  <rect class="hbox" x="110" y="382" width="14" height="14" rx="2"/>
+  <line class="wire" x1="155.5" y1="415" x2="115" y2="479"/>
+  <rect class="hbox" x="128" y="440" width="14" height="14" rx="2"/>
+  <line class="wire" x1="320" y1="510" x2="278" y2="554"/>
+  <rect class="hbox" x="286" y="532" width="14" height="14" rx="2"/>
+  <line class="wire" x1="320" y1="510" x2="362" y2="554"/>
+  <rect class="hbox" x="336" y="532" width="14" height="14" rx="2"/>
+
+  <!-- VERTICES: green spiders (|+>) -->
+  <!-- center -->
+  <circle class="spider" cx="320" cy="320" r="16"/>
+  <!-- tier1 (3) -->
+  <circle class="spider" cx="415" cy="320" r="12"/>
+  <circle class="spider" cx="272.5" cy="237.7" r="12"/>
+  <circle class="spider" cx="272.5" cy="402.3" r="12"/>
+  <!-- tier2 (6) -->
+  <circle class="spider" cx="484.5" cy="225" r="10"/>
+  <circle class="spider" cx="484.5" cy="415" r="10"/>
+  <circle class="spider" cx="320" cy="130" r="10"/>
+  <circle class="spider" cx="155.5" cy="225" r="10"/>
+  <circle class="spider" cx="155.5" cy="415" r="10"/>
+  <circle class="spider" cx="320" cy="510" r="10"/>
+  <!-- tier3 (12) -->
+  <circle class="spider" cx="525" cy="525" r="8"/>
+  <circle class="spider" cx="600" cy="395" r="8"/>
+  <circle class="spider" cx="600" cy="245" r="8"/>
+  <circle class="spider" cx="525" cy="115" r="8"/>
+  <circle class="spider" cx="395" cy="45" r="8"/>
+  <circle class="spider" cx="245" cy="45" r="8"/>
+  <circle class="spider" cx="115" cy="115" r="8"/>
+  <circle class="spider" cx="40" cy="245" r="8"/>
+  <circle class="spider" cx="40" cy="395" r="8"/>
+  <circle class="spider" cx="115" cy="525" r="8"/>
+  <circle class="spider" cx="245" cy="595" r="8"/>
+  <circle class="spider" cx="395" cy="595" r="8"/>
+
+  <!-- LABELS -->
+  <text class="lblbig" x="320" y="40" text-anchor="middle">Bruhat–Tits tree T₂ (truncated, depth 3) as a ZX graph state</text>
+  <text class="lbl" x="320" y="60" text-anchor="middle">● green spider = |+⟩ · ■ yellow H-box = CZ edge · p=2 ⇒ (p+1)=3-regular branching</text>
+  <text class="lblsm" x="320" y="628" text-anchor="middle">Stabilizers = Pauli webs of the diagram — same construction language as Wan–Price–Yao, holographic codes on tree-like tessellations (arXiv:2601.04467)</text>
+</svg>
+</svg>
+    </div>
+    <p>I learned the room's language — the Bruhat–Tits tree T₂ (p=2, depth 3) as a ZX graph state:
+      22 spiders = 22 vertices, 21 H-boxes = 21 edges. <strong>Learning the language is when the seams became
+      visible.</strong></p>
+    <p>I ask the questions I'm not supposed to need to ask. The naive question is the <strong>external
+      structural probe</strong>: it finds the locales and the seams. Where imports contradict, understanding
+      breaks — <strong>that break is data, not deficit.</strong></p>
+    <div class="null-box"><strong>Method lineage:</strong> IAPS §6.2 audit-the-map; the Universal Ignorance Audit
+      (15 questions, 10.5281/zenodo.21901984); "Knowing What We Do Not Know" (10.5281/zenodo.21901983).</div>
+  </div>
+
+  <div class="panel">
+    <h2>Panel 3 — <span>Things I don't understand</span> about QEC</h2>
+    <div class="q-item"><span class="q">1 · Why the discreteness?</span>
+      <div class="why">QEC protects a discrete abstraction (gates, qubits, circuits). Is the discreteness physical — or imported from the circuit model? If the abstraction is a choice, fault tolerance is the tax on the choice.</div></div>
+    <div class="q-item"><span class="q">2 · What is a logical qubit, physically?</span>
+      <div class="why">Hardware is bosonic oscillators with leakage levels; codes assume qubits. The map is 2D; the machine is continuous. Where does the map end?</div></div>
+    <div class="q-item"><span class="q">3 · What does a threshold actually guarantee?</span>
+      <div class="why">The proofs assume stochastic local noise. Coherent and correlated errors are the seams nobody prices. What is the guarantee outside the model?</div></div>
+    <div class="q-item"><span class="q">4 · Where is the quantum in the loop?</span>
+      <div class="why">Syndrome → <em>classical</em> decoder → feedback. QEC is quantum memory + classical control. Why is it called quantum error correction?</div></div>
+    <div class="q-item"><span class="q">5 · Why isn't the decoder part of the code?</span>
+      <div class="why">A classical algorithm decides a quantum code's performance. Coding theory and classical computation — two silos, never audited for compatibility.</div></div>
+  </div>
+
+  <div class="panel">
+    <h2>Panel 3 (cont.) — <span>The questions</span> (2 of 2)</h2>
+    <div class="q-item"><span class="q">6 · Why 2D geometry?</span>
+      <div class="why">Why a surface code and not a tree? Noise geometry is assumed continuous and Euclidean. What if error propagation is hierarchical — ultrametric (Bruhat–Tits)? The staircase nobody has looked for.</div></div>
+    <div class="q-item"><span class="q">7 · Why count T gates, not joules?</span>
+      <div class="why">The field prices the algebraic resource (T-count, magic states). Nobody prices the ancilla factory, verification retries, the decoder, the feedback. What does a correct answer cost in energy?</div></div>
+    <div class="q-item"><span class="q">8 · Why is the cat the unit of protection?</span>
+      <div class="why">Shor states are cat states — exponentially fragile to dephasing; verified ancillas go stale between verification and use. Why build protection from something that fragile?</div></div>
+    <div class="seam-box"><strong>Each question is a probe:</strong> the answer either closes the seam (the imports were
+      compatible all along) or reveals it (the construct carried more than its proof).</div>
+  </div>
+
+  <div class="panel">
+    <h2>Panel 4 — <span>The seams</span>: where the map ends</h2>
+    <table>
+      <tr><th>Seam</th><th>The contradiction</th></tr>
+      <tr><td><strong>Discrete abstraction</strong></td><td>Continuous physics → discrete gates → QEC defends the discreteness. The defense is priced; the choice is not.</td></tr>
+      <tr><td><strong>Qubit / boson</strong></td><td>The model is finite-dimensional; the hardware leaks. Every code assumes what the hardware denies.</td></tr>
+      <tr><td><strong>Noise model</strong></td><td>Stochastic-local assumptions meet coherent, correlated, adversarial reality. Thresholds live inside the model.</td></tr>
+      <tr><td><strong>Classical control</strong></td><td>The decoder is classical. The "quantum" loop runs on a classical brain — the field knows, and doesn't price it.</td></tr>
+      <tr><td><strong>Cost currency</strong></td><td>T-count is countable, so it is counted. Joules are measurable, and not measured. The algebraic unit stands in for the thermodynamic one.</td></tr>
+      <tr><td><strong>Geometry</strong></td><td>Euclidean 2D assumed; ultrametric tree unexamined. The staircase signature has never been searched for.</td></tr>
+    </table>
+    <p><strong>What I do understand:</strong> the maps are excellent at what they map. The seam is not the
+      diagram — it is the <strong>silence about where the diagram ends</strong>.</p>
+  </div>
+
+  <div class="panel">
+    <h2>Panel 5 — <span>The statement</span>, the honest caption, and the questions for the room</h2>
+    <div class="null-box" style="background:#1a1a2e;color:#ffffff;border:none;font-size:11pt;line-height:1.5;">
+      <strong style="color:#a29bfe;">The one-line statement:</strong> "I cannot grasp quantum computing through the
+      practitioners' constructs because the constructs are maps drawn by different cartographers — internally
+      consistent, mutually contradictory. <strong>My confusions are the fault lines.</strong>"
+    </div>
+    <p><strong>The honest caption (feigned naivete is a method, not a pose):</strong> the naive question is the probe
+      that finds the seam. I am not claiming the field is wrong — I am claiming the imports were never checked
+      against each other. <em>If the constructs were compatible, the naive questions would answer themselves.</em></p>
+    <p><strong>Questions I will ask this week:</strong></p>
+    <ul>
+      <li>"Is the discreteness of the circuit model physical or imported?"</li>
+      <li>"Has anyone priced the energy of the decoder — per correct solution?"</li>
+      <li>"Why a 2D cluster and not a tree?" (Bruhat–Tits resource states)</li>
+    </ul>
+  </div>
+
+</div>
+
+<div class="footer">
+  <div class="refs">
+    <strong>References (verified 2026-08-18)</strong><br>
+    ZX Diagrams at the Seam — 10.5281/zenodo.21992118 (concept 10.5281/zenodo.21991895)<br>
+    Universal Ignorance Audit — 10.5281/zenodo.21901984 · Knowing What We Do Not Know — 10.5281/zenodo.21901983<br>
+    Ultrametric Code Spaces — 10.5281/zenodo.21824194 · JPCUB (joules-per-solution) — 10.5281/zenodo.21945415<br>
+    Wan–Price–Yao, Holographic codes through ZX — arXiv:2601.04467 · van de Wetering — arXiv:2012.13966<br>
+    Duncan–Kissinger–Perdrix–van de Wetering — arXiv:1902.03178 · Wan — arXiv:2410.17992
+  </div>
+  <div class="contact">
+    <div class="name">Rowan Quni-Gudzinas</div>
+    Independent Researcher · Adelic Physics Programme<br>
+    papers.qnfo.org · zenodo.org/communities/qnfo
+  </div>
+  <div class="note">
+    Acknowledgment: CWI Summer School —<br>
+    Research Semester Programme<br>
+    "Quantum Algorithms &amp; QEC"<br>
+    <span style="font-weight:400;">(no external funding) · v4 — naive audit, 2026-08-18</span>
+  </div>
+</div>
+
+</body>
+</html>
