@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>ZX Cheat Card — CWI Poster Session (26 Aug 2026)</title>
+<style>
+  @page { size: A4; margin: 10mm; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    font-size: 10pt; color: #2d3436; line-height: 1.45;
+    max-width: 185mm; margin: 0 auto;
+  }
+  h1 { font-size: 15pt; font-weight: 800; color: #1a1a2e; text-align: center; margin-bottom: 1.5mm; }
+  h1 span { color: #6c5ce7; }
+  .sub { text-align: center; font-size: 9pt; color: #636e72; margin-bottom: 5mm; }
+  .card { border: 1.5pt solid #6c5ce7; border-radius: 6pt; padding: 4mm 5mm; margin-bottom: 4mm; }
+  .card h2 { font-size: 11.5pt; font-weight: 700; color: #1a1a2e; margin-bottom: 2mm; }
+  .card h2 .tag { color: #6c5ce7; }
+  .term { margin-bottom: 2.5mm; }
+  .term .t { font-weight: 700; color: #1a1a2e; }
+  .term .cite { color: #6c5ce7; font-size: 8.5pt; }
+  .statement { background: #1a1a2e; color: #fff; border-radius: 5pt; padding: 3.5mm 4.5mm; margin-bottom: 3mm; font-size: 10.5pt; line-height: 1.5; }
+  .statement em { color: #a29bfe; font-style: normal; font-weight: 700; }
+  .honest { border-left: 3.5pt solid #00b894; background: #f0faf5; padding: 2.5mm 4mm; border-radius: 0 4pt 4pt 0; margin-bottom: 3mm; font-size: 9.5pt; }
+  .q { border-left: 3.5pt solid #e17055; background: #fff5f3; padding: 2.5mm 4mm; border-radius: 0 4pt 4pt 0; margin-bottom: 2.5mm; }
+  .q .qn { font-weight: 700; color: #e17055; }
+  .rule { font-size: 9.5pt; color: #636e72; border-top: 0.5pt solid #dfe6e9; padding-top: 2.5mm; margin-top: 2mm; }
+  .rule strong { color: #2d3436; }
+</style>
+</head>
+<body>
+
+<h1>ZX <span>Cheat Card</span></h1>
+<div class="sub">For the CWI QEC poster session · Wed 26 Aug 16:30–18:00 · the diagrammatic bridge, in your pocket</div>
+
+<div class="card">
+  <h2>The three terms <span class="tag">(one line each)</span></h2>
+  <div class="term"><span class="t">Spiders — the atom.</span> Green = Z-basis copy/merge, red = X-basis. Graph-state convention: green spider (0 in, 1 out) = |+⟩; yellow H-box (2 in, 2 out) = CZ = the edge. <span class="cite">(van de Wetering, arXiv:2012.13966)</span></div>
+  <div class="term"><span class="t">Pauli webs — the stabilizers, read off the diagram.</span> A connected sub-diagram that evaluates to a Pauli operator; the code's stabilizers and logical operators are paths through the spider web. <span class="cite">(Wan–Price–Yao, arXiv:2601.04467)</span></div>
+  <div class="term"><span class="t">Gadgets — the field's cost unit.</span> Phase/Pauli gadgets e<sup>iαP</sup>; T-count optimization is gadgetization. The algebraic cousin of an energy cost — the seam this poster cares about. <span class="cite">(arXiv:1902.03178; Pauli Gadget Synthesis, QPL 2026)</span></div>
+</div>
+
+<div class="statement">
+  <em>The one-line statement:</em> "I represent the ultrametric geometry as a ZX graph state —
+  the same language as the holographic-code construction on tree-like tessellations
+  (Wan–Price–Yao 2026). The stabilizers are the Pauli webs of the diagram; the hierarchy is
+  the tree."
+</div>
+
+<div class="honest">
+  <strong>The honest seam (say it when they engage):</strong> "It's a map, not the territory —
+  but it's the same map the field draws." The diagrams import structure from different silos —
+  internally consistent, externally unprobed — and the poster caption says so. That honesty is
+  the legitimacy move (IAPS §6.2, audit the map).
+</div>
+
+<div class="card">
+  <h2>Two questions that land</h2>
+  <div class="q"><span class="qn">Q1 — the Bruhat–Tits bridge (yours, unique):</span> "Does the resource state have to be a two-dimensional cluster — or can it be any graph, like a tree?" <span class="cite">(tree-like resource states ↔ MBQC; ties your T₂ graph state to the room's cluster-state machinery)</span></div>
+  <div class="q"><span class="qn">Q2 — the energy one (JPCUB):</span> "If optimizing is that hard — has anyone tried optimizing for energy instead of gate count?" <span class="cite">(T-count is the field's cost unit; joules is the one nobody prices)</span></div>
+</div>
+
+<div class="rule">
+  <strong>Standing rules:</strong> ask about method, not math · never apologize for asking ·
+  exit line: <em>"can I follow up by email?"</em> · fig4 verification in hand: 22 spiders = 22
+  vertices, 21 H-boxes = 21 edges, p=2 ⇒ 3-regular — same topology as fig2.
+</div>
+
+</body>
+</html>

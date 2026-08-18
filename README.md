@@ -4,7 +4,12 @@
 
 | File | Description | Print Size |
 |---|---|---|
-| `poster-v2/poster.html` | **RECOMMENDED** — Ultrametric QEC poster v2 (hypothesis-testing framing + verified cross-check). Figures 1–3 embedded inline (self-contained). Verified 2026-08-16; all references resolve. | A0 (841×1189 mm) |
+| `poster-v3/poster.html` | **RECOMMENDED** — Ultrametric QEC poster **v3**: v2 (panels 1–4, verified 2026-08-16) + **Panel 5 — The Diagrammatic Bridge (ZX-calculus)** with fig4 (Bruhat–Tits tree as ZX graph state), the one-line legitimacy statement, the honest map≠territory caption, and 4 arXiv-verified ZX references. PDF: `poster-v3.pdf` (A0). | A0 (841×1189 mm) |
+| `poster-v3/handout.html` | v3 A4 handout — leave-behind matching poster v3 (+ ZX section). PDF: `handout-v3.pdf`. | A4 (210×297 mm) |
+| `poster-v3/zx-cheat-card.html` | Pocket card for the session: three ZX terms, one-line statement, honest seam, two questions. PDF: `zx-cheat-card.pdf`. | A4 (210×297 mm) |
+| `poster-v3/figures/` | fig4-zx-bruhat-tits.svg (22 spiders / 21 H-boxes, verified) | Scalable vector |
+| `poster-v3/VERIFICATION.md` | v3 verification note (arXiv refs + fig4 DOM check) | — |
+| `poster-v2/poster.html` | Ultrametric QEC poster v2 (hypothesis-testing framing + verified cross-check). Figures 1–3 embedded inline (self-contained). Verified 2026-08-16; all references resolve. | A0 (841×1189 mm) |
 | `poster-v2/figures/` | **Standalone print-ready figures** — fig0 (Bruhat–Tits tree, spare), fig1 (staircase), fig2 (hierarchical fragments), fig3 (v_p^max witness chart) + preview.html | Scalable vector |
 | `poster-v2/handout.html` | v2 A4 handout — leave-behind matching poster v2 | A4 (210×297 mm) |
 | `poster-v2/poster.md` / `abstract.md` | v2 content source + formal abstract | — |
@@ -36,9 +41,12 @@
 
 ## Which poster to print?
 
-- **poster-v2 (recommended):** hypothesis → proposed experiment → verified cross-check that
-  mostly failed (the honest null is the credibility asset) → open questions. All claims and
-  DOIs verified 2026-08-16.
+- **poster-v3 (recommended):** v2 content (hypothesis → proposed experiment → verified
+  cross-check that mostly failed → open questions) + **Panel 5 — The Diagrammatic Bridge
+  (ZX-calculus)** (fig4: Bruhat–Tits tree as ZX graph state; spiders/Pauli webs/gadgets;
+  one-line legitimacy statement; honest map≠territory caption). All claims verified
+  2026-08-16 + ZX references verified against arXiv 2026-08-18.
+- **poster-v2:** the verified v2 package (panels 1–4 only).
 - **poster v1:** five open questions (Energy Wall, Classical Shadow, Geometry of Noise, Why a
   Circuit, What Falsifies the Roadmap). Note: v1 cites the Archimedean Shadows v1.10 record
   DOI; the record is now at v1.11 — update to the concept DOI (10.5281/zenodo.21809888) before

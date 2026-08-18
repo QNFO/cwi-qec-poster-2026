@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>CWI 2026 Handout v3 — Ultrametric QEC + ZX Bridge</title>
+<style>
+  @page { size: A4; margin: 8mm; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    font-size: 8.5pt; color: #2d3436; line-height: 1.42;
+    max-width: 190mm; margin: 0 auto; padding: 8mm;
+  }
+  h1 { font-size: 15pt; font-weight: 800; color: #1a1a2e; margin-bottom: 1.5mm; text-align: center; }
+  h1 span { color: #00b894; }
+  .tagline { text-align: center; font-size: 8.5pt; color: #636e72; margin-bottom: 4mm; font-style: italic; }
+  .section { margin-bottom: 3.5mm; }
+  .section h2 { font-size: 10.5pt; font-weight: 700; color: #1a1a2e; border-bottom: 1.5pt solid #6c5ce7; padding-bottom: 0.8mm; margin-bottom: 1.8mm; }
+  .section h2 .zx { color: #6c5ce7; }
+  .box { border-left: 3pt solid #6c5ce7; padding: 1.5mm 3mm; margin-bottom: 2.2mm; background: #f8f9fa; border-radius: 0 3pt 3pt 0; font-size: 8.2pt; }
+  .null { border-left-color: #00b894; background: #f0faf5; }
+  .statement { background: #1a1a2e; color: #ffffff; border-radius: 4pt; padding: 2.2mm 3.5mm; margin-bottom: 2.2mm; font-size: 8.6pt; line-height: 1.5; }
+  .statement em { color: #a29bfe; font-style: normal; font-weight: 700; }
+  .honest { border-left: 3pt solid #00b894; background: #f0faf5; padding: 1.5mm 3mm; border-radius: 0 3pt 3pt 0; font-size: 8.2pt; margin-bottom: 2.2mm; }
+  .refs { font-size: 7.2pt; color: #636e72; margin-top: 2.5mm; border-top: 0.5pt solid #dfe6e9; padding-top: 1.8mm; }
+  .refs strong { color: #2d3436; }
+  .contact { text-align: center; margin-top: 2.5mm; font-size: 8.5pt; font-weight: 700; }
+</style>
+</head>
+<body>
+
+<h1>Ultrametric <span>Quantum Error Correction</span></h1>
+<div class="tagline">Testing Discrete Geometry in the Redundancy–Fidelity Tradeoff · CWI Summer School on QA &amp; QEC · 24–28 August 2026 · Poster Session Wed 26 Aug</div>
+
+<div class="section">
+  <h2>Core Idea</h2>
+  <div class="box">
+    Standard QEC assumes noise accumulates over a continuous topology and fidelity scales
+    smoothly with redundancy. We are testing an alternative: error propagation follows a
+    discrete, hierarchical Bruhat–Tits tree geometry, where redundancy quantizes in units of
+    (p+1). <strong>Signature: a "staircase"</strong> of flat plateaus and sudden fidelity jumps
+    instead of a smooth curve. <em>Hypothesis only — no result claimed.</em>
+  </div>
+</div>
+
+<div class="section">
+  <h2>Proposed Protocol (not yet run)</h2>
+  <div class="box">
+    1. Encode one logical qubit in the Shor [[9,1,3]] code.<br>
+    2. Interact with a structured spectator-qubit environment.<br>
+    3. Correct and measure final logical fidelity.<br>
+    4. Group environment qubits into larger hierarchical fragments; track fidelity across
+    fragment boundaries.
+  </div>
+</div>
+
+<div class="section">
+  <h2>The Cross-Check Already Run — and It Mostly Failed (reported in full)</h2>
+  <div class="box null">
+    A 2-adic valuation witness (v_p^max of the Mahler spectrum) separates the Golay CSS
+    [[23,1,7]] code (v_p^max = 28) from random codes (~4) — but does <strong>NOT</strong>
+    generalize: Shor (2), Steane (2), Perfect (1), surface codes (2–6) all cluster at the
+    random baseline. The gap is a Golay-symmetry artifact, not an optimality witness.
+    <strong>Open:</strong> which witness can detect ultrametric structure?
+  </div>
+</div>
+
+<div class="section">
+  <h2>The Diagrammatic Bridge <span class="zx">(ZX-calculus)</span> — same map, the room's notation</h2>
+  <div class="box">
+    <strong>Spiders</strong> (the atom): green = Z-basis copy/merge, red = X-basis. Graph-state
+    convention: green spider (0 in, 1 out) = |+⟩; yellow H-box (2 in, 2 out) = CZ = the
+    graph-state edge. Figure: the Bruhat–Tits tree T₂ as a ZX graph state (22 spiders = 22
+    vertices, 21 H-boxes = 21 edges).<br>
+    <strong>Pauli webs</strong> (the stabilizers, read off the diagram): a connected sub-diagram
+    that evaluates to a Pauli operator — the code's stabilizers and logical operators as paths
+    through the spider web (Wan–Price–Yao, arXiv:2601.04467).<br>
+    <strong>Gadgets</strong> (the field's cost unit): phase/Pauli gadgets e<sup>iαP</sup>;
+    T-count optimization is gadgetization (arXiv:1902.03178; Pauli Gadget Synthesis, QPL 2026).
+    The algebraic cousin of an energy cost — the seam this poster cares about.
+  </div>
+  <div class="statement">
+    <em>The one-line statement:</em> "I represent the ultrametric geometry as a ZX graph state —
+    the same language as the holographic-code construction on tree-like tessellations
+    (Wan–Price–Yao 2026). The stabilizers are the Pauli webs of the diagram; the hierarchy is
+    the tree."
+  </div>
+  <div class="honest">
+    <strong>Honest caption (map ≠ territory):</strong> the diagrams import structure from
+    different silos — internally consistent, externally unprobed. This handout says so.
+    <em>"It's a map, not the territory — but it's the same map the field draws."</em>
+  </div>
+</div>
+
+<div class="section">
+  <h2>Working Papers &amp; References</h2>
+  <div class="refs">
+    <strong>Zenodo concept DOIs:</strong> Ultrametric Code Spaces — 10.5281/zenodo.21824194 ·
+    Archimedean Shadows (QEC–Darwinism) — 10.5281/zenodo.21809888 · Number-Theoretic Ultrametric
+    Foundations (C7.3) — 10.5281/zenodo.21193003 · ACRP-06 v_p^max extension —
+    10.5281/zenodo.21737221 · Adelic Cross-Domain Program v5 — 10.5281/zenodo.21691414 ·
+    "What Remains" (computing/QEC) — 10.5281/zenodo.21922812<br>
+    <strong>ZX references (arXiv, verified 2026-08-18):</strong> Holographic codes seen through
+    ZX-calculus — arXiv:2601.04467 · Iteratively decoded magic state distillation —
+    arXiv:2410.17992 · ZX-calculus for the working quantum computer scientist — arXiv:2012.13966
+    · Graph-theoretic simplification with ZX-calculus — arXiv:1902.03178
+  </div>
+</div>
+
+<div class="contact">
+  Rowan Quni-Gudzinas · Independent Researcher · Adelic Physics Programme<br>
+  papers.qnfo.org · zenodo.org/communities/qnfo
+</div>
+
+</body>
+</html>
