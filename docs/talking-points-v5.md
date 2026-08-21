@@ -5,25 +5,20 @@ every number traces to a DOI listed in the roadmap.
 
 ## The 30-second opening
 "This poster is a testing plan, not a results claim. I work on a tree-based quantum code whose
-thresholds come out of classical simulation — bit-flip 50%, depolarizing 75% — and the claim is deliberately narrow: three independent methods agree, nothing has touched hardware yet,
-and I publish my own corrections when they are due. The poster
+thresholds come out of classical simulation — bit-flip 50%, depolarizing 75% — and the claim is deliberately narrow: three independent methods agree, nothing has touched hardware yet. The poster
 lists the five tests that would change my mind; the first two are pure classical work and start
 immediately."
 
 ## If asked "75% sounds impossible"
 The number is for the depolarizing channel under the code's specific noise structure, from exact
 stabilizer simulation and Monte Carlo. Under independent errors the related qudit family sits at
-about 2×10⁻⁴ — roughly 55× below surface codes — and that boundary is published in the record,
-not buried. The architectural claim targets correlated-failure regimes, which is exactly what
+about 2×10⁻⁴ — roughly 55× below surface codes — and that boundary is in the record. The architectural claim targets correlated-failure regimes, which is exactly what
 test T1 exists to scrutinize: matched noise, same model, tree versus surface.
 
 ## If asked "Why trust the simulation?"
 Three independent methods agree; the verification script (35 checks) is deposited with the guide
 record (10.5281/zenodo.22038733); and T5 is the reproducibility test — I hand over the simulator
-and the protocol. A third-party rerun settles the classical claim. Also: the program published a self-correction
-when its own proposed p-adic reading of stabilizer codes turned out to carry no new content
-(10.5281/zenodo.21979060) — the pipeline that publishes corrections is the same pipeline that
-produced these numbers.
+and the protocol. A third-party rerun settles the classical claim. Also: my proposed p-adic reading of stabilizer codes turned out to carry no new content (10.5281/zenodo.21979060).
 
 ## If asked "Perfect tensors for p>2?"
 The binary [[3,1,1]] case is settled; larger primes are open. This is room ask #3 — pointers welcome.

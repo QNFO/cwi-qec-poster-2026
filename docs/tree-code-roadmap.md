@@ -15,9 +15,9 @@ presented at the CWI Summer School on Quantum Algorithms and QEC poster session
 | Thresholds: bit-flip **50.0%** (4.6× surface ~10.9%), depolarizing **75.0%** (75× ~1.0%), independent X+Z **17.30%** | Computed by three independent classical methods (analytical recursion, exact Gottesman–Knill stabilizer simulation, Monte Carlo) and re-verified by a deposited 35-check script | 10.5281/zenodo.20109836 · 10.5281/zenodo.22038733 |
 | Hardware demonstration | **None yet** — no tree code has run on quantum hardware | guide Ch.16, Objection 6 |
 | First falsifiable prediction (log-periodic oscillations in the CMB power spectrum) | **Tested — null.** No certified discrete-scale-invariance signal at any resolvable radix in Planck 2018 TT (bootstrap p = 0.89); bispectrum channel: upper bounds only (ε_p < 2.5 @ 95% CL) | 10.5281/zenodo.21902891 · 10.5281/zenodo.21901664 |
-| Independent-error boundary (qudit family) | Published: ≈ 2.0×10⁻⁴, ~55× below surface-code threshold — the architectural claim targets the correlated-failure regime, not independent errors | 10.5281/zenodo.21046993 · 10.5281/zenodo.22025544 |
-| QEC–Darwinism no-go (Maity et al., F_L > 0.874) | Audited on tree code spaces; collective fragment refinement moves the first-redundancy boundary to F_L ≈ 0.83–0.85; residual gap disclosed, hierarchy-dependent | 10.5281/zenodo.21964674 |
-| Valuation reading of stabilizer codes | Published self-correction: the naive p-adic valuation mapping carries no new content; code distance admits no valuation reading | 10.5281/zenodo.21979060 |
+| Independent-error boundary (qudit family) | ≈ 2.0×10⁻⁴, ~55× below surface-code threshold — the architectural claim targets the correlated-failure regime, not independent errors | 10.5281/zenodo.21046993 · 10.5281/zenodo.22025544 |
+| QEC–Darwinism no-go (Maity et al., F_L > 0.874) | Audited on tree code spaces; collective fragment refinement moves the first-redundancy boundary to F_L ≈ 0.83–0.85; a residual gap remains, hierarchy-dependent | 10.5281/zenodo.21964674 |
+| Valuation reading of stabilizer codes | Self-correction: the naive p-adic valuation mapping carries no new content; code distance admits no valuation reading | 10.5281/zenodo.21979060 |
 | ZX representation of tree gates | Underway; CNOT→ZX construction numerically verified (max deviation ~1e-16); arXiv sweep: "ultrametric + QEC" externally unoccupied (0 results) | RES.019 (2026-08-20) · 10.5281/zenodo.21992118 |
 
 ## 2. Development tracks
@@ -33,7 +33,7 @@ presented at the CWI Summer School on Quantum Algorithms and QEC poster session
   for the poster.
 - **D3 — Noise modeling.** Make the "correlated-failure regime" precise: a named,
   parametric error model (hierarchical / burst / spatially correlated) under which
-  the advantage claim is testable, published ahead of any experimental claim.
+  the advantage claim is testable, ahead of any experimental claim.
 
 ## 3. Test plan (near-term first)
 
@@ -48,7 +48,7 @@ presented at the CWI Summer School on Quantum Algorithms and QEC poster session
 T1 and T2 are pure classical work and are the decisive, cheap next steps; T3/T4
 reuse platforms and protocols already specified in the trapped-ion instrumentation
 paper (10.5281/zenodo.22025544). Every disconfirmation criterion is stated with
-numbers so a null is publishable as a result, not a silence.
+numbers so a null is a result.
 
 ## 4. What we ask of this room
 
@@ -77,6 +77,6 @@ numbers so a null is publishable as a result, not a silence.
 - CMB Bispectrum Upper Bounds: 10.5281/zenodo.21901664
 - Qudit Quantum Error Correction: 10.5281/zenodo.21046993
 - Trapped-Ion Ultrametric Testbed: 10.5281/zenodo.22025544
-- QEC-Darwinism Tradeoff (Archimedean Shadows): 10.5281/zenodo.21964674
+- QEC-Darwinism Tradeoff (Archimedean Shadows): 10.5281/zenodo.21964674 (v1.11 record; concept 10.5281/zenodo.21809888)
 - Prime-Valuation Correction: 10.5281/zenodo.21979060
 - ZX Diagrams at the Seam: 10.5281/zenodo.21992118

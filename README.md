@@ -4,14 +4,14 @@
 
 | File | Description | Print Size |
 |---|---|---|
-| `poster-v5-treecode/poster.html` | **CANDIDATE (added 2026-08-21)** — "The Bruhat–Tits Tree Code: What's Verified, What We Plan to Test Next": testing roadmap (T1–T5 with numeric disconfirmation criteria), 9 verified DOIs, plain prose, E1 null stated correctly. PDF: `poster-v5.pdf` (A0). | A0 (841×1189 mm) |
+| `poster-v5-treecode/poster.html` | **CANDIDATE (added 2026-08-21)** — "The Bruhat–Tits Tree Code: Status and Test Plan": testing roadmap (T1–T5 with numeric disconfirmation criteria), 6 DOIs, plain prose. PDF: `poster-v5.pdf` (A0). | A0 (841×1189 mm) |
 | `poster-v5-treecode/handout.html` | v5 A4 handout — test table + DOIs. PDF: `handout-v5.pdf`. | A4 (210×297 mm) |
-| `poster-v4/poster.html` | **CANDIDATE (user's current direction, 2026-08-18)** — "Things I Don't Understand About Quantum Error Correction": naive-audit framing anchored on *ZX Diagrams at the Seam* (10.5281/zenodo.21992118) — 8 honest questions, 6 seams, fig4 method panel. PDF: `poster-v4.pdf` (A0). | A0 (841×1189 mm) |
+| `poster-v4/poster.html` | **CANDIDATE (user's current direction, 2026-08-18)** — "Things I Don't Understand About Quantum Error Correction": naive-audit framing anchored on *ZX Diagrams at the Seam* (10.5281/zenodo.21992118) — 8 questions, 6 seams, fig4 method panel. PDF: `poster-v4.pdf` (A0). | A0 (841×1189 mm) |
 | `poster-v4/handout.html` | v4 A4 handout — thesis + method + questions + statement. PDF: `handout-v4.pdf`. | A4 (210×297 mm) |
-| `poster-v4-nozx/poster.html` | **CANDIDATE (added 2026-08-21)** — v4 naive audit with the ZX anchor removed (user decision: "ZX maybe leave out"): plain intro + Planck-2018 null credibility anchor + the 8 QEC questions + 6 seams, zero diagrammatic-calculus content, brand tokens scrubbed. PDF: `poster-v4-nozx.pdf` (TRUE A0). | A0 (841×1189 mm) |
-| `poster-v3/poster.html` | **RECOMMENDED until user decides** — Ultrametric QEC poster **v3**: v2 (panels 1–4, verified 2026-08-16) + **Panel 5 — The Diagrammatic Bridge (ZX-calculus)** with fig4 (Bruhat–Tits tree as ZX graph state), the one-line legitimacy statement, the honest map≠territory caption, and 4 arXiv-verified ZX references. PDF: `poster-v3.pdf` (A0). | A0 (841×1189 mm) |
+| `poster-v4-nozx/poster.html` | **CANDIDATE (added 2026-08-21)** — v4 naive audit with the ZX anchor removed (user decision: "ZX maybe leave out"): plain intro + Planck-2018 null credibility anchor + the 8 QEC questions + 6 seams, zero diagrammatic-calculus content. PDF: `poster-v4-nozx.pdf` (TRUE A0). | A0 (841×1189 mm) |
+| `poster-v3/poster.html` | **RECOMMENDED until user decides** — Ultrametric QEC poster **v3**: v2 (panels 1–4, verified 2026-08-16) + **Panel 5 — The Diagrammatic Bridge (ZX-calculus)** with fig4 (Bruhat–Tits tree as ZX graph state), the one-line statement, the map≠territory caption, and 4 arXiv-verified ZX references. PDF: `poster-v3.pdf` (A0). | A0 (841×1189 mm) |
 | `poster-v3/handout.html` | v3 A4 handout — leave-behind matching poster v3 (+ ZX section). PDF: `handout-v3.pdf`. | A4 (210×297 mm) |
-| `poster-v3/zx-cheat-card.html` | Pocket card for the session: three ZX terms, one-line statement, honest seam, two questions. PDF: `zx-cheat-card.pdf`. | A4 (210×297 mm) |
+| `poster-v3/zx-cheat-card.html` | Pocket card for the session: three ZX terms, one-line statement, seam, two questions. PDF: `zx-cheat-card.pdf`. | A4 (210×297 mm) |
 | `poster-v3/figures/` | fig4-zx-bruhat-tits.svg (22 spiders / 21 H-boxes, verified) | Scalable vector |
 | `poster-v3/VERIFICATION.md` | v3 verification note (arXiv refs + fig4 DOM check) | — |
 | `poster-v2/poster.html` | Ultrametric QEC poster v2 (hypothesis-testing framing + verified cross-check). Figures 1–3 embedded inline (self-contained). Verified 2026-08-16; all references resolve. | A0 (841×1189 mm) |
