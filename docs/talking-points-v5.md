@@ -6,8 +6,8 @@ every number traces to a DOI listed in the roadmap.
 ## The 30-second opening
 "This poster is a testing plan, not a results claim. We have a tree-based quantum code whose
 thresholds come out of classical simulation — bit-flip 50%, depolarizing 75% — and the claim we
-make is deliberately narrow: three independent methods agree, nothing has touched hardware, and
-our program's first falsifiable prediction already came back null when we tested it. The poster
+make is deliberately narrow: three independent methods agree, nothing has touched hardware yet,
+and we publish our own corrections when they are due. The poster
 lists the five tests that would change our mind; the first two are pure classical work and start
 immediately."
 
@@ -21,10 +21,10 @@ test T1 exists to scrutinize: matched noise, same model, tree versus surface.
 ## If asked "Why trust the simulation?"
 Three independent methods agree; the verification script (35 checks) is deposited with the guide
 record (10.5281/zenodo.22038733); and T5 is the reproducibility test — we hand over the simulator
-and the protocol. A third-party rerun settles the classical claim. Also: our program's own first
-falsifiable prediction (log-periodic oscillations in the Planck 2018 temperature spectrum) was
-tested and returned null (10.5281/zenodo.21902891, bootstrap p = 0.89) — the pipeline that
-publishes nulls is the same pipeline that produced these numbers.
+and the protocol. A third-party rerun settles the classical claim. Also: the program published a self-correction
+when its own proposed p-adic reading of stabilizer codes turned out to carry no new content
+(10.5281/zenodo.21979060) — the pipeline that publishes corrections is the same pipeline that
+produced these numbers.
 
 ## If asked "Perfect tensors for p>2?"
 The binary [[3,1,1]] case is settled; larger primes are open. This is room ask #3 — pointers welcome.

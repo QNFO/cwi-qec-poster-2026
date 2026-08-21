@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>CWI 2026 — The Bruhat–Tits Tree Code: What's Verified, What We Plan to Test Next</title>
+<title>CWI 2026 — The Bruhat–Tits Tree Code: Status and Test Plan</title>
 <style>
   :root { --bg:#fafaf7; --ink:#1f2430; --accent:#0e5f6b; --rust:#b3541e; --line:#e4e2da; --soft:#f0efe9; }
   * { margin:0; padding:0; box-sizing:border-box; }
@@ -63,8 +63,8 @@
     <circle class="n" cx="90" cy="106" r="5"/><circle class="n" cx="99" cy="106" r="5"/><circle class="n" cx="130" cy="106" r="5"/>
   </svg>
   <div>
-    <h1>The Bruhat–Tits <span class="accent">Tree Code</span>:<br>What's Verified, What We Plan to Test Next</h1>
-    <div class="sub">Rowan Brad Quni-Gudzinas — QNFO · CWI Summer School on Quantum Algorithms &amp; QEC · Poster session Wed 26 Aug 2026, 16:30–18:00</div>
+    <h1>The Bruhat–Tits <span class="accent">Tree Code</span>:<br>Status and Test Plan</h1>
+    <div class="sub">Rowan Brad Quni-Gudzinas · QNFO — CWI Summer School, 26 Aug 2026</div>
   </div>
 </div>
 
@@ -83,23 +83,28 @@
       <tr><td>Independent X+Z</td><td class="num">17.30%</td><td>—</td><td>—</td></tr>
     </table>
     <p class="k" style="margin-top:3mm">Computed three independent ways — analytical recursion, exact
-    Gottesman–Knill stabilizer simulation, Monte Carlo — and re-verified by a deposited 35-check script.</p>
+    Gottesman–Knill stabilizer simulation, Monte Carlo — with the verification script (35 checks)
+    deposited with the guide record.</p>
+    <p class="k" style="margin-top:2mm; font-size:9mm; color:#4a5163;">All values are classical
+    simulation: i.i.d. noise, crossing criterion, no hardware. Surface comparators are the standard
+    published figures (bit-flip ~10.9%; depolarizing ~1% circuit-level).</p>
   </div>
 
   <div class="panel">
-    <h2>2 · Verification status <span>(as of 21 Aug 2026)</span></h2>
-    <p class="k"><b>Classical validation: done, three methods.</b> <span class="no">Hardware: none yet</span> —
-    no tree code has run on a quantum processor; everything above is simulation.</p>
-    <p class="k"><b>First falsifiable prediction — tested, null.</b> Log-periodic oscillations in the
-    Planck 2018 temperature spectrum: <span class="no">no signal found</span> at any resolvable radix
-    (bootstrap p = 0.89); bispectrum: upper bounds only. The testing machinery runs and publishes nulls.</p>
-    <p class="k"><b>Published boundary.</b> Under <i>independent</i> errors the qudit family sits at
-    ≈ 2×10⁻⁴ (~55× below surface codes) — the architectural claim targets the <i>correlated-failure</i>
-    regime, and that boundary is published, not hidden.</p>
-    <p class="k"><b>No-go engagement.</b> The QEC–Darwinism tradeoff (F_L &gt; 0.874) was audited on tree
-    spaces: collective fragment refinement moves the boundary to F_L ≈ 0.83–0.85, residual gap disclosed.</p>
-    <p class="k"><b>Self-correction published.</b> A naive p-adic valuation reading of stabilizer codes
-    carries no new content; the program published the correction rather than the confirmation.</p>
+    <h2>2 · Status <span>(simulation only — no hardware yet)</span></h2>
+    <p class="k"><b>Verified computationally, three ways.</b> Thresholds from analytical recursion, exact
+    stabilizer simulation, and Monte Carlo; the verification script (35 checks) is deposited with the
+    guide record (10.5281/zenodo.22038733).</p>
+    <p class="k"><b>Published boundary.</b> Under independent errors the related qudit family sits at
+    ≈ 2×10⁻⁴, about 55× below surface codes. The advantage claim is scoped to <i>correlated-failure</i>
+    regimes — which is exactly what test T1 probes.</p>
+    <p class="k"><b>An external no-go was engaged.</b> The QEC–Darwinism tradeoff (F_L &gt; 0.874) was
+    audited on tree-code spaces: collective refinement moves the first-redundancy boundary to
+    F_L ≈ 0.83–0.85, with a disclosed residual gap.</p>
+    <p class="k"><b>Self-correction published.</b> A proposed p-adic reading of stabilizer codes turned
+    out to carry no new content; the correction is published rather than the confirmation.</p>
+    <p class="k"><b>What is missing:</b> hardware data. All numbers above are classical simulation;
+    nothing has run on a quantum processor — tests T3–T4 are the instrumentation path.</p>
   </div>
 
   <div class="panel">
@@ -124,21 +129,20 @@
     <p class="k"><b>3.</b> Pointers on <b>perfect tensors for p &gt; 2</b> (binary [[3,1,1]] is settled; larger primes are open).</p>
     <p class="k"><b>4.</b> <b>Independent re-run of T1</b> — we hand over the simulator and the protocol; a third-party rerun settles the classical claim.</p>
     <h2 style="margin-top:5mm">Horizons</h2>
-    <p class="k"><b>2026:</b> T1–T2 + open simulator release + ZX gate compilation ·
+    <p class="k"><b>2026:</b> T1–T2 + open simulator release ·
     <b>2026–27:</b> T3–T4 instrumentation, noise-model publication ·
-    <b>Long term:</b> prototype path only if matched-noise scrutiny survives; energy accounting
-    (joules per correct answer) as the mission-level comparison.</p>
+    <b>Long term:</b> prototype only if the matched-noise scrutiny survives; energy accounting
+    (joules per correct answer) as the comparison.</p>
   </div>
 
 </div>
 
 <div class="foot">
   <b>References (DOIs verified 21 Aug 2026):</b> Tree-code architecture 10.5281/zenodo.20109836 ·
-  Guide + 35-check verification script 10.5281/zenodo.22038733 · Planck 2018 null 10.5281/zenodo.21902891 ·
-  CMB bispectrum bounds 10.5281/zenodo.21901664 · Qudit QEC 10.5281/zenodo.21046993 ·
+  Guide + 35-check verification script 10.5281/zenodo.22038733 · Qudit QEC 10.5281/zenodo.21046993 ·
   Trapped-ion testbed 10.5281/zenodo.22025544 · QEC–Darwinism audit 10.5281/zenodo.21964674 ·
-  Prime-valuation correction 10.5281/zenodo.21979060 · ZX seam 10.5281/zenodo.21992118 ·
-  <b>v5 candidate for the poster decision of Mon 24 Aug</b> — print A0 portrait, margins none, scale 100%.
+  Prime-valuation correction 10.5281/zenodo.21979060 ·
+  Full plan: github.com/QNFO/cwi-qec-poster-2026 · docs/tree-code-roadmap.md
 </div>
 
 </body>
