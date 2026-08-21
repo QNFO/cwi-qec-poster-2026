@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>CWI 2026 handout — Bruhat–Tits Tree Code roadmap</title>
+<style>
+  :root { --bg:#fafaf7; --ink:#1f2430; --accent:#0e5f6b; --rust:#b3541e; --line:#e4e2da; --soft:#f0efe9; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html,body { background:var(--bg); color:var(--ink);
+    font-family:"Segoe UI", "Helvetica Neue", Arial, sans-serif; }
+  @page { size: A4 portrait; margin: 0; }
+  body { width:210mm; min-height:297mm; padding:10mm 12mm; }
+  h1 { font-size:14mm; color:var(--accent); margin-bottom:2mm; }
+  .sub { font-size:8mm; color:#4a5163; margin-bottom:5mm; }
+  h2 { font-size:10mm; color:var(--accent); margin:4mm 0 2mm; border-bottom:0.5mm solid var(--line); }
+  p { font-size:8mm; line-height:1.35; margin-bottom:2mm; }
+  b { color:var(--accent); }
+  .no { color:var(--rust); font-weight:700; }
+  table { width:100%; border-collapse:collapse; font-size:7.5mm; }
+  th { text-align:left; background:var(--soft); padding:1.5mm 2mm; font-size:7mm; color:#4a5163; }
+  td { padding:1.5mm 2mm; border-top:0.4mm solid var(--line); vertical-align:top; line-height:1.3; }
+  .foot { margin-top:5mm; font-size:7mm; color:#4a5163; border-top:1mm solid var(--accent); padding-top:2mm; }
+</style>
+</head>
+<body>
+
+<h1>The Bruhat–Tits Tree Code — roadmap handout</h1>
+<div class="sub">Rowan Brad Quni-Gudzinas — QNFO · CWI Summer School poster session, Wed 26 Aug 2026 · poster-v5-treecode candidate · full plan: docs/tree-code-roadmap.md in github.com/QNFO/cwi-qec-poster-2026</div>
+
+<h2>The claim</h2>
+<p>Holographic perfect-tensor codes on a truncated Bruhat–Tits tree. Computed thresholds
+(analytical recursion + exact stabilizer simulation + Monte Carlo, re-verified by a deposited
+35-check script): bit-flip <b>50.0%</b> (4.6× surface), depolarizing <b>75.0%</b> (75×),
+independent X+Z <b>17.30%</b>. <span class="no">No hardware demonstration yet.</span></p>
+
+<h2>Where the evidence stands</h2>
+<p>· First falsifiable prediction (log-periodic CMB oscillations) tested → <span class="no">null</span> (Planck 2018, bootstrap p=0.89; bispectrum upper bounds only).<br>
+· Published boundary: under independent errors the qudit family ≈ 2×10⁻⁴ (~55× below surface); the claim targets correlated-failure regimes.<br>
+· QEC–Darwinism no-go audited on tree spaces: boundary moves to F_L ≈ 0.83–0.85, residual gap disclosed.<br>
+· Self-correction published: naive p-adic valuation reading of stabilizer codes carries no new content.</p>
+
+<h2>What we test next</h2>
+<table>
+  <tr><th>#</th><th>Test</th><th>Where</th><th>Disconfirmation criterion</th></tr>
+  <tr><td><b>T1</b></td><td>Matched-noise threshold comparison vs surface</td><td>Classical, days–weeks</td><td>Advantage falls to parity under matched noise</td></tr>
+  <tr><td><b>T2</b></td><td>Decoder complexity + full overhead</td><td>Classical</td><td>Advantage disappears with decoding cost</td></tr>
+  <tr><td><b>T3</b></td><td>Random-walk return probability on p-regular trees</td><td>Analog/ion, ~8 wk</td><td>No change in decay exponent</td></tr>
+  <tr><td><b>T4</b></td><td>Clock-rest ultrametricity split (0% vs 29–35%)</td><td>Trapped ion, ~8 wk</td><td>Split outside predicted range</td></tr>
+  <tr><td><b>T5</b></td><td>Independent re-implementation of T1</td><td>Community</td><td>Reproducibility test</td></tr>
+</table>
+
+<h2>What we'd like from you</h2>
+<p>1. An openly specified <b>correlated-noise benchmark</b> (model + data) for T1 ·
+2. decoder-complexity reality check for tree-structured codes ·
+3. pointers on <b>perfect tensors for p &gt; 2</b> ·
+4. an <b>independent re-run of T1</b> — the simulator and protocol are handed over.</p>
+
+<div class="foot">
+<b>DOIs (verified 21 Aug 2026):</b> 10.5281/zenodo.20109836 (architecture) · 10.5281/zenodo.22038733 (guide + verification script) ·
+10.5281/zenodo.21902891 (Planck null) · 10.5281/zenodo.21901664 (bispectrum bounds) · 10.5281/zenodo.21046993 (qudit QEC) ·
+10.5281/zenodo.22025544 (trapped-ion testbed) · 10.5281/zenodo.21964674 (QEC–Darwinism audit) ·
+10.5281/zenodo.21979060 (prime-valuation correction) · 10.5281/zenodo.21992118 (ZX seam)
+</div>
+
+</body>
+</html>

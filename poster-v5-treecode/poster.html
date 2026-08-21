@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>CWI 2026 — The Bruhat–Tits Tree Code: What's Verified, What We Plan to Test Next</title>
+<style>
+  :root { --bg:#fafaf7; --ink:#1f2430; --accent:#0e5f6b; --rust:#b3541e; --line:#e4e2da; --soft:#f0efe9; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html,body { background:var(--bg); color:var(--ink);
+    font-family:"Segoe UI", "Helvetica Neue", Arial, sans-serif; }
+  @page { size: A0 portrait; margin: 0; }
+  body { width:841mm; min-height:1189mm; padding:18mm 20mm; }
+  .band { border-bottom:2.5mm solid var(--accent); padding-bottom:6mm; margin-bottom:8mm;
+          display:flex; gap:8mm; align-items:center; }
+  .band h1 { font-size:30mm; line-height:1.05; font-weight:700; letter-spacing:-0.5px; }
+  .band h1 .accent { color:var(--accent); }
+  .band .sub { font-size:11mm; color:#4a5163; margin-top:3mm; }
+  .band svg { flex:0 0 auto; }
+  .grid { display:grid; grid-template-columns:1fr 1fr; gap:8mm; }
+  .panel { border:1.2mm solid var(--line); border-radius:4mm; background:#ffffff;
+           padding:7mm 8mm; }
+  .panel h2 { font-size:14mm; color:var(--accent); margin-bottom:4mm; border-bottom:1mm solid var(--line); padding-bottom:2mm; }
+  .panel h2 span { color:var(--ink); }
+  .k { font-size:9.5mm; line-height:1.35; margin-bottom:3mm; }
+  .k b { color:var(--accent); }
+  .k .no { color:var(--rust); font-weight:700; }
+  table { width:100%; border-collapse:collapse; font-size:9mm; }
+  th { text-align:left; background:var(--soft); padding:2mm 2.5mm; font-size:8.5mm; color:#4a5163; }
+  td { padding:2mm 2.5mm; border-top:0.6mm solid var(--line); vertical-align:top; line-height:1.3; }
+  td b { color:var(--accent); }
+  .num { color:var(--rust); font-weight:700; white-space:nowrap; }
+  .foot { margin-top:8mm; padding-top:4mm; border-top:2.5mm solid var(--accent);
+          font-size:8mm; color:#4a5163; line-height:1.4; }
+  .foot b { color:var(--ink); }
+</style>
+</head>
+<body>
+
+<div class="band">
+  <svg width="150" height="150" viewBox="0 0 150 150" aria-label="Bruhat-Tits tree T2, depth 2">
+    <defs><style>.e{stroke:#0e5f6b;stroke-width:2.2;fill:none}.n{fill:#ffffff;stroke:#0e5f6b;stroke-width:2.2}.r{fill:#0e5f6b}</style></defs>
+    <g class="e">
+      <line x1="75" y1="18" x2="45" y2="62"/><line x1="75" y1="18" x2="75" y2="62"/><line x1="75" y1="18" x2="105" y2="62"/>
+      <line x1="45" y1="62" x2="22" y2="106"/><line x1="45" y1="62" x2="55" y2="106"/>
+      <line x1="75" y1="62" x2="66" y2="106"/><line x1="75" y1="62" x2="90" y2="106"/>
+      <line x1="105" y1="62" x2="99" y2="106"/><line x1="105" y1="62" x2="130" y2="106"/>
+    </g>
+    <circle class="r" cx="75" cy="18" r="7"/>
+    <circle class="n" cx="45" cy="62" r="6"/><circle class="n" cx="75" cy="62" r="6"/><circle class="n" cx="105" cy="62" r="6"/>
+    <circle class="n" cx="22" cy="106" r="5"/><circle class="n" cx="55" cy="106" r="5"/><circle class="n" cx="66" cy="106" r="5"/>
+    <circle class="n" cx="90" cy="106" r="5"/><circle class="n" cx="99" cy="106" r="5"/><circle class="n" cx="130" cy="106" r="5"/>
+  </svg>
+  <div>
+    <h1>The Bruhat–Tits <span class="accent">Tree Code</span>:<br>What's Verified, What We Plan to Test Next</h1>
+    <div class="sub">Rowan Brad Quni-Gudzinas — QNFO · CWI Summer School on Quantum Algorithms &amp; QEC · Poster session Wed 26 Aug 2026, 16:30–18:00</div>
+  </div>
+</div>
+
+<div class="grid">
+
+  <div class="panel">
+    <h2>1 · The code <span>in one line</span></h2>
+    <p class="k">Holographic <b>perfect-tensor codes on a truncated Bruhat–Tits tree</b>: a [[3,1,1]]
+    perfect tensor sits at every internal vertex, logical information lives at the root, physical
+    qubits at the leaves, and error correction is built into the tree geometry rather than applied
+    by active measurement loops.</p>
+    <table>
+      <tr><th>Error model</th><th>Tree code</th><th>Surface code</th><th>Ratio</th></tr>
+      <tr><td>Bit-flip</td><td class="num">50.0%</td><td>~10.9%</td><td><b>4.6×</b></td></tr>
+      <tr><td>Depolarizing</td><td class="num">75.0%</td><td>~1.0%</td><td><b>75×</b></td></tr>
+      <tr><td>Independent X+Z</td><td class="num">17.30%</td><td>—</td><td>—</td></tr>
+    </table>
+    <p class="k" style="margin-top:3mm">Computed three independent ways — analytical recursion, exact
+    Gottesman–Knill stabilizer simulation, Monte Carlo — and re-verified by a deposited 35-check script.</p>
+  </div>
+
+  <div class="panel">
+    <h2>2 · Verification status <span>(as of 21 Aug 2026)</span></h2>
+    <p class="k"><b>Classical validation: done, three methods.</b> <span class="no">Hardware: none yet</span> —
+    no tree code has run on a quantum processor; everything above is simulation.</p>
+    <p class="k"><b>First falsifiable prediction — tested, null.</b> Log-periodic oscillations in the
+    Planck 2018 temperature spectrum: <span class="no">no signal found</span> at any resolvable radix
+    (bootstrap p = 0.89); bispectrum: upper bounds only. The testing machinery runs and publishes nulls.</p>
+    <p class="k"><b>Published boundary.</b> Under <i>independent</i> errors the qudit family sits at
+    ≈ 2×10⁻⁴ (~55× below surface codes) — the architectural claim targets the <i>correlated-failure</i>
+    regime, and that boundary is published, not hidden.</p>
+    <p class="k"><b>No-go engagement.</b> The QEC–Darwinism tradeoff (F_L &gt; 0.874) was audited on tree
+    spaces: collective fragment refinement moves the boundary to F_L ≈ 0.83–0.85, residual gap disclosed.</p>
+    <p class="k"><b>Self-correction published.</b> A naive p-adic valuation reading of stabilizer codes
+    carries no new content; the program published the correction rather than the confirmation.</p>
+  </div>
+
+  <div class="panel">
+    <h2>3 · Test plan <span>(near-term first)</span></h2>
+    <table>
+      <tr><th style="width:8mm">#</th><th>Test</th><th>Where</th><th>Disconfirmation criterion</th></tr>
+      <tr><td><b>T1</b></td><td>Matched-noise threshold comparison: tree vs surface under the <i>same</i> correlated noise model</td><td>Classical</td><td>Tree advantage falls to parity under matched noise</td></tr>
+      <tr><td><b>T2</b></td><td>Decoder complexity + full overhead (physical qubits + classical cost)</td><td>Classical</td><td>Advantage disappears once decoding cost is included</td></tr>
+      <tr><td><b>T3</b></td><td>Return-probability decay of a random walk on a p-regular tree graph</td><td>Analog / ion sim, ~8 wk</td><td>No change in decay exponent at the predicted value</td></tr>
+      <tr><td><b>T4</b></td><td>Clock-rest ultrametricity split: diagonal 0% vs non-diagonal 29–35%</td><td>Trapped ion, ~8 wk</td><td>Measured split outside the predicted range</td></tr>
+      <tr><td><b>T5</b></td><td>Independent re-implementation of T1 by an external group</td><td>Community</td><td>Reproducibility test, not a prediction</td></tr>
+    </table>
+    <p class="k" style="margin-top:3mm"><b>T1 and T2 are pure classical work</b> — cheap, decisive, and
+    doable immediately; they answer the two objections this room will raise first. Every criterion is
+    numeric, so a null result is publishable.</p>
+  </div>
+
+  <div class="panel">
+    <h2>4 · What we ask <span>of this room</span></h2>
+    <p class="k"><b>1.</b> An openly specified <b>correlated-noise benchmark</b> (data + model) we can run T1 against.</p>
+    <p class="k"><b>2.</b> Decoder reality check: does a known decoder family already cover tree-structured codes, and how does its complexity scale?</p>
+    <p class="k"><b>3.</b> Pointers on <b>perfect tensors for p &gt; 2</b> (binary [[3,1,1]] is settled; larger primes are open).</p>
+    <p class="k"><b>4.</b> <b>Independent re-run of T1</b> — we hand over the simulator and the protocol; a third-party rerun settles the classical claim.</p>
+    <h2 style="margin-top:5mm">Horizons</h2>
+    <p class="k"><b>2026:</b> T1–T2 + open simulator release + ZX gate compilation ·
+    <b>2026–27:</b> T3–T4 instrumentation, noise-model publication ·
+    <b>Long term:</b> prototype path only if matched-noise scrutiny survives; energy accounting
+    (joules per correct answer) as the mission-level comparison.</p>
+  </div>
+
+</div>
+
+<div class="foot">
+  <b>References (DOIs verified 21 Aug 2026):</b> Tree-code architecture 10.5281/zenodo.20109836 ·
+  Guide + 35-check verification script 10.5281/zenodo.22038733 · Planck 2018 null 10.5281/zenodo.21902891 ·
+  CMB bispectrum bounds 10.5281/zenodo.21901664 · Qudit QEC 10.5281/zenodo.21046993 ·
+  Trapped-ion testbed 10.5281/zenodo.22025544 · QEC–Darwinism audit 10.5281/zenodo.21964674 ·
+  Prime-valuation correction 10.5281/zenodo.21979060 · ZX seam 10.5281/zenodo.21992118 ·
+  <b>v5 candidate for the poster decision of Mon 24 Aug</b> — print A0 portrait, margins none, scale 100%.
+</div>
+
+</body>
+</html>
