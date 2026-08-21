@@ -31,7 +31,7 @@
 3. Set **Orientation** → **Portrait**, **Paper** → **A0**, **Scale** → **100%**, **Margins** → **None**.
 4. Print.
 
-> ⚠️ **Print trap (2026-08-21):** do NOT judge the layout from a browser print-preview of the HTML — the preview re-flows the poster onto whatever paper is selected (default Letter/A4 can make the portrait poster LOOK landscape with white margins). The PDF is ground truth: portrait A0, content fills the page (pixel-verified 2026-08-21: content 800 × 1144 mm, bottom margin ≈19 mm = footer padding). If the printer only accepts landscape sheets, use auto-rotate/portrait orientation — never rotate the content itself.
+> ⚠️ **Print trap (2026-08-21):** do NOT judge the layout from a browser print-preview of the HTML — the preview re-flows the poster onto whatever paper is selected (default Letter/A4 can make the portrait poster LOOK landscape with white margins). The PDF is ground truth: portrait A0, content fills the page (pixel-verified 2026-08-21: content 796 × 1156 mm, bottom margin ≈14 mm = footer padding). If the printer only accepts landscape sheets, use auto-rotate/portrait orientation — never rotate the content itself.
 
 ## Workshop Details (verified 2026-08-16)
 
@@ -48,9 +48,10 @@
 ## Which poster to print?
 
 **THE poster (decided 2026-08-21): `poster-v5-treecode/poster-v5.pdf`** — "The Bruhat–Tits
-Tree Code — Status and Test Plan": graphic redesign (the annotated tree IS the layout — claim
-at the root, VERIFIED/BOUNDARY/NOT YET on the branches, T1–T5 + asks on the leaves), three
-threshold numbers, the tests with disconfirmation criteria, the asks for the room.
+Tree Code — Status and Test Plan": legibility rework (2026-08-21: opens with WHY IT MATTERS — the surface-code overhead contrast,
+the 4.6–75× simulated threshold promise, the energy angle — then the code and numbers, status
+cards, the five tests with disconfirmation criteria, and the asks for the room; the tree appears
+as a text-free decorative motif).
 Self-contained — **no handouts** (user decision: everything lives on the poster).
 TRUE A0 portrait, full-bleed, pixel-verified. A1 backup: `poster-v5-a1-backup.pdf` (for
 smaller boards).
