@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>CWI 2026 — Things I Don't Understand About QEC (v4)</title>
+<title>CWI 2026 — Things I Don't Understand About QEC (v4-noZX)</title>
 <style>
   @page { size: 841mm 1189mm; margin: 0; }
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -85,128 +85,39 @@
 <div class="main">
 
   <div class="panel">
-    <h2>Panel 1 — <span>The Thesis</span>: the constructs are cafeteria imports</h2>
-    <p>Every human construct for understanding quantum computing is <strong>internally consistent</strong> —
-      and the imports <strong>contradict each other</strong>. Tools and systems are valid in their own silos;
-      they were never checked for mutual compatibility.</p>
-    <table>
-      <tr><th>Construct</th><th>Home silo</th><th>What it silently carries</th></tr>
-      <tr><td><strong>Spiders</strong></td><td>Categorical algebra (2D diagrammatic)</td><td>Drawing-plane topology; completeness proves facts about the <em>algebra</em>, nothing about spacetime</td></tr>
-      <tr><td><strong>Pauli webs</strong></td><td>Stabilizer formalism / QEC</td><td>2+1D code-over-time; in holographic use: entropy, wormholes, black holes</td></tr>
-      <tr><td><strong>Gadgets</strong></td><td>MBQC / compilation</td><td>Graph-state resources; rewrite soundness — not physical realization</td></tr>
-    </table>
-    <p>Fault lines appear exactly where <strong>3+1D particle physics and 1D thermodynamics</strong> are mixed
-      into a <strong>2D map</strong> without any compatibility check. The diagrams are not wrong — they are maps.
-      The discipline of using a map is knowing where it ends.</p>
-    <div class="seam-box"><strong>Anchor:</strong> "ZX Diagrams at the Seam: Spiders, Pauli Webs, Gadgets, and the
-      Cafeteria Problem of Cross-Disciplinary Imports" — 10.5281/zenodo.21992118 (2026-08-18).</div>
+    <div class="panel">
+    <h2>Panel 1 — <span>Why this poster exists</span></h2>
+    <p>I am an independent researcher, not a member of any quantum-error-correction group. I came to QEC from
+      the outside — from ultrametric geometry and the energy cost of computation. On the way in, I collected
+      <strong>eight questions I cannot answer myself</strong>.</p>
+    <p>This poster is my notebook made public. The questions are stated as questions — and my own first
+      falsifiable prediction, log-periodic oscillations in the Planck 2018 temperature spectrum, came back
+      <strong>null</strong> when I tested it (10.5281/zenodo.21902891). I hold my own ideas to the same standard
+      I am about to ask you to hold them to.</p>
+    <p><strong>The invitation:</strong> answer any of the eight questions and you will have taught me something
+      real. Correct me, and the poster has done its job.</p>
   </div>
 
   <div class="panel">
     <h2>Panel 2 — <span>The Method</span>: feigned naivete as probe</h2>
     <div style="text-align:center;margin:0 0 2mm;">
-      <svg viewBox="0 0 640 640" xmlns="http://www.w3.org/2000/svg" style="width:42%;height:auto;"><svg viewBox="0 0 640 640" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;">
-  <!-- fig4: Bruhat-Tits tree (p=2, 3-regular, truncated depth 3) as ZX graph state -->
-  <!-- Convention: green spider (0 in, 1 out, phase 0) = |+> ; yellow H-box (2 in, 2 out) = CZ = graph-state edge -->
-  <title>Bruhat–Tits tree as ZX graph state (p=2, depth 3)</title>
-  <style>
-    .spider { fill: #2ecc71; stroke: #1a1a2e; stroke-width: 3; }
-    .hbox   { fill: #f1c40f; stroke: #1a1a2e; stroke-width: 3; }
-    .wire   { stroke: #2d3436; stroke-width: 2.5; fill: none; }
-    .ring   { stroke: #95a5a6; stroke-width: 1.5; stroke-dasharray: 6 4; fill: none; }
-    .lbl    { font-family: sans-serif; font-size: 12px; fill: #2d3436; }
-    .lblsm  { font-family: sans-serif; font-size: 11px; fill: #636e72; }
-    .lblbig { font-family: sans-serif; font-size: 15px; font-weight: bold; fill: #1a1a2e; }
-  </style>
-  <!-- concentric truncation rings -->
-  <circle class="ring" cx="320" cy="320" r="130"/>
-  <circle class="ring" cx="320" cy="320" r="225"/>
-  <circle class="ring" cx="320" cy="320" r="320"/>
-
-  <!-- EDGES (wires with CZ H-boxes at midpoints): center->tier1 -->
-  <line class="wire" x1="320" y1="320" x2="367" y2="305"/>
-  <rect class="hbox" x="335" y="298" width="14" height="14" rx="2"/>
-  <line class="wire" x1="320" y1="320" x2="296" y2="279"/>
-  <rect class="hbox" x="294" y="284" width="14" height="14" rx="2"/>
-  <line class="wire" x1="320" y1="320" x2="296" y2="361"/>
-  <rect class="hbox" x="294" y="352" width="14" height="14" rx="2"/>
-  <!-- tier1->tier2 -->
-  <line class="wire" x1="415" y1="320" x2="450" y2="272"/>
-  <rect class="hbox" x="426" y="282" width="14" height="14" rx="2"/>
-  <line class="wire" x1="415" y1="320" x2="450" y2="368"/>
-  <rect class="hbox" x="426" y="350" width="14" height="14" rx="2"/>
-  <line class="wire" x1="272.5" y1="237.7" x2="296" y2="184"/>
-  <rect class="hbox" x="278" y="196" width="14" height="14" rx="2"/>
-  <line class="wire" x1="272.5" y1="237.7" x2="213" y2="252"/>
-  <rect class="hbox" x="230" y="230" width="14" height="14" rx="2"/>
-  <line class="wire" x1="272.5" y1="402.3" x2="213" y2="388"/>
-  <rect class="hbox" x="230" y="382" width="14" height="14" rx="2"/>
-  <line class="wire" x1="272.5" y1="402.3" x2="296" y2="456"/>
-  <rect class="hbox" x="278" y="440" width="14" height="14" rx="2"/>
-  <!-- tier2->tier3 (12 edges) -->
-  <line class="wire" x1="484.5" y1="225" x2="525" y2="161"/>
-  <rect class="hbox" x="500" y="178" width="14" height="14" rx="2"/>
-  <line class="wire" x1="484.5" y1="225" x2="552" y2="272"/>
-  <rect class="hbox" x="516" y="238" width="14" height="14" rx="2"/>
-  <line class="wire" x1="484.5" y1="415" x2="525" y2="479"/>
-  <rect class="hbox" x="500" y="440" width="14" height="14" rx="2"/>
-  <line class="wire" x1="484.5" y1="415" x2="552" y2="368"/>
-  <rect class="hbox" x="516" y="382" width="14" height="14" rx="2"/>
-  <line class="wire" x1="320" y1="130" x2="362" y2="86"/>
-  <rect class="hbox" x="336" y="88" width="14" height="14" rx="2"/>
-  <line class="wire" x1="320" y1="130" x2="278" y2="86"/>
-  <rect class="hbox" x="286" y="88" width="14" height="14" rx="2"/>
-  <line class="wire" x1="155.5" y1="225" x2="115" y2="161"/>
-  <rect class="hbox" x="128" y="178" width="14" height="14" rx="2"/>
-  <line class="wire" x1="155.5" y1="225" x2="88" y2="272"/>
-  <rect class="hbox" x="110" y="238" width="14" height="14" rx="2"/>
-  <line class="wire" x1="155.5" y1="415" x2="88" y2="368"/>
-  <rect class="hbox" x="110" y="382" width="14" height="14" rx="2"/>
-  <line class="wire" x1="155.5" y1="415" x2="115" y2="479"/>
-  <rect class="hbox" x="128" y="440" width="14" height="14" rx="2"/>
-  <line class="wire" x1="320" y1="510" x2="278" y2="554"/>
-  <rect class="hbox" x="286" y="532" width="14" height="14" rx="2"/>
-  <line class="wire" x1="320" y1="510" x2="362" y2="554"/>
-  <rect class="hbox" x="336" y="532" width="14" height="14" rx="2"/>
-
-  <!-- VERTICES: green spiders (|+>) -->
-  <!-- center -->
-  <circle class="spider" cx="320" cy="320" r="16"/>
-  <!-- tier1 (3) -->
-  <circle class="spider" cx="415" cy="320" r="12"/>
-  <circle class="spider" cx="272.5" cy="237.7" r="12"/>
-  <circle class="spider" cx="272.5" cy="402.3" r="12"/>
-  <!-- tier2 (6) -->
-  <circle class="spider" cx="484.5" cy="225" r="10"/>
-  <circle class="spider" cx="484.5" cy="415" r="10"/>
-  <circle class="spider" cx="320" cy="130" r="10"/>
-  <circle class="spider" cx="155.5" cy="225" r="10"/>
-  <circle class="spider" cx="155.5" cy="415" r="10"/>
-  <circle class="spider" cx="320" cy="510" r="10"/>
-  <!-- tier3 (12) -->
-  <circle class="spider" cx="525" cy="525" r="8"/>
-  <circle class="spider" cx="600" cy="395" r="8"/>
-  <circle class="spider" cx="600" cy="245" r="8"/>
-  <circle class="spider" cx="525" cy="115" r="8"/>
-  <circle class="spider" cx="395" cy="45" r="8"/>
-  <circle class="spider" cx="245" cy="45" r="8"/>
-  <circle class="spider" cx="115" cy="115" r="8"/>
-  <circle class="spider" cx="40" cy="245" r="8"/>
-  <circle class="spider" cx="40" cy="395" r="8"/>
-  <circle class="spider" cx="115" cy="525" r="8"/>
-  <circle class="spider" cx="245" cy="595" r="8"/>
-  <circle class="spider" cx="395" cy="595" r="8"/>
-
-  <!-- LABELS -->
-  <text class="lblbig" x="320" y="40" text-anchor="middle">Bruhat–Tits tree T₂ (truncated, depth 3) as a ZX graph state</text>
-  <text class="lbl" x="320" y="60" text-anchor="middle">● green spider = |+⟩ · ■ yellow H-box = CZ edge · p=2 ⇒ (p+1)=3-regular branching</text>
-  <text class="lblsm" x="320" y="628" text-anchor="middle">Stabilizers = Pauli webs of the diagram — same construction language as Wan–Price–Yao, holographic codes on tree-like tessellations (arXiv:2601.04467)</text>
-</svg>
-</svg>
+      <svg width="150" height="150" viewBox="0 0 150 150" aria-label="Bruhat-Tits tree T2, depth 2">
+        <defs><style>.e{stroke:#0e5f6b;stroke-width:2.2;fill:none}.n{fill:#ffffff;stroke:#0e5f6b;stroke-width:2.2}.r{fill:#0e5f6b}</style></defs>
+        <g class="e">
+          <line x1="75" y1="18" x2="45" y2="62"/><line x1="75" y1="18" x2="75" y2="62"/><line x1="75" y1="18" x2="105" y2="62"/>
+          <line x1="45" y1="62" x2="22" y2="106"/><line x1="45" y1="62" x2="55" y2="106"/>
+          <line x1="75" y1="62" x2="66" y2="106"/><line x1="75" y1="62" x2="90" y2="106"/>
+          <line x1="105" y1="62" x2="99" y2="106"/><line x1="105" y1="62" x2="130" y2="106"/>
+        </g>
+        <circle class="r" cx="75" cy="18" r="7"/>
+        <circle class="n" cx="45" cy="62" r="6"/><circle class="n" cx="75" cy="62" r="6"/><circle class="n" cx="105" cy="62" r="6"/>
+        <circle class="n" cx="22" cy="106" r="5"/><circle class="n" cx="55" cy="106" r="5"/><circle class="n" cx="66" cy="106" r="5"/>
+        <circle class="n" cx="90" cy="106" r="5"/><circle class="n" cx="99" cy="106" r="5"/><circle class="n" cx="130" cy="106" r="5"/>
+      </svg>
     </div>
-    <p>I learned the room's language — the Bruhat–Tits tree T₂ (p=2, depth 3) as a ZX graph state:
-      22 spiders = 22 vertices, 21 H-boxes = 21 edges. <strong>Learning the language is when the seams became
-      visible.</strong></p>
+    <p>I drew the structure I kept reading about — the Bruhat–Tits tree T₂ (p=2, 3-regular branching;
+      the full construction truncates at depth 3, giving 22 vertices and 21 edges). Drawing a structure is
+      when its assumptions become visible.</p></p>
     <p>I ask the questions I'm not supposed to need to ask. The naive question is the <strong>external
       structural probe</strong>: it finds the locales and the seams. Where imports contradict, understanding
       breaks — <strong>that break is data, not deficit.</strong></p>
@@ -256,13 +167,13 @@
   </div>
 
   <div class="panel">
-    <h2>Panel 5 — <span>The statement</span>, the honest caption, and the questions for the room</h2>
+    <h2>Panel 5 — <span>The statement</span>, the caption, and the questions for the room</h2>
     <div class="null-box" style="background:#1a1a2e;color:#ffffff;border:none;font-size:11pt;line-height:1.5;">
       <strong style="color:#a29bfe;">The one-line statement:</strong> "I cannot grasp quantum computing through the
       practitioners' constructs because the constructs are maps drawn by different cartographers — internally
       consistent, mutually contradictory. <strong>My confusions are the fault lines.</strong>"
     </div>
-    <p><strong>The honest caption (feigned naivete is a method, not a pose):</strong> the naive question is the probe
+    <p><strong>The caption (feigned naivete is a method, not a pose):</strong> the naive question is the probe
       that finds the seam. I am not claiming the field is wrong — I am claiming the imports were never checked
       against each other. <em>If the constructs were compatible, the naive questions would answer themselves.</em></p>
     <p><strong>Questions I will ask this week:</strong></p>
@@ -277,12 +188,11 @@
 
 <div class="footer">
   <div class="refs">
-    <strong>References (verified 2026-08-18)</strong><br>
-    ZX Diagrams at the Seam — 10.5281/zenodo.21992118 (concept 10.5281/zenodo.21991895)<br>
+    References (verified 2026-08-18; updated 2026-08-21)</strong><br>
+    Planck 2018 log-periodic null — 10.5281/zenodo.21902891<br>
     Universal Ignorance Audit — 10.5281/zenodo.21901984 · Knowing What We Do Not Know — 10.5281/zenodo.21901983<br>
     Ultrametric Code Spaces — 10.5281/zenodo.21824194 · JPCUB (joules-per-solution) — 10.5281/zenodo.21945415<br>
-    Wan–Price–Yao, Holographic codes through ZX — arXiv:2601.04467 · van de Wetering — arXiv:2012.13966<br>
-    Duncan–Kissinger–Perdrix–van de Wetering — arXiv:1902.03178 · Wan — arXiv:2410.17992
+    Tree-code testing roadmap — QNFO/cwi-qec-poster-2026 · poster-v5-treecode
   </div>
   <div class="contact">
     <div class="name">Rowan Quni-Gudzinas</div>
@@ -293,7 +203,7 @@
     Acknowledgment: CWI Summer School —<br>
     Research Semester Programme<br>
     "Quantum Algorithms &amp; QEC"<br>
-    <span style="font-weight:400;">(no external funding) · v4 — naive audit, 2026-08-18</span>
+    <span style="font-weight:400;">(no external funding) · v4-noZX — naive audit, ZX anchor removed, 2026-08-21</span>
   </div>
 </div>
 
