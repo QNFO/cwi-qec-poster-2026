@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>CWI 2026 — Things I Don't Understand About QEC (v4-noZX)</title>
+<style>
+  @page { size: 594mm 841mm; margin: 0; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    transform: scale(0.70625);
+    transform-origin: 0 0;
+    width: 841mm; height: 1189mm;
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background: #ffffff;
+    color: #2d3436;
+    overflow: hidden;
+    display: grid;
+    grid-template-rows: 120mm minmax(0,1fr) minmax(0,1fr) minmax(0,1fr) 60mm;
+  }
+
+  /* ── HEADER ── */
+  .header {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    color: white;
+    display: flex; flex-direction: column; justify-content: center; align-items: center;
+    padding: 12mm 30mm;
+  }
+  .header h1 { font-size: 38pt; font-weight: 800; letter-spacing: 0.5pt; text-align: center; line-height: 1.18; }
+  .header h1 .accent { color: #e17055; }
+  .header .subtitle { font-size: 18pt; color: #b2bec3; text-align: center; margin-top: 5mm; font-style: italic; }
+  .header .event-line { font-size: 12pt; color: #636e72; text-align: center; margin-top: 4mm; }
+  .header .event-line strong { color: #dfe6e9; }
+
+  /* ── PANELS ── */
+  .main { display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr 1fr; gap: 6mm; padding: 9mm 16mm; }
+  .panel { border: 1pt solid #dfe6e9; border-radius: 8pt; padding: 6.5mm 8mm; overflow: hidden; }
+  .panel h2 { font-size: 19pt; font-weight: 700; color: #1a1a2e; margin-bottom: 3.5mm; }
+  .panel h2 span { color: #6c5ce7; }
+  .panel p, .panel li { font-size: 10.8pt; line-height: 1.48; margin-bottom: 2.2mm; }
+  .panel ul, .panel ol { padding-left: 6.5mm; margin-bottom: 2.5mm; }
+  .panel .status-tag {
+    display: inline-block; background: #fff3e0; color: #e17055; font-weight: 700;
+    font-size: 9.5pt; padding: 1.2mm 3.5mm; border-radius: 3pt; border: 1pt solid #fdcb6e;
+    margin-bottom: 3mm;
+  }
+  .panel .null-box {
+    background: #f0faf5; border-left: 4pt solid #00b894; border-radius: 0 4pt 4pt 0;
+    padding: 2.8mm 3.5mm; font-size: 10pt; line-height: 1.42; margin-top: 2mm;
+  }
+  .panel .seam-box {
+    background: #fff5f3; border-left: 4pt solid #e17055; border-radius: 0 4pt 4pt 0;
+    padding: 2.8mm 3.5mm; font-size: 10pt; line-height: 1.42; margin-top: 2mm;
+  }
+
+  table { border-collapse: collapse; width: 100%; font-size: 9.6pt; margin: 2mm 0 3mm; }
+  th, td { border: 0.5pt solid #dfe6e9; padding: 1.5mm 2.5mm; text-align: left; vertical-align: top; }
+  th { background: #f8f9fa; color: #1a1a2e; font-weight: 700; }
+
+  .q-item { margin-bottom: 2.6mm; }
+  .q-item .q { font-weight: 700; color: #1a1a2e; font-size: 11.2pt; }
+  .q-item .why { font-size: 9.8pt; color: #636e72; margin-top: 0.6mm; }
+
+  /* ── FOOTER ── */
+  .footer {
+    background: #f8f9fa; border-top: 1.5pt solid #dfe6e9;
+    display: grid; grid-template-columns: 1.6fr 1fr 1fr; align-items: center;
+    padding: 6mm 18mm; font-size: 9pt; color: #636e72;
+  }
+  .footer .refs { line-height: 1.55; }
+  .footer .refs strong { color: #2d3436; }
+  .footer .contact { text-align: center; }
+  .footer .contact .name { font-size: 12pt; font-weight: 700; color: #2d3436; }
+  .footer .note { text-align: right; font-size: 10pt; font-weight: 700; color: #e17055; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>Things I Don't Understand About <span class="accent">Quantum Error Correction</span></h1>
+  <div class="subtitle">A naive audit of the constructs — the confusions of a self-taught researcher, treated as data</div>
+  <div class="event-line">
+    <strong>CWI Summer School on Quantum Algorithms &amp; Quantum Error Correction</strong> · 24–28 August 2026 ·<br>
+    Poster Session: Wed 26 Aug, 16:30–18:00 · Rowan Quni-Gudzinas · Independent Researcher
+  </div>
+</div>
+
+<div class="main">
+
+  <div class="panel">
+    <div class="panel">
+    <h2>Panel 1 — <span>Why this poster exists</span></h2>
+    <p>I am an independent researcher, not a member of any quantum-error-correction group. I came to QEC from
+      the outside — from ultrametric geometry and the energy cost of computation. On the way in, I collected
+      <strong>eight questions I cannot answer myself</strong>.</p>
+    <p>This poster is my notebook made public. The questions are stated as questions — and my own first
+      falsifiable prediction, log-periodic oscillations in the Planck 2018 temperature spectrum, came back
+      <strong>null</strong> when I tested it (10.5281/zenodo.21902891). I hold my own ideas to the same standard
+      I am about to ask you to hold them to.</p>
+    <p><strong>The invitation:</strong> answer any of the eight questions and you will have taught me something
+      real. Correct me, and the poster has done its job.</p>
+  </div>
+
+  <div class="panel">
+    <h2>Panel 2 — <span>The Method</span>: feigned naivete as probe</h2>
+    <div style="text-align:center;margin:0 0 2mm;">
+      <svg width="150" height="150" viewBox="0 0 150 150" aria-label="Bruhat-Tits tree T2, depth 2">
+        <defs><style>.e{stroke:#0e5f6b;stroke-width:2.2;fill:none}.n{fill:#ffffff;stroke:#0e5f6b;stroke-width:2.2}.r{fill:#0e5f6b}</style></defs>
+        <g class="e">
+          <line x1="75" y1="18" x2="45" y2="62"/><line x1="75" y1="18" x2="75" y2="62"/><line x1="75" y1="18" x2="105" y2="62"/>
+          <line x1="45" y1="62" x2="22" y2="106"/><line x1="45" y1="62" x2="55" y2="106"/>
+          <line x1="75" y1="62" x2="66" y2="106"/><line x1="75" y1="62" x2="90" y2="106"/>
+          <line x1="105" y1="62" x2="99" y2="106"/><line x1="105" y1="62" x2="130" y2="106"/>
+        </g>
+        <circle class="r" cx="75" cy="18" r="7"/>
+        <circle class="n" cx="45" cy="62" r="6"/><circle class="n" cx="75" cy="62" r="6"/><circle class="n" cx="105" cy="62" r="6"/>
+        <circle class="n" cx="22" cy="106" r="5"/><circle class="n" cx="55" cy="106" r="5"/><circle class="n" cx="66" cy="106" r="5"/>
+        <circle class="n" cx="90" cy="106" r="5"/><circle class="n" cx="99" cy="106" r="5"/><circle class="n" cx="130" cy="106" r="5"/>
+      </svg>
+    </div>
+    <p>I drew the structure I kept reading about — the Bruhat–Tits tree T₂ (p=2, 3-regular branching;
+      the full construction truncates at depth 3, giving 22 vertices and 21 edges). Drawing a structure is
+      when its assumptions become visible.</p></p>
+    <p>I ask the questions I'm not supposed to need to ask. The naive question is the <strong>external
+      structural probe</strong>: it finds the locales and the seams. Where imports contradict, understanding
+      breaks — <strong>that break is data, not deficit.</strong></p>
+    <div class="null-box"><strong>Method lineage:</strong> IAPS §6.2 audit-the-map; the Universal Ignorance Audit
+      (15 questions, 10.5281/zenodo.21901984); "Knowing What We Do Not Know" (10.5281/zenodo.21901983).</div>
+  </div>
+
+  <div class="panel">
+    <h2>Panel 3 — <span>Things I don't understand</span> about QEC</h2>
+    <div class="q-item"><span class="q">1 · Why the discreteness?</span>
+      <div class="why">QEC protects a discrete abstraction (gates, qubits, circuits). Is the discreteness physical — or imported from the circuit model? If the abstraction is a choice, fault tolerance is the tax on the choice.</div></div>
+    <div class="q-item"><span class="q">2 · What is a logical qubit, physically?</span>
+      <div class="why">Hardware is bosonic oscillators with leakage levels; codes assume qubits. The map is 2D; the machine is continuous. Where does the map end?</div></div>
+    <div class="q-item"><span class="q">3 · What does a threshold actually guarantee?</span>
+      <div class="why">The proofs assume stochastic local noise. Coherent and correlated errors are the seams nobody prices. What is the guarantee outside the model?</div></div>
+    <div class="q-item"><span class="q">4 · Where is the quantum in the loop?</span>
+      <div class="why">Syndrome → <em>classical</em> decoder → feedback. QEC is quantum memory + classical control. Why is it called quantum error correction?</div></div>
+    <div class="q-item"><span class="q">5 · Why isn't the decoder part of the code?</span>
+      <div class="why">A classical algorithm decides a quantum code's performance. Coding theory and classical computation — two silos, never audited for compatibility.</div></div>
+  </div>
+
+  <div class="panel">
+    <h2>Panel 3 (cont.) — <span>The questions</span> (2 of 2)</h2>
+    <div class="q-item"><span class="q">6 · Why 2D geometry?</span>
+      <div class="why">Why a surface code and not a tree? Noise geometry is assumed continuous and Euclidean. What if error propagation is hierarchical — ultrametric (Bruhat–Tits)? The staircase nobody has looked for.</div></div>
+    <div class="q-item"><span class="q">7 · Why count T gates, not joules?</span>
+      <div class="why">The field prices the algebraic resource (T-count, magic states). Nobody prices the ancilla factory, verification retries, the decoder, the feedback. What does a correct answer cost in energy?</div></div>
+    <div class="q-item"><span class="q">8 · Why is the cat the unit of protection?</span>
+      <div class="why">Shor states are cat states — exponentially fragile to dephasing; verified ancillas go stale between verification and use. Why build protection from something that fragile?</div></div>
+    <div class="seam-box"><strong>Each question is a probe:</strong> the answer either closes the seam (the imports were
+      compatible all along) or reveals it (the construct carried more than its proof).</div>
+  </div>
+
+  <div class="panel">
+    <h2>Panel 4 — <span>The seams</span>: where the map ends</h2>
+    <table>
+      <tr><th>Seam</th><th>The contradiction</th></tr>
+      <tr><td><strong>Discrete abstraction</strong></td><td>Continuous physics → discrete gates → QEC defends the discreteness. The defense is priced; the choice is not.</td></tr>
+      <tr><td><strong>Qubit / boson</strong></td><td>The model is finite-dimensional; the hardware leaks. Every code assumes what the hardware denies.</td></tr>
+      <tr><td><strong>Noise model</strong></td><td>Stochastic-local assumptions meet coherent, correlated, adversarial reality. Thresholds live inside the model.</td></tr>
+      <tr><td><strong>Classical control</strong></td><td>The decoder is classical. The "quantum" loop runs on a classical brain — the field knows, and doesn't price it.</td></tr>
+      <tr><td><strong>Cost currency</strong></td><td>T-count is countable, so it is counted. Joules are measurable, and not measured. The algebraic unit stands in for the thermodynamic one.</td></tr>
+      <tr><td><strong>Geometry</strong></td><td>Euclidean 2D assumed; ultrametric tree unexamined. The staircase signature has never been searched for.</td></tr>
+    </table>
+    <p><strong>What I do understand:</strong> the maps are excellent at what they map. The seam is not the
+      diagram — it is the <strong>silence about where the diagram ends</strong>.</p>
+  </div>
+
+  <div class="panel">
+    <h2>Panel 5 — <span>The statement</span>, the caption, and the questions for the room</h2>
+    <div class="null-box" style="background:#1a1a2e;color:#ffffff;border:none;font-size:11pt;line-height:1.5;">
+      <strong style="color:#a29bfe;">The one-line statement:</strong> "I cannot grasp quantum computing through the
+      practitioners' constructs because the constructs are maps drawn by different cartographers — internally
+      consistent, mutually contradictory. <strong>My confusions are the fault lines.</strong>"
+    </div>
+    <p><strong>The caption (feigned naivete is a method, not a pose):</strong> the naive question is the probe
+      that finds the seam. I am not claiming the field is wrong — I am claiming the imports were never checked
+      against each other. <em>If the constructs were compatible, the naive questions would answer themselves.</em></p>
+    <p><strong>Questions I will ask this week:</strong></p>
+    <ul>
+      <li>"Is the discreteness of the circuit model physical or imported?"</li>
+      <li>"Has anyone priced the energy of the decoder — per correct solution?"</li>
+      <li>"Why a 2D cluster and not a tree?" (Bruhat–Tits resource states)</li>
+    </ul>
+  </div>
+
+</div>
+
+<div class="footer">
+  <div class="refs">
+    References (verified 2026-08-18; updated 2026-08-21)</strong><br>
+    Planck 2018 log-periodic null — 10.5281/zenodo.21902891<br>
+    Universal Ignorance Audit — 10.5281/zenodo.21901984 · Knowing What We Do Not Know — 10.5281/zenodo.21901983<br>
+    Ultrametric Code Spaces — 10.5281/zenodo.21824194 · JPCUB (joules-per-solution) — 10.5281/zenodo.21945415<br>
+    Tree-code testing roadmap — QNFO/cwi-qec-poster-2026 · poster-v5-treecode
+  </div>
+  <div class="contact">
+    <div class="name">Rowan Quni-Gudzinas</div>
+    Independent Researcher · Adelic Physics Programme<br>
+    papers.qnfo.org · zenodo.org/communities/qnfo
+  </div>
+  <div class="note">
+    Acknowledgment: CWI Summer School —<br>
+    Research Semester Programme<br>
+    "Quantum Algorithms &amp; QEC"<br>
+    <span style="font-weight:400;">(no external funding) · v4-noZX — naive audit, ZX anchor removed, 2026-08-21</span>
+  </div>
+</div>
+
+</body>
+</html>
