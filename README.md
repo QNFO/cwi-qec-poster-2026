@@ -4,6 +4,8 @@
 
 | File | Description | Print Size |
 |---|---|---|
+| `poster-v5-treecode/poster.html` | **CANDIDATE (added 2026-08-21)** — "The Bruhat–Tits Tree Code: What's Verified, What We Plan to Test Next": testing roadmap (T1–T5 with numeric disconfirmation criteria), 9 verified DOIs, plain prose, E1 null stated correctly. PDF: `poster-v5.pdf` (A0). | A0 (841×1189 mm) |
+| `poster-v5-treecode/handout.html` | v5 A4 handout — test table + DOIs. PDF: `handout-v5.pdf`. | A4 (210×297 mm) |
 | `poster-v4/poster.html` | **CANDIDATE (user's current direction, 2026-08-18)** — "Things I Don't Understand About Quantum Error Correction": naive-audit framing anchored on *ZX Diagrams at the Seam* (10.5281/zenodo.21992118) — 8 honest questions, 6 seams, fig4 method panel. PDF: `poster-v4.pdf` (A0). | A0 (841×1189 mm) |
 | `poster-v4/handout.html` | v4 A4 handout — thesis + method + questions + statement. PDF: `handout-v4.pdf`. | A4 (210×297 mm) |
 | `poster-v3/poster.html` | **RECOMMENDED until user decides** — Ultrametric QEC poster **v3**: v2 (panels 1–4, verified 2026-08-16) + **Panel 5 — The Diagrammatic Bridge (ZX-calculus)** with fig4 (Bruhat–Tits tree as ZX graph state), the one-line legitimacy statement, the honest map≠territory caption, and 4 arXiv-verified ZX references. PDF: `poster-v3.pdf` (A0). | A0 (841×1189 mm) |
