@@ -47,20 +47,22 @@
 
 ## Which poster to print?
 
-- **poster-v4 (candidate — user's current direction):** "Things I Don't Understand About QEC" —
-  naive-audit framing anchored on *ZX Diagrams at the Seam* (10.5281/zenodo.21992118, published
-  2026-08-18): 8 honest questions + 6 seams + fig4 method panel ("learning the language is when
-  the seams became visible"). Verified 2026-08-18 (record + all refs).
-- **poster-v3:** v2 content (hypothesis → proposed experiment → verified
-  cross-check that mostly failed → open questions) + **Panel 5 — The Diagrammatic Bridge
-  (ZX-calculus)** (fig4: Bruhat–Tits tree as ZX graph state; spiders/Pauli webs/gadgets;
-  one-line legitimacy statement; honest map≠territory caption). All claims verified
-  2026-08-16 + ZX references verified against arXiv 2026-08-18.
-- **poster-v2:** the verified v2 package (panels 1–4 only).
-- **poster v1:** five open questions (Energy Wall, Classical Shadow, Geometry of Noise, Why a
-  Circuit, What Falsifies the Roadmap). Note: v1 cites the Archimedean Shadows v1.10 record
-  DOI; the record is now at v1.11 — update to the concept DOI (10.5281/zenodo.21809888) before
-  printing v1.
+**THE poster (decided 2026-08-21): `poster-v5-treecode/poster-v5.pdf`** — "The Bruhat–Tits
+Tree Code — Status and Test Plan": graphic redesign (the annotated tree IS the layout — claim
+at the root, VERIFIED/BOUNDARY/NOT YET on the branches, T1–T5 + asks on the leaves), three
+threshold numbers, the tests with disconfirmation criteria, the asks for the room.
+Self-contained — **no handouts** (user decision: everything lives on the poster).
+TRUE A0 portrait, full-bleed, pixel-verified. A1 backup: `poster-v5-a1-backup.pdf` (for
+smaller boards).
+
+Alternates (kept as A0 PDFs if wanted):
+- **poster-v4-nozx/poster-v4-nozx.pdf** — "Things I Don't Understand About QEC" (naive audit
+  without the ZX anchor; 8 questions + 6 seams; verified refs).
+- **poster-v2/poster-v2.pdf** — the verified v2 package (hypothesis → proposed experiment →
+  cross-check that mostly failed → open questions).
+- poster-v3/poster-v3.pdf, poster-v4/poster-v4.pdf — earlier versions, kept with ZX content.
+- poster v1 (poster/poster.html) — five open questions. Note: v1 cites the Archimedean Shadows
+  v1.10 record DOI; update to the concept DOI (10.5281/zenodo.21809888) before printing v1.
 
 ## Related Publications (Zenodo concept DOIs)
 
