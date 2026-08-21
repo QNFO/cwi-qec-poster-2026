@@ -26,11 +26,12 @@
 
 ## Quick Start (either poster)
 
-1. Open the HTML in Chrome/Edge
-2. Press `Ctrl+P`
-3. Set **Paper size** → **A0** (or A1 if your printer supports it)
-4. Set **Margins** → **None**, **Scale** → **100%**
-5. Print
+1. **Open the PDF directly** (`poster-v5-treecode/poster-v5.pdf` etc.) — it is already the exact A0 portrait page (841 × 1189 mm, full-bleed, zero margins; MediaBox-verified).
+2. Press `Ctrl+P` **on the PDF** (not the HTML).
+3. Set **Orientation** → **Portrait**, **Paper** → **A0**, **Scale** → **100%**, **Margins** → **None**.
+4. Print.
+
+> ⚠️ **Print trap (2026-08-21):** do NOT judge the layout from a browser print-preview of the HTML — the preview re-flows the poster onto whatever paper is selected (default Letter/A4 can make the portrait poster LOOK landscape with white margins). The PDF is ground truth: portrait A0, content fills the page (pixel-verified 2026-08-21: content 800 × 1144 mm, bottom margin ≈19 mm = footer padding). If the printer only accepts landscape sheets, use auto-rotate/portrait orientation — never rotate the content itself.
 
 ## Workshop Details (verified 2026-08-16)
 
