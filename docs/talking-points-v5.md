@@ -4,11 +4,10 @@ Companion to `poster-v5-treecode/poster.html` + `docs/tree-code-roadmap.md`. Pla
 every number traces to a DOI listed in the roadmap.
 
 ## The 30-second opening
-"This poster is a testing plan, not a results claim. We have a tree-based quantum code whose
-thresholds come out of classical simulation — bit-flip 50%, depolarizing 75% — and the claim we
-make is deliberately narrow: three independent methods agree, nothing has touched hardware yet,
-and we publish our own corrections when they are due. The poster
-lists the five tests that would change our mind; the first two are pure classical work and start
+"This poster is a testing plan, not a results claim. I work on a tree-based quantum code whose
+thresholds come out of classical simulation — bit-flip 50%, depolarizing 75% — and the claim is deliberately narrow: three independent methods agree, nothing has touched hardware yet,
+and I publish my own corrections when they are due. The poster
+lists the five tests that would change my mind; the first two are pure classical work and start
 immediately."
 
 ## If asked "75% sounds impossible"
@@ -20,7 +19,7 @@ test T1 exists to scrutinize: matched noise, same model, tree versus surface.
 
 ## If asked "Why trust the simulation?"
 Three independent methods agree; the verification script (35 checks) is deposited with the guide
-record (10.5281/zenodo.22038733); and T5 is the reproducibility test — we hand over the simulator
+record (10.5281/zenodo.22038733); and T5 is the reproducibility test — I hand over the simulator
 and the protocol. A third-party rerun settles the classical claim. Also: the program published a self-correction
 when its own proposed p-adic reading of stabilizer codes turned out to carry no new content
 (10.5281/zenodo.21979060) — the pipeline that publishes corrections is the same pipeline that
@@ -46,7 +45,7 @@ published protocol with numeric predictions (10.5281/zenodo.22025544). Can I sen
 and the simulator?"
 
 ## Follow-up logistics
-- Handout (A4) carries all 9 DOIs + the test table.
+- The poster carries the DOIs and the test table; the repo has the full plan.
 - Repo: github.com/QNFO/cwi-qec-poster-2026 — full plan in docs/tree-code-roadmap.md.
 - After the event: log each conversation; prioritize Delfosse (IonQ, correlated-noise data) and
   Leverrier (Inria, decoder families); feed answers into the follow-up wave.
