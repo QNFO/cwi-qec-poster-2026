@@ -47,7 +47,7 @@ one parent, two children), so correction
 is built into the structure instead of applied from outside. Simulated thresholds: 50.0% bit-flip
 (4.6×), 75.0% depolarizing (75×), 17.30% X+Z — all classical, i.i.d., with the surface
 comparators at ~10.9% code-capacity and ~1.0% circuit-level. What's honest: no hardware yet;
-under independent errors the qudit family sits at ≈2×10⁻⁴, ~55× below surface — the claim lives
+under independent errors the qudit generalization sits at ≈2×10⁻⁴, ~55× below surface — the qubit claim lives
 in correlated-failure regimes, and T1 is the test that decides."
 
 ## What is [[3,1,1]]?
@@ -64,6 +64,13 @@ the claim; it has been verified in classical simulation — three methods, a dep
 script — not on hardware. Tests T1–T5 are exactly what would confirm or kill it, especially T1's
 matched-noise comparison and T2's decoder accounting. If you have a sharper way to state the
 mechanism, I'd like to hear it — that is ask #2 on the poster."
+
+## If asked "Why do you mention both qubits and qudits?"
+"The tree code is a qubit code — the [[3,1,1]] tensor has two-level legs, and every threshold in
+the table is a qubit number. The qudit mention is the published boundary: the higher-dimensional
+generalization of the same family was analyzed under independent errors and sits at ≈2×10⁻⁴,
+~55× below surface. I show it because it's the honest scope line — the advantage claim lives in
+correlated-failure regimes, not independent ones, and that's exactly what T1 tests."
 
 ## Follow-up logistics
 - The poster carries the DOIs and the test table; the repo has the full plan.
