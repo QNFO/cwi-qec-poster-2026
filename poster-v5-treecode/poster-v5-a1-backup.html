@@ -94,7 +94,7 @@
       <circle class="n" cx="50" cy="216" r="11"/><circle class="n" cx="110" cy="216" r="11"/><circle class="n" cx="135" cy="216" r="11"/>
       <circle class="n" cx="180" cy="216" r="11"/><circle class="n" cx="195" cy="216" r="11"/><circle class="n" cx="255" cy="216" r="11"/>
     </svg>
-    <div class="cap">The Bruhat–Tits tree T₂ — the geometry<br>behind the code. Every vertex carries<br>a [[3,1,1]] perfect tensor.</div>
+    <div class="cap">The Bruhat–Tits tree T₂ — the geometry<br>behind the code. Every internal vertex carries<br>a [[3,1,1]] perfect tensor.</div>
   </div>
   <div class="statuscol">
     <div class="stat"><b>Verified</b>
@@ -109,11 +109,13 @@
 </div>
 
 <h2 class="sec">The code and the numbers</h2>
-<p class="k">A holographic perfect-tensor code on a truncated Bruhat–Tits tree: logical information
-lives at the root, physical qubits at the leaves, and error correction is built into the geometry
-rather than applied by active measurement loops.</p>
+<p class="k">A holographic perfect-tensor code on a truncated Bruhat–Tits tree: a [[3,1,1]] perfect
+    tensor sits at every internal vertex; logical information lives at the root and physical qubits
+    at the leaves. Each block is a one-to-two-qubit isometry with distance d = 1 — protection
+    emerges from concatenation across the tree, not from any single block. Error correction is
+    built into the geometry rather than applied by active measurement loops.</p>
 <table>
-  <tr><th>Error model</th><th>Tree code</th><th>Surface code</th><th>Ratio</th></tr>
+  <tr><th>Error model (qubit, code-capacity)</th><th>Tree code</th><th>Surface code</th><th>Ratio</th></tr>
   <tr><td>Bit-flip</td><td class="num">50.0%</td><td>~10.9%</td><td>4.6×</td></tr>
   <tr><td>Depolarizing</td><td class="num">75.0%</td><td>~1.0%</td><td>75×</td></tr>
   <tr><td>Independent X+Z</td><td class="num">17.30%</td><td>—</td><td>—</td></tr>

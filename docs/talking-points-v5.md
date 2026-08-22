@@ -39,6 +39,31 @@ decoder family covering tree-structured codes, and how does its complexity scale
 published protocol with numeric predictions (10.5281/zenodo.22025544). Can I send you the protocol
 and the simulator?"
 
+## The tree code vs the surface code — in 30 seconds
+"Surface codes lay data qubits on a 2D lattice, measure syndromes, and let a classical decoder
+decide what to correct — a loop that costs hardware and energy. The tree code is a different
+geometry: a [[3,1,1]] perfect tensor at every internal vertex of a 3-regular tree, so correction
+is built into the structure instead of applied from outside. Simulated thresholds: 50.0% bit-flip
+(4.6×), 75.0% depolarizing (75×), 17.30% X+Z — all classical, i.i.d., with the surface
+comparators at ~10.9% code-capacity and ~1.0% circuit-level. What's honest: no hardware yet;
+under independent errors the qudit family sits at ≈2×10⁻⁴, ~55× below surface — the claim lives
+in correlated-failure regimes, and T1 is the test that decides."
+
+## What is [[3,1,1]]?
+"[[n,k,d]] is standard code notation: n physical qubits encoding k logical qubits with distance d.
+[[3,1,1]] means 3 physical qubits, 1 logical qubit, distance 1 — the minimal perfect tensor, a
+one-to-two-qubit isometry. Distance 1 means a single block does not correct errors by itself;
+the protection emerges from concatenating the blocks across the tree."
+
+## If asked "No measurement loop — so how is an error actually corrected?"
+"The honest answer: the mechanism is the perfect-tensor structure — each [[3,1,1]] block is an
+isometry from one qubit to two, and the tree concatenation makes the whole encoding holographic,
+so a local error in one leg is mapped onto the redundant structure rather than amplified. That is
+the claim; it has been verified in classical simulation — three methods, a deposited 35-check
+script — not on hardware. Tests T1–T5 are exactly what would confirm or kill it, especially T1's
+matched-noise comparison and T2's decoder accounting. If you have a sharper way to state the
+mechanism, I'd like to hear it — that is ask #2 on the poster."
+
 ## Follow-up logistics
 - The poster carries the DOIs and the test table; the repo has the full plan.
 - Repo: github.com/QNFO/cwi-qec-poster-2026 — full plan in docs/tree-code-roadmap.md.

@@ -50,8 +50,7 @@
 **THE poster (decided 2026-08-21): `poster-v5-treecode/poster-v5.pdf`** — "The Bruhat–Tits
 Tree Code — Status and Test Plan": legibility rework (2026-08-21: opens with WHY IT MATTERS — the surface-code overhead contrast,
 the 4.6–75× simulated threshold promise, the energy angle — then the code and numbers, status
-cards, the five tests with disconfirmation criteria, and the asks for the room; the tree appears
-as a text-free decorative motif).
+cards, the five tests with disconfirmation criteria, and the asks for the room; the tree appears as a motif with a one-line caption).
 Self-contained — **no handouts** (user decision: everything lives on the poster).
 TRUE A0 portrait, full-bleed, pixel-verified. A1 backup: `poster-v5-a1-backup.pdf` (for
 smaller boards).
