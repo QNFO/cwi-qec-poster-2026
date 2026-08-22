@@ -42,7 +42,8 @@ and the simulator?"
 ## The tree code vs the surface code — in 30 seconds
 "Surface codes lay data qubits on a 2D lattice, measure syndromes, and let a classical decoder
 decide what to correct — a loop that costs hardware and energy. The tree code is a different
-geometry: a [[3,1,1]] perfect tensor at every internal vertex of a 3-regular tree, so correction
+geometry: a [[3,1,1]] perfect tensor at every internal vertex of a 3-regular tree (each vertex:
+one parent, two children), so correction
 is built into the structure instead of applied from outside. Simulated thresholds: 50.0% bit-flip
 (4.6×), 75.0% depolarizing (75×), 17.30% X+Z — all classical, i.i.d., with the surface
 comparators at ~10.9% code-capacity and ~1.0% circuit-level. What's honest: no hardware yet;
