@@ -118,9 +118,9 @@
   <tr><th>Error model (qubit, code-capacity)</th><th>Tree code</th><th>Surface code</th><th>Ratio</th></tr>
   <tr><td>Bit-flip</td><td class="num">50.0%</td><td>~10.9%</td><td>4.6×</td></tr>
   <tr><td>Depolarizing</td><td class="num">75.0%</td><td>~1.0%</td><td>75×</td></tr>
-  <tr><td>Independent X+Z</td><td class="num">17.30%</td><td>—</td><td>—</td></tr>
+  <tr><td>Independent X+Z</td><td class="num">17.30%</td><td>~18.9%</td><td>0.92×</td></tr>
 </table>
-<p class="caveat">Classical simulation only: i.i.d. noise, crossing criterion; surface comparators
+<p class="caveat">Classical simulation only. Bit-flip and X+Z: i.i.d. noise, crossing criterion (the rate at which more levels stop helping) — and on X+Z the tree sits slightly below the toric code's ~18.9%. The depolarizing figure comes from the code's own structured-noise simulation; the channel is not yet published (roadmap D3), and T1 is the matched-noise comparison that settles it. Surface comparators
 are the standard published figures (bit-flip ~10.9% code-capacity, depolarizing ~1% circuit-level).
 No tree code has run on quantum hardware yet.</p>
 
@@ -165,7 +165,7 @@ No tree code has run on quantum hardware yet.</p>
 </div>
 
 <footer>
-  <b>All numbers are classical simulation</b> — i.i.d. noise, crossing criterion; nothing has run on
+  <b>All numbers are classical simulation</b> — bit-flip and X+Z under i.i.d. noise (crossing criterion); the depolarizing figure is the code's structured-noise simulation (channel pending — D3). Nothing has run on
   hardware yet. · DOIs (verified 21 Aug 2026): 10.5281/zenodo.20109836 (architecture) ·
   10.5281/zenodo.22038733 (guide + verification script) · 10.5281/zenodo.21046993 (qudit QEC) ·
   10.5281/zenodo.22025544 (trapped-ion testbed) · 10.5281/zenodo.21964674 (QEC–Darwinism audit) ·

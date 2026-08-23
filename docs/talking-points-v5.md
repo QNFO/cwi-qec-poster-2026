@@ -42,11 +42,12 @@ and the simulator?"
 ## The tree code vs the surface code — in 30 seconds
 "Surface codes lay data qubits on a 2D lattice, measure syndromes, and let a classical decoder
 decide what to correct — a loop that costs hardware and energy. The tree code is a different
-geometry: a [[3,1,1]] perfect tensor at every internal vertex of a 3-regular tree (each vertex:
-one parent, two children), so correction
+geometry: a [[3,1,1]] perfect tensor at every internal vertex of a 3-regular tree (each internal
+vertex: up to one parent, two children; the root has three children and nothing above it), so correction
 is built into the structure instead of applied from outside. Simulated thresholds: 50.0% bit-flip
-(4.6×), 75.0% depolarizing (75×), 17.30% X+Z — all classical, i.i.d., with the surface
-comparators at ~10.9% code-capacity and ~1.0% circuit-level. What's honest: no hardware yet;
+(4.6×), 75.0% depolarizing (75×), 17.30% X+Z — all classical simulation; bit-flip and X+Z are
+under i.i.d. noise, the 75% comes from the code's structured-noise model, and the surface
+comparators are ~10.9% code-capacity and ~1.0% circuit-level. What's honest: no hardware yet;
 under independent errors the qudit generalization sits at ≈2×10⁻⁴, ~55× below surface — the qubit claim lives
 in correlated-failure regimes, and T1 is the test that decides."
 
@@ -71,6 +72,15 @@ the table is a qubit number. The qudit mention is the published boundary: the hi
 generalization of the same family was analyzed under independent errors and sits at ≈2×10⁻⁴,
 ~55× below surface. I show it because it's the honest scope line — the advantage claim lives in
 correlated-failure regimes, not independent ones, and that's exactly what T1 tests."
+
+## If asked "Are the error models reasonable? Is 75% a real threshold?"
+"Bit-flip 50% is exact: the unstable fixed point of the majority recursion 3p² − 2p³ — the tree
+corrects X-errors up to exactly half, and I can show that arithmetic on the spot. X+Z 17.3% is
+honest: under independent X+Z the tree sits slightly below the toric code's ~18.9% — the poster
+says 0.92× rather than hiding it. The depolarizing 75% is the one I would challenge myself: it
+comes from the code's own structured-noise simulation, the channel is not yet pinned down
+(roadmap D3), and T1's matched-noise comparison is exactly what would collapse it to parity. I
+would rather show the caveat than defend a number I cannot."
 
 ## Follow-up logistics
 - The poster carries the DOIs and the test table; the repo has the full plan.
