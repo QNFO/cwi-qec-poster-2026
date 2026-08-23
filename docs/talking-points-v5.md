@@ -81,6 +81,37 @@ comes from the code's own structured-noise simulation, the channel is not yet pi
 (roadmap D3), and T1's matched-noise comparison is exactly what would collapse it to parity. I
 would rather show the caveat than defend a number I cannot."
 
+## If asked "What is the decoder / recovery map?"
+"Bit-flip: majority vote on each [[3,1,1]] block — that is why the 50% figure is exact arithmetic rather
+than a fitted number. For the full channels there is no published decoder yet: that is T2 and ask #2 on the
+poster, and it is the question I most want this room's answer to. If you know a decoder family that covers
+tree-structured codes, I would like the reference."
+
+## If asked "What are the full code's parameters — n, k, d, rate, scaling?"
+"The block is [[3,1,1]]: three physical qubits, one logical qubit, distance one. The full code is the
+concatenation of these blocks across the truncated tree; the guide record carries physical-qubit counts at
+distance-11-equivalent protection, and the complete parameterization — rate and distance as a function of
+depth — is exactly what tracks D1 and D3 formalize. I will not quote a scaling law I have not verified."
+
+## If asked "Where does the p-adic / Bruhat–Tits structure actually enter? Isn't this just a 3-regular tree?"
+"The tree T₂ is the geometry of the 2-adic numbers: a vertex's three branches are the divisibility-by-2
+hierarchy, and the distance between leaves is the p-adic valuation of their difference — the branching is
+p+1 = 3 for exactly this reason. The correction structure follows the ultrametric distance, which is where
+'built into the geometry' comes from. If the p-adic reading turns out to be relabeling, that is the kind of
+thing I have published before — the prime-valuation correction is on the poster."
+
+## If asked "How does this differ from HaPPY and other holographic tensor-network codes?"
+"Same building block — perfect tensors on a tree; HaPPY/PYHP use them for bulk-boundary duality with an
+erasure threshold around 50%. The difference is the claim: this work claims a threshold advantage under
+correlated noise, with the caveats on the poster, and the erasure analogy is exactly why the 75% figure
+deserves the scrutiny T1 gives it."
+
+## If asked "What is the QEC–Darwinism audit you cite?"
+"Maity et al. proved QEC and Quantum Darwinism cannot coexist above logical fidelity F_L ≈ 0.874. I ran the
+collective fragment refinement on tree-code spaces: the boundary moves to F_L ≈ 0.83–0.85, with a residual
+gap that does not close — an external no-go applied to my own geometry, and the residual is stated rather
+than smoothed over."
+
 ## Follow-up logistics
 - The poster carries the DOIs and the test table; the repo has the full plan.
 - Repo: github.com/QNFO/cwi-qec-poster-2026 — full plan in docs/tree-code-roadmap.md.

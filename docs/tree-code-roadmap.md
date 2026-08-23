@@ -12,7 +12,7 @@ presented at the CWI Summer School on Quantum Algorithms and QEC poster session
 
 | Item | Status | Evidence |
 |---|---|---|
-| Thresholds: bit-flip **50.0%** (4.6× surface ~10.9%), depolarizing **75.0%** (75× ~1.0%), independent X+Z **17.30%** | Computed by three independent classical methods (analytical recursion, exact Gottesman–Knill stabilizer simulation, Monte Carlo) and re-verified by a deposited 35-check script | 10.5281/zenodo.20109836 · 10.5281/zenodo.22038733 |
+| Thresholds: bit-flip **50.0%** (4.6× surface ~10.9%), depolarizing **75.0%** (75× ~1.0%), independent X+Z **17.30%** (0.92× vs toric ~18.9%) | Computed by three independent classical methods (analytical recursion, exact Gottesman–Knill stabilizer simulation, Monte Carlo) and re-verified by a deposited 35-check script | 10.5281/zenodo.20109836 · 10.5281/zenodo.22038733 |
 | Hardware demonstration | **None yet** — no tree code has run on quantum hardware | guide Ch.16, Objection 6 |
 | First falsifiable prediction (log-periodic oscillations in the CMB power spectrum) | **Tested — null.** No certified discrete-scale-invariance signal at any resolvable radix in Planck 2018 TT (bootstrap p = 0.89); bispectrum channel: upper bounds only (ε_p < 2.5 @ 95% CL) | 10.5281/zenodo.21902891 · 10.5281/zenodo.21901664 |
 | Independent-error boundary (qudit family) | ≈ 2.0×10⁻⁴, ~55× below surface-code threshold — the architectural claim targets the correlated-failure regime, not independent errors | 10.5281/zenodo.21046993 · 10.5281/zenodo.22025544 |
