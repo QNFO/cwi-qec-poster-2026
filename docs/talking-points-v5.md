@@ -47,8 +47,7 @@ vertex: up to one parent, two children; the root has three children and nothing 
 is built into the structure instead of applied from outside. Simulated thresholds: 50.0% bit-flip
 (4.6×), 75.0% depolarizing (75×), 17.30% X+Z — all classical simulation; bit-flip and X+Z are
 under i.i.d. noise, the 75% comes from the code's structured-noise model, and the surface
-comparators are ~10.9% code-capacity and ~1.0% circuit-level. What's honest: no hardware yet;
-under independent errors the qudit generalization sits at ≈2×10⁻⁴, ~55× below surface — the qubit claim lives
+comparators are ~10.9% code-capacity and ~1.0% circuit-level. No hardware yet; under independent errors the qudit generalization sits at ≈2×10⁻⁴, ~55× below surface — the qubit claim lives
 in correlated-failure regimes, and T1 is the test that decides."
 
 ## What is [[3,1,1]]?
@@ -58,7 +57,7 @@ one-to-two-qubit isometry. Distance 1 means a single block does not correct erro
 the protection emerges from concatenating the blocks across the tree."
 
 ## If asked "No measurement loop — so how is an error actually corrected?"
-"The honest answer: the mechanism is the perfect-tensor structure — each [[3,1,1]] block is an
+"The mechanism is the perfect-tensor structure — each [[3,1,1]] block is an
 isometry from one qubit to two, and the tree concatenation makes the whole encoding holographic,
 so a local error in one leg is mapped onto the redundant structure rather than amplified. That is
 the claim; it has been verified in classical simulation — three methods, a deposited 35-check
@@ -70,13 +69,13 @@ mechanism, I'd like to hear it — that is ask #2 on the poster."
 "The tree code is a qubit code — the [[3,1,1]] tensor has two-level legs, and every threshold in
 the table is a qubit number. The qudit mention is the published boundary: the higher-dimensional
 generalization of the same family was analyzed under independent errors and sits at ≈2×10⁻⁴,
-~55× below surface. I show it because it's the honest scope line — the advantage claim lives in
+~55× below surface. I show it because it is the scope line — the advantage claim lives in
 correlated-failure regimes, not independent ones, and that's exactly what T1 tests."
 
 ## If asked "Are the error models reasonable? Is 75% a real threshold?"
 "Bit-flip 50% is exact: the unstable fixed point of the majority recursion 3p² − 2p³ — the tree
-corrects X-errors up to exactly half, and I can show that arithmetic on the spot. X+Z 17.3% is
-honest: under independent X+Z the tree sits slightly below the toric code's ~18.9% — the poster
+corrects X-errors up to exactly half, and I can show that arithmetic on the spot. X+Z 17.3% is the
+straight comparison: under independent X+Z the tree sits slightly below the toric code's ~18.9% — the poster
 says 0.92× rather than hiding it. The depolarizing 75% is the one I would challenge myself: it
 comes from the code's own structured-noise simulation, the channel is not yet pinned down
 (roadmap D3), and T1's matched-noise comparison is exactly what would collapse it to parity. I
