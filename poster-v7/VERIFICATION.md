@@ -2,7 +2,7 @@
 
 **Title:** Things I Don't Understand About Quantum Error Correction
 **Subtitle:** Tree-based vs surface codes — the questions that only make sense inside the frame
-**Version:** v7 — naive audit, real unknowns, ZX bridge, 2026-08-24
+**Version:** v7.1 — standalone (no conversational framing); Q1 answered with the JPCUB computation (2026-08-24)
 **Event:** CWI Summer School on Quantum Algorithms & QEC · Poster session Wed 26 Aug 16:30–18:00
 
 ## User directives (2026-08-24, overnight revision 24→25 Aug per CWI Day-1 talks)

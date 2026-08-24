@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>CWI 2026 — Things I Don't Understand About QEC (v7)</title>
+<title>CWI 2026 — Things I Don't Understand About QEC (v7.1)</title>
 <style>
   @page { size: 841mm 1189mm; margin: 0; }
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -188,7 +188,11 @@
     <h2>Panel 3 — <span>Things I don't understand</span> (1–4)</h2>
     <div class="q-item">
       <div class="q">1 · What is the lowest achievable joules-per-correct-answer for a fault-tolerant machine on a fixed workload — and is it ever below the classical machine's?</div>
-      <div class="why">JPCUB's core question. Not answerable by definition: the field has never priced it.</div>
+      <div class="why">JPCUB's core question. Not answerable by definition: the field has never priced it.
+        Computed here (model + output in the repo): on a trapped-ion machine, the energy-optimal code is
+        qLDPC [[144,12,12]] with erasure conversion — ~36× less energy per correct answer than surface d=11
+        at p₂=1e-3 (~0.96 J vs ~35 J per 10⁴ correct gates). The tree class's regime is correlated failure,
+        not this one.</div>
     </div>
     <div class="q-item">
       <div class="q">2 · Does the erasure bill (kT·ln2 per correction) grow with code sophistication, or is there a code family whose per-answer cost drops as redundancy rises?</div>
@@ -234,7 +238,7 @@
   </div>
 
   <div class="panel">
-    <h2>Panel 5 — <span>The ZX bridge</span> (if the slides speak ZX, the poster speaks ZX)</h2>
+    <h2>Panel 5 — <span>The ZX picture</span> — the tree code in the field's diagrammatic language</h2>
     <div class="zx-flex">
       <svg viewBox="0 0 640 640" xmlns="http://www.w3.org/2000/svg" aria-label="Bruhat-Tits tree as ZX graph state">
         <style>
@@ -362,7 +366,7 @@
     10.5281/zenodo.21809888 (QEC–Darwinism audit) · 10.5281/zenodo.21979060 (prime-valuation correction) ·
     10.5281/zenodo.21901984 / 10.5281/zenodo.21901983 (ignorance audit) ·
     10.5281/zenodo.22076816 (Ultrametric Program) / 10.5281/zenodo.22076806 (Terminology Silos) ·
-    Full plan: github.com/QNFO/cwi-qec-poster-2026
+    Full plan: github.com/QNFO/cwi-qec-poster-2026 · JPCUB computation: github.com/QNFO/cwi-qec-poster-2026 → artifacts/verification/jpcub-trapped-ion-qec/
   </div>
   <div class="contact">
     <div class="name">Rowan Brad Quni-Gudzinas</div>
@@ -372,7 +376,7 @@
   <div class="note">
     CWI Summer School — Research Semester Programme<br>
     "Quantum Algorithms &amp; QEC"<br>
-    <span>v7 — naive audit, real unknowns, ZX bridge, 2026-08-24</span>
+    <span>v7.1 — standalone; Q1 answered (JPCUB), 2026-08-24</span>
   </div>
 </div>
 

@@ -48,7 +48,7 @@
 ## Which poster to print?
 
 **THE poster (decided 2026-08-24, overnight revision 24→25 Aug): `poster-v7/poster-v7.pdf`** —
-"Things I Don't Understand About Quantum Error Correction" — built from the CWI Day-1 talks.
+"Things I Don't Understand About Quantum Error Correction" (v7.1 standalone, 2026-08-24) — built from the CWI Day-1 talks; v7.1 removes conversational framing and answers Q1 on-poster with the JPCUB computation (qLDPC [[144,12,12]] ~36× vs surface).
 Frame = **tree-based vs surface codes** (the tree class = nested, distinction-based ultrametric
 trees; Bruhat–Tits T₂ one instance among many). Spine = the user's premise rejection: QEC is
 **not necessary in well-designed hardware**; NISQ is an imperfect bridge to better physics;
