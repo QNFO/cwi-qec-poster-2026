@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>CWI 2026 — Things I Don't Understand About QEC (v7)</title>
+<style>
+  @page { size: 841mm 1189mm; margin: 0; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 841mm; height: 1189mm; }
+  body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background: #ffffff;
+    color: #2d3436;
+    overflow: hidden;
+    display: grid;
+    grid-template-rows: 118mm minmax(0,1fr) minmax(0,1fr) minmax(0,1fr) 58mm;
+    grid-template-areas:
+      "header"
+      "main"
+      "main"
+      "main"
+      "footer";
+  }
+
+  /* ── HEADER ── */
+  .header {
+    grid-area: header;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    color: white;
+    display: flex; flex-direction: column; justify-content: center; align-items: center;
+    padding: 8mm 30mm;
+  }
+  .header h1 { font-size: 40pt; font-weight: 800; letter-spacing: 0.4pt; text-align: center; line-height: 1.14; }
+  .header h1 .accent { color: #e17055; }
+  .header .subtitle { font-size: 18.5pt; color: #b2bec3; text-align: center; margin-top: 4mm; font-style: italic; }
+  .header .event-line { font-size: 12pt; color: #8a95a5; text-align: center; margin-top: 3.5mm; line-height: 1.5; }
+  .header .event-line strong { color: #dfe6e9; }
+
+  /* ── PANELS ── */
+  .main { grid-area: main; display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr 1fr; gap: 6mm; padding: 8mm 16mm; }
+  .panel { border: 1pt solid #dfe6e9; border-radius: 8pt; padding: 6.5mm 8.5mm; overflow: hidden; display: flex; flex-direction: column; justify-content: space-between; }
+  .panel h2 { font-size: 24pt; font-weight: 700; color: #1a1a2e; margin-bottom: 3mm; flex: none; }
+  .panel h2 span { color: #6c5ce7; }
+  .panel p, .panel li { font-size: 14.5pt; line-height: 1.46; margin-bottom: 2.2mm; }
+  .panel ul, .panel ol { padding-left: 7mm; margin-bottom: 2.4mm; }
+
+  .q-item { margin-bottom: 3mm; }
+  .q-item .q { font-weight: 800; color: #1a1a2e; font-size: 16pt; }
+  .q-item .why { font-size: 12.5pt; color: #636e72; margin-top: 0.5mm; line-height: 1.4; }
+
+  .seam-box {
+    background: #fff5f3; border-left: 5pt solid #e17055; border-radius: 0 5pt 5pt 0;
+    padding: 3.2mm 4.2mm; font-size: 13.5pt; line-height: 1.44; margin-top: 2.4mm;
+  }
+  .blue-box {
+    background: #f0f5ff; border-left: 5pt solid #6c5ce7; border-radius: 0 5pt 5pt 0;
+    padding: 3.2mm 4.2mm; font-size: 13.5pt; line-height: 1.44; margin-top: 2.4mm;
+  }
+  .dark-box {
+    background: #1a1a2e; color: #ffffff; border-radius: 6pt;
+    padding: 4.2mm 5.2mm; font-size: 15pt; line-height: 1.46; margin-bottom: 2.8mm;
+  }
+  .dark-box b { color: #a29bfe; }
+
+  table { border-collapse: collapse; width: 100%; font-size: 12pt; margin: 2.2mm 0 2.6mm; }
+  th, td { border: 0.5pt solid #dfe6e9; padding: 1.5mm 2.6mm; text-align: left; vertical-align: top; }
+  th { background: #f8f9fa; color: #1a1a2e; font-weight: 700; }
+  td.num { font-weight: 700; color: #e17055; }
+
+  .comp-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5mm; align-items: start; }
+  .comp-left { display: flex; flex-direction: column; align-items: center; }
+  .comp-left svg { width: 48mm; height: auto; }
+  .comp-left .cap { font-size: 11pt; color: #636e72; margin-top: 0.9mm; margin-bottom: 1.8mm; line-height: 1.32; text-align: center; }
+  .comp-left p { font-size: 13pt; line-height: 1.44; margin-bottom: 1.8mm; text-align: left; }
+  .comp-right { display: flex; flex-direction: column; }
+
+  .zx-flex { display: flex; gap: 6mm; align-items: flex-start; }
+  .zx-flex svg { flex: 0 0 92mm; width: 92mm; height: auto; }
+  .zx-terms { flex: 1; }
+  .term { margin-bottom: 2mm; }
+  .term .t { font-weight: 700; color: #1a1a2e; }
+  .term .d { font-size: 12pt; color: #4a5163; margin-top: 0.3mm; line-height: 1.4; }
+
+  .vocab { display: flex; gap: 4mm; margin-top: 2.2mm; }
+  .vocab div { flex: 1; background: #f8f9fa; border: 0.5pt solid #dfe6e9; border-radius: 4pt; padding: 2.2mm 2.8mm; font-size: 11pt; line-height: 1.38; }
+  .vocab b { color: #6c5ce7; }
+
+  .ask-line { font-size: 13.5pt; line-height: 1.44; margin-bottom: 2mm; padding-left: 4mm; border-left: 2pt solid #6c5ce7; }
+
+  .closer {
+    background: #fff5f3; border: 1.5pt solid #e17055; border-radius: 6pt;
+    padding: 3.6mm 4.6mm; font-size: 16pt; font-weight: 800; color: #1a1a2e; line-height: 1.4;
+    margin-top: 2.6mm;
+  }
+
+  /* ── FOOTER ── */
+  .footer {
+    grid-area: footer;
+    background: #f8f9fa; border-top: 1.5pt solid #dfe6e9;
+    display: grid; grid-template-columns: 1.7fr 1fr 1fr; align-items: center;
+    padding: 5mm 18mm; font-size: 10.5pt; color: #636e72;
+  }
+  .footer .refs { line-height: 1.5; }
+  .footer .refs strong { color: #2d3436; }
+  .footer .contact { text-align: center; }
+  .footer .contact .name { font-size: 13pt; font-weight: 700; color: #2d3436; }
+  .footer .note { text-align: right; font-size: 11pt; font-weight: 700; color: #e17055; }
+  .footer .note span { font-weight: 400; color: #636e72; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>Things I Don't Understand About <span class="accent">Quantum Error Correction</span></h1>
+  <div class="subtitle">Tree-based vs surface codes — the questions that only make sense inside the frame</div>
+  <div class="event-line">
+    <strong>CWI Summer School on Quantum Algorithms &amp; Quantum Error Correction</strong> · 24–28 August 2026 ·<br>
+    Poster Session: Wed 26 Aug, 16:30–18:00 · Rowan Brad Quni-Gudzinas · QNFO
+  </div>
+</div>
+
+<div class="main">
+
+  <div class="panel">
+    <h2>Panel 1 — <span>The premise I reject</span></h2>
+    <p><strong>QEC is not necessary in well-designed hardware.</strong> Nature runs uncorrected, robust
+      quantum processes — photosynthesis, magnetoreception — with no correction scaffold at all. The
+      correction burden is a design choice, priced by the physical cost of the machine you built.</p>
+    <p><strong>NISQ is an imperfect bridge to better physics.</strong> Even on the bridge, there are better
+      QEC options than surface codes — tree-based codes are one. The hierarchy I am testing:</p>
+    <ul>
+      <li><strong>Punch-card era:</strong> bug-fix; correction collapses as reliability improves.</li>
+      <li><strong>Active QEC:</strong> surface / LDPC — the correction loop on noisy hardware.</li>
+      <li><strong>Tree-based class:</strong> nested, distinction-based ultrametric trees — structural
+        protection, no active loop (Bruhat–Tits T₂ one instance among many).</li>
+      <li><strong>Topological:</strong> TQC — protection designed into the topology, not applied.</li>
+    </ul>
+    <div class="seam-box"><strong>The spine:</strong> "Don't mistake physics for algorithm." The fragility of
+      the substrate is fixed; the code architecture is a free choice. TQC does not improve the physics — it
+      changes the math. So does the tree class.</div>
+  </div>
+
+  <div class="panel">
+    <h2>Panel 2 — <span>The comparison</span>: tree-based vs surface codes</h2>
+    <div class="comp-grid">
+      <div class="comp-left">
+        <svg viewBox="0 0 150 150" xmlns="http://www.w3.org/2000/svg" aria-label="Tree motif: a nested distinction tree">
+          <defs><style>.e{stroke:#0e5f6b;stroke-width:2.2;fill:none}.n{fill:#ffffff;stroke:#0e5f6b;stroke-width:2.2}.r{fill:#0e5f6b}</style></defs>
+          <g class="e">
+            <line x1="75" y1="18" x2="45" y2="62"/><line x1="75" y1="18" x2="75" y2="62"/><line x1="75" y1="18" x2="105" y2="62"/>
+            <line x1="45" y1="62" x2="22" y2="106"/><line x1="45" y1="62" x2="55" y2="106"/>
+            <line x1="75" y1="62" x2="66" y2="106"/><line x1="75" y1="62" x2="90" y2="106"/>
+            <line x1="105" y1="62" x2="99" y2="106"/><line x1="105" y1="62" x2="130" y2="106"/>
+          </g>
+          <circle class="r" cx="75" cy="18" r="7"/>
+          <circle class="n" cx="45" cy="62" r="6"/><circle class="n" cx="75" cy="62" r="6"/><circle class="n" cx="105" cy="62" r="6"/>
+          <circle class="n" cx="22" cy="106" r="5"/><circle class="n" cx="55" cy="106" r="5"/><circle class="n" cx="66" cy="106" r="5"/>
+          <circle class="n" cx="90" cy="106" r="5"/><circle class="n" cx="99" cy="106" r="5"/><circle class="n" cx="130" cy="106" r="5"/>
+        </svg>
+        <div class="cap">One instance of the class: the Bruhat–Tits tree T₂.<br>The class: nested, distinction-based ultrametric trees.</div>
+        <p><strong>Surface codes (the standard):</strong> 2D lattice; active syndrome measurement; classical
+          decoder; local stabilizers; MWPM over Euclidean distances; d ~ √N; proven threshold ~1%; cheap
+          parallel decode; ~10³–10⁴ physical qubits per logical.</p>
+        <p><strong>Tree-based codes (the alternative):</strong> hierarchical, nonlocal, recursive; nested
+          distinction-based structures; BP+OSD decode level-by-level; constant rate with d linear in N;
+          no proven threshold yet; needs high-degree / long-range connectivity.</p>
+        <p><strong>All numbers are classical simulation.</strong> No tree code has run on hardware.</p>
+      </div>
+      <div class="comp-right">
+        <table>
+          <tr><th>Error model (qubit, code-capacity)</th><th>Tree</th><th>Surface</th><th>Ratio</th></tr>
+          <tr><td>Bit-flip</td><td class="num">50.0%</td><td>~10.9%</td><td>4.6×</td></tr>
+          <tr><td>Depolarizing</td><td class="num">75.0%</td><td>~1.0%</td><td>75×</td></tr>
+          <tr><td>Independent X+Z</td><td class="num">17.30%</td><td>~18.9%</td><td>0.92×</td></tr>
+        </table>
+        <p style="font-size:11pt;color:#636e72;line-height:1.4;">Depolarizing uses the code's structured-noise
+          channel (not yet published); surface comparators are standard published figures. Under independent
+          errors the qudit generalization sits at ≈2×10⁻⁴ — about 55× below surface codes; the qubit claim
+          targets correlated-failure regimes.</p>
+        <div class="blue-box"><strong>Bound (Tanner counting):</strong> rate ≥ 1 − δb/δc — high-degree
+          hierarchical graphs (the tree class) carry the rate that flat lattices cannot. The open question:
+          does hierarchical decoding amortize better than the √N blow-up of surface codes?</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="panel">
+    <h2>Panel 3 — <span>Things I don't understand</span> (1–4)</h2>
+    <div class="q-item">
+      <div class="q">1 · What is the lowest achievable joules-per-correct-answer for a fault-tolerant machine on a fixed workload — and is it ever below the classical machine's?</div>
+      <div class="why">JPCUB's core question. Not answerable by definition: the field has never priced it.</div>
+    </div>
+    <div class="q-item">
+      <div class="q">2 · Does the erasure bill (kT·ln2 per correction) grow with code sophistication, or is there a code family whose per-answer cost drops as redundancy rises?</div>
+      <div class="why">Every syndrome reset and ancilla re-init is a Landauer erasure. More redundancy = more
+        erasure — unless structure replaces erasure. I cannot find the erasure bill priced anywhere.</div>
+    </div>
+    <div class="q-item">
+      <div class="q">3 · Is there a code whose correction overhead vanishes as the hierarchy deepens — does structural protection converge to nature's zero-correction regime, or is there a floor?</div>
+      <div class="why">Photosynthesis and magnetoreception run robust quantum processes with no correction
+        scaffold. The floor, if any, is a thermodynamic fact; I have not seen it measured.</div>
+    </div>
+    <div class="q-item">
+      <div class="q">4 · Are tree-structured / ultrametric codes a provably different complexity class of decoding (hierarchical vs metric-matching), or merely a relabeling of LDPC?</div>
+      <div class="why">BP+OSD on a tree is recursive; MWPM on a surface is metric. "Provably different" would
+        be a structural fact about the code class — not a relabeling.</div>
+    </div>
+  </div>
+
+  <div class="panel">
+    <h2>Panel 4 — <span>Things I don't understand</span> (5–8)</h2>
+    <div class="q-item">
+      <div class="q">5 · Which quantum behaviors are substrate-intrinsic (cannot be engineered away) vs algorithm-chosen (designable)? What is the limit of structure-provided protection?</div>
+      <div class="why">TQC proves topology helps. The limit of structure-provided protection is the boundary
+        between physics and algorithm — nobody draws it.</div>
+    </div>
+    <div class="q-item">
+      <div class="q">6 · Is there a quantum speedup that no classical algorithm can match, independent of hardware — or is "quantum advantage" hostage to a classical-computing model that has never been interrogated?</div>
+      <div class="why">The bit is a lossy quantization. If the classical model is itself a choice, the
+        comparison is a comparison of two choices, not of a machine against a law.</div>
+    </div>
+    <div class="q-item">
+      <div class="q">7 · What does it cost to measure the syndrome itself — the observer is inside the code?</div>
+      <div class="why">Nobody prices the measurement scaffold's own energy. "Reality is a syndrome; we probe
+        it, we never read it directly" — the observer is a node in the code.</div>
+    </div>
+    <div class="q-item">
+      <div class="q">8 · Does "quantum" survive an intrinsic definition — not "not-classical", not "tensor of bits"? What is a quantum system in itself?</div>
+      <div class="why">Every definition in the room was circular. The field's identity is definitionally
+        unsettled — that is data, not a deficit.</div>
+    </div>
+    <div class="seam-box"><strong>The test for a real unknown:</strong> if the answer were either value, the
+      field's behavior would have to change. A tautology's answer changes nothing.</div>
+  </div>
+
+  <div class="panel">
+    <h2>Panel 5 — <span>The ZX bridge</span> (if the slides speak ZX, the poster speaks ZX)</h2>
+    <div class="zx-flex">
+      <svg viewBox="0 0 640 640" xmlns="http://www.w3.org/2000/svg" aria-label="Bruhat-Tits tree as ZX graph state">
+        <style>
+          .spider { fill: #2ecc71; stroke: #1a1a2e; stroke-width: 3; }
+          .hbox   { fill: #f1c40f; stroke: #1a1a2e; stroke-width: 3; }
+          .wire   { stroke: #2d3436; stroke-width: 2.5; fill: none; }
+          .ring   { stroke: #95a5a6; stroke-width: 1.5; stroke-dasharray: 6 4; fill: none; }
+        </style>
+        <circle class="ring" cx="320" cy="320" r="130"/>
+        <circle class="ring" cx="320" cy="320" r="225"/>
+        <circle class="ring" cx="320" cy="320" r="320"/>
+        <line class="wire" x1="320" y1="320" x2="367" y2="305"/>
+        <rect class="hbox" x="335" y="298" width="14" height="14" rx="2"/>
+        <line class="wire" x1="320" y1="320" x2="296" y2="279"/>
+        <rect class="hbox" x="294" y="284" width="14" height="14" rx="2"/>
+        <line class="wire" x1="320" y1="320" x2="296" y2="361"/>
+        <rect class="hbox" x="294" y="352" width="14" height="14" rx="2"/>
+        <line class="wire" x1="415" y1="320" x2="450" y2="272"/>
+        <rect class="hbox" x="426" y="282" width="14" height="14" rx="2"/>
+        <line class="wire" x1="415" y1="320" x2="450" y2="368"/>
+        <rect class="hbox" x="426" y="350" width="14" height="14" rx="2"/>
+        <line class="wire" x1="272.5" y1="237.7" x2="296" y2="184"/>
+        <rect class="hbox" x="278" y="196" width="14" height="14" rx="2"/>
+        <line class="wire" x1="272.5" y1="237.7" x2="213" y2="252"/>
+        <rect class="hbox" x="230" y="230" width="14" height="14" rx="2"/>
+        <line class="wire" x1="272.5" y1="402.3" x2="213" y2="388"/>
+        <rect class="hbox" x="230" y="382" width="14" height="14" rx="2"/>
+        <line class="wire" x1="272.5" y1="402.3" x2="296" y2="456"/>
+        <rect class="hbox" x="278" y="440" width="14" height="14" rx="2"/>
+        <line class="wire" x1="484.5" y1="225" x2="525" y2="161"/>
+        <rect class="hbox" x="500" y="178" width="14" height="14" rx="2"/>
+        <line class="wire" x1="484.5" y1="225" x2="552" y2="272"/>
+        <rect class="hbox" x="516" y="238" width="14" height="14" rx="2"/>
+        <line class="wire" x1="484.5" y1="415" x2="525" y2="479"/>
+        <rect class="hbox" x="500" y="440" width="14" height="14" rx="2"/>
+        <line class="wire" x1="484.5" y1="415" x2="552" y2="368"/>
+        <rect class="hbox" x="516" y="382" width="14" height="14" rx="2"/>
+        <line class="wire" x1="320" y1="130" x2="362" y2="86"/>
+        <rect class="hbox" x="336" y="88" width="14" height="14" rx="2"/>
+        <line class="wire" x1="320" y1="130" x2="278" y2="86"/>
+        <rect class="hbox" x="286" y="88" width="14" height="14" rx="2"/>
+        <line class="wire" x1="155.5" y1="225" x2="115" y2="161"/>
+        <rect class="hbox" x="128" y="178" width="14" height="14" rx="2"/>
+        <line class="wire" x1="155.5" y1="225" x2="88" y2="272"/>
+        <rect class="hbox" x="110" y="238" width="14" height="14" rx="2"/>
+        <line class="wire" x1="155.5" y1="415" x2="88" y2="368"/>
+        <rect class="hbox" x="110" y="382" width="14" height="14" rx="2"/>
+        <line class="wire" x1="155.5" y1="415" x2="115" y2="479"/>
+        <rect class="hbox" x="128" y="440" width="14" height="14" rx="2"/>
+        <line class="wire" x1="320" y1="510" x2="278" y2="554"/>
+        <rect class="hbox" x="286" y="532" width="14" height="14" rx="2"/>
+        <line class="wire" x1="320" y1="510" x2="362" y2="554"/>
+        <rect class="hbox" x="336" y="532" width="14" height="14" rx="2"/>
+        <circle class="spider" cx="320" cy="320" r="16"/>
+        <circle class="spider" cx="415" cy="320" r="12"/>
+        <circle class="spider" cx="272.5" cy="237.7" r="12"/>
+        <circle class="spider" cx="272.5" cy="402.3" r="12"/>
+        <circle class="spider" cx="484.5" cy="225" r="10"/>
+        <circle class="spider" cx="484.5" cy="415" r="10"/>
+        <circle class="spider" cx="320" cy="130" r="10"/>
+        <circle class="spider" cx="320" cy="510" r="10"/>
+        <circle class="spider" cx="155.5" cy="225" r="10"/>
+        <circle class="spider" cx="155.5" cy="415" r="10"/>
+        <circle class="spider" cx="525" cy="161" r="8"/>
+        <circle class="spider" cx="552" cy="272" r="8"/>
+        <circle class="spider" cx="525" cy="479" r="8"/>
+        <circle class="spider" cx="552" cy="368" r="8"/>
+        <circle class="spider" cx="362" cy="86" r="8"/>
+        <circle class="spider" cx="278" cy="86" r="8"/>
+        <circle class="spider" cx="115" cy="161" r="8"/>
+        <circle class="spider" cx="88" cy="272" r="8"/>
+        <circle class="spider" cx="88" cy="368" r="8"/>
+        <circle class="spider" cx="115" cy="479" r="8"/>
+        <circle class="spider" cx="278" cy="554" r="8"/>
+        <circle class="spider" cx="362" cy="554" r="8"/>
+      </svg>
+      <div class="zx-terms">
+        <div class="term"><span class="t">Spiders — the atom.</span>
+          <div class="d">Green = Z-basis copy/merge; red = X-basis. In the graph-state convention: green
+            spider (0 in, 1 out) = |+⟩; yellow H-box (2 in, 2 out) = CZ = the edge.</div></div>
+        <div class="term"><span class="t">Pauli webs — the stabilizers, read off the diagram.</span>
+          <div class="d">A connected sub-diagram that evaluates to a Pauli operator. The code's stabilizers
+            and logical operators are paths through the spider web.</div></div>
+        <div class="term"><span class="t">Gadgets — the field's cost unit.</span>
+          <div class="d">Phase/Pauli gadgets e^{iαP}; T-count optimization is gadgetization — the algebraic
+            cousin of an energy cost. This poster prices the thermodynamic one.</div></div>
+      </div>
+    </div>
+    <div class="vocab">
+      <div><b>Codeword</b> — the protected state; the map the code guards.</div>
+      <div><b>Syndrome</b> — the symptom pattern; a probe that never reveals the state itself.</div>
+      <div><b>Tree-structured code</b> — a nested-ball / ultrametric hierarchy with hierarchical decoding.</div>
+    </div>
+  </div>
+
+  <div class="panel">
+    <h2>Panel 6 — <span>What would change my mind</span></h2>
+    <div class="dark-box"><b>The erasure engine:</b> "Error correction is a Landauer machine: every
+      correction erases information and pays kT·ln2. Nature's uncorrected quantum processes avoid the
+      erasure bill entirely — structure instead of erasure. JPCUB prices the difference."</div>
+    <div class="ask-line"><strong>A matched-noise comparison:</strong> the tree family vs a surface code under
+      the same correlated-noise model, in classical simulation. If the advantage falls to parity, the
+      comparison on this poster is answered.</div>
+    <div class="ask-line"><strong>A decoder reality check:</strong> does a known decoder family already cover
+      tree-structured codes, and how does its complexity scale?</div>
+    <div class="ask-line"><strong>An independent re-run:</strong> the simulator and the protocol are handed
+      over to anyone who wants to run the comparison themselves.</div>
+    <div class="ask-line"><strong>The classical test, today:</strong> these codes already guard your flash RAM
+      (NAND P/E wear is a physical cost). A tree-structured nested-ball code guarding flash better and
+      cheaper is falsifiable now — no quantum hardware needed. JPCUB is general, not quantum-only.</div>
+    <div class="blue-box"><strong>Numeric criteria:</strong> matched-noise parity ⇒ the advantage claim is
+      withdrawn · a decoder that already covers trees ⇒ ask 2 answered · an independent re-run that fails ⇒
+      the simulation claim is withdrawn. Every criterion is stated with its number.</div>
+    <div class="closer">"We compute on discrete matrices yet insist reality is a continuous Hilbert space.
+      Which is the real model?"</div>
+  </div>
+
+</div>
+
+<div class="footer">
+  <div class="refs">
+    <strong>References (verified 2026-08-24)</strong><br>
+    10.5281/zenodo.20109836 (architecture) · 10.5281/zenodo.22038733 (guide + verification script) ·
+    10.5281/zenodo.21046993 (qudit QEC) · 10.5281/zenodo.22025544 (trapped-ion testbed) ·
+    10.5281/zenodo.21809888 (QEC–Darwinism audit) · 10.5281/zenodo.21979060 (prime-valuation correction) ·
+    10.5281/zenodo.21901984 / 10.5281/zenodo.21901983 (ignorance audit) ·
+    10.5281/zenodo.22076816 (Ultrametric Program) / 10.5281/zenodo.22076806 (Terminology Silos) ·
+    Full plan: github.com/QNFO/cwi-qec-poster-2026
+  </div>
+  <div class="contact">
+    <div class="name">Rowan Brad Quni-Gudzinas</div>
+    QNFO<br>
+    papers.qnfo.org · zenodo.org/communities/qnfo
+  </div>
+  <div class="note">
+    CWI Summer School — Research Semester Programme<br>
+    "Quantum Algorithms &amp; QEC"<br>
+    <span>v7 — naive audit, real unknowns, ZX bridge, 2026-08-24</span>
+  </div>
+</div>
+
+</body>
+</html>

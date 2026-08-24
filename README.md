@@ -47,19 +47,25 @@
 
 ## Which poster to print?
 
-**THE poster (decided 2026-08-24): `poster-v6/poster-v6.pdf`** — "Things I Don't Understand
-About Quantum Error Correction" — complete overhaul per user directive 2026-08-24: back to the
-naive-audit framing, rebuilt around **tree-based vs surface codes** (the tree class = nested,
-distinction-based ultrametric trees; Bruhat–Tits T₂ is one instance, not the concept). Eight
-sharp, pointed frame-probe questions — each stated with "Outside the frame: …" (where it makes
-no sense) and "Inside, the answer is a definition: …" (the tautology the frame answers with).
-Panels: why this poster exists + method · tree-vs-surface comparison with the verified numbers
-table · questions 1–4 · questions 5–8 · what would change my mind (numeric criteria) · statement,
-caption, 6 seams. TRUE A0 portrait, full-bleed, pixel-verified (content to 1173 mm, bottom margin
-15.6 mm), 0 U+FFFD, all 6 panels zero overflow. Self-contained — **no handouts** (user decision).
-Supersedes v5 (2026-08-21 decision).
+**THE poster (decided 2026-08-24, overnight revision 24→25 Aug): `poster-v7/poster-v7.pdf`** —
+"Things I Don't Understand About Quantum Error Correction" — built from the CWI Day-1 talks.
+Frame = **tree-based vs surface codes** (the tree class = nested, distinction-based ultrametric
+trees; Bruhat–Tits T₂ one instance among many). Spine = the user's premise rejection: QEC is
+**not necessary in well-designed hardware**; NISQ is an imperfect bridge to better physics;
+even on the bridge, better QEC options exist. Eight **real-unknown questions** (joules-per-
+correct-answer, the Landauer erasure bill, vanishing-overhead codes, decoding complexity
+class, substrate-intrinsic vs algorithm-chosen, model-free quantum speedup, syndrome
+measurement cost, intrinsic definition of "quantum") + the discreteness closer ("We compute
+on discrete matrices yet insist reality is a continuous Hilbert space. Which is the real
+model?"). **ZX bridge panel** (fig4: the tree as a ZX graph state — 22 spiders, 21 H-boxes —
+plus spiders/Pauli-webs/gadgets vocabulary, so the poster speaks the language of the slides).
+TRUE A0 portrait, full-bleed, pixel-verified (content to 1171 mm, bottom margin 18.3 mm),
+0 U+FFFD, all 6 panels zero overflow. Self-contained — **no handouts** (user decision).
+Supersedes v6 (2026-08-24 morning).
 
 Alternates (kept as A0 PDFs if wanted):
+- **poster-v6/poster-v6.pdf** — "Things I Don't Understand About QEC" (naive audit with the
+  8 frame-probe outside-the-frame/inside-the-definition questions; superseded by v7).
 - **poster-v5-treecode/poster-v5.pdf** — "The Bruhat–Tits Tree Code — Status and Test Plan"
   (previous THE poster; testing roadmap T1–T5, 6 DOIs).
 - **poster-v4-nozx/poster-v4-nozx.pdf** — "Things I Don't Understand About QEC" (naive audit
