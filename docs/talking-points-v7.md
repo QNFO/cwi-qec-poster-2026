@@ -99,3 +99,26 @@ correlated regime only) — exactly the poster's Q1 number and Q4's LDPC-class a
 If asked "which code is most efficient for your trap?", the honest answer is qLDPC-family,
 not the tree class — under independent noise; the tree class enters via correlated-failure
 regimes and T-factory (foliated/treelike distillation) layers.
+
+## Winning the award — judge-targeted engagement (2026-08-24)
+
+The award is decided during Wed 26 Aug 16:30–18:00 (Thu 08:50 is the announcement). The
+judges are the lecturers; each has ONE question on the poster only they can answer.
+
+- **Delfosse (IonQ)** — primary target; his slides speak ZX, the poster speaks ZX.
+  Hook: "Your lecture drew ZX graphs; this poster draws the tree code as a ZX graph
+  state — 22 spiders, 21 H-boxes, p=2, 3-regular." Then Q4. Then the trump card:
+  "I priced your platform — energy per correct answer: qLDPC [[144,12,12]] ~36× cheaper
+  than surface d=11 at p2=1e-3 (~0.96 J vs ~35 J per 10^4 correct gates). Want the model?"
+  (artifacts/verification/jpcub-trapped-ion-qec/, commit 117171d)
+- **Leverrier (Inria)** — qLDPC authority. Hook: the Tanner bound (rate >= 1 - db/dc)
+  + Q4. Let him argue tree-vs-LDPC — that IS the conversation.
+- **Nayak (IQC)** — complexity. Hook: Q6 (model-free quantum speedup). If he dismantles
+  it, the numeric disconfirmation criteria make that a win, not a loss.
+- **Gilyen (Renyi)** — algorithms. Hook: Q2 (erasure bill) or Q8 (intrinsic quantum);
+  the discreteness closer is the memorable exit.
+
+Mechanics: stand, don't sit; greet first; ask their research before pitching; one
+question per visitor; never argue ("correct me, and the poster has done its job");
+exit line: "Can I follow up by email?"; no handouts. The 30-second version must land:
+premise rejection + one sharp question + the ZX bridge.
