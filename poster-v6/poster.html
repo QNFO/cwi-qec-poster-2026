@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>CWI 2026 — Things I Don't Understand About QEC (v6)</title>
+<style>
+  @page { size: 841mm 1189mm; margin: 0; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 841mm; height: 1189mm; }
+  body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background: #ffffff;
+    color: #2d3436;
+    overflow: hidden;
+    display: grid;
+    grid-template-rows: 118mm minmax(0,1fr) minmax(0,1fr) minmax(0,1fr) 58mm;
+    grid-template-areas:
+      "header"
+      "main"
+      "main"
+      "main"
+      "footer";
+  }
+
+  /* ── HEADER ── */
+  .header {
+    grid-area: header;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    color: white;
+    display: flex; flex-direction: column; justify-content: center; align-items: center;
+    padding: 8mm 30mm;
+  }
+  .header h1 { font-size: 50pt; font-weight: 800; letter-spacing: 0.4pt; text-align: center; line-height: 1.14; }
+  .header h1 .accent { color: #e17055; }
+  .header .subtitle { font-size: 23pt; color: #b2bec3; text-align: center; margin-top: 4mm; font-style: italic; }
+  .header .event-line { font-size: 14.5pt; color: #8a95a5; text-align: center; margin-top: 3.5mm; line-height: 1.5; }
+  .header .event-line strong { color: #dfe6e9; }
+
+  /* ── PANELS ── */
+  .main { grid-area: main; display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr 1fr; gap: 6mm; padding: 8mm 16mm; }
+  .panel { border: 1pt solid #dfe6e9; border-radius: 8pt; padding: 6.5mm 8.5mm; overflow: hidden; display: flex; flex-direction: column; justify-content: space-between; }
+  .panel h2 { font-size: 35pt; font-weight: 700; color: #1a1a2e; margin-bottom: 3.5mm; flex: none; }
+  .panel h2 span { color: #6c5ce7; }
+  .panel p, .panel li { font-size: 23pt; line-height: 1.5; margin-bottom: 3.6mm; }
+  .panel ul, .panel ol { padding-left: 7mm; margin-bottom: 2.8mm; }
+
+  .q-item { margin-bottom: 6mm; }
+  .q-item .q { font-weight: 800; color: #1a1a2e; font-size: 27pt; }
+  .q-item .out { font-size: 19pt; color: #636e72; font-style: italic; margin-top: 0.6mm; }
+  .q-item .in { font-size: 21pt; margin-top: 0.8mm; line-height: 1.42; }
+  .q-item .in b { color: #e17055; }
+
+  .seam-box {
+    background: #fff5f3; border-left: 5pt solid #e17055; border-radius: 0 5pt 5pt 0;
+    padding: 4.5mm 5.5mm; font-size: 20pt; line-height: 1.44; margin-top: 2.6mm;
+  }
+  .blue-box {
+    background: #f0f5ff; border-left: 5pt solid #6c5ce7; border-radius: 0 5pt 5pt 0;
+    padding: 4.5mm 5.5mm; font-size: 20pt; line-height: 1.44; margin-top: 2.6mm;
+  }
+  .statement {
+    background: #1a1a2e; color: #ffffff; border-radius: 6pt;
+    padding: 5.5mm 6.5mm; font-size: 21.5pt; line-height: 1.46; margin-bottom: 3mm;
+  }
+  .statement b { color: #a29bfe; }
+
+  table { border-collapse: collapse; width: 100%; font-size: 18pt; margin: 2.5mm 0 3mm; }
+  th, td { border: 0.5pt solid #dfe6e9; padding: 2mm 3mm; text-align: left; vertical-align: top; }
+  th { background: #f8f9fa; color: #1a1a2e; font-weight: 700; }
+  td.num { font-weight: 700; color: #e17055; }
+
+  .comp-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6mm; align-items: start; }
+  .comp-left { display: flex; flex-direction: column; align-items: center; }
+  .comp-left svg { width: 66mm; height: auto; }
+  .comp-left .cap { font-size: 15pt; color: #636e72; margin-top: 1mm; margin-bottom: 2.4mm; line-height: 1.32; text-align: center; }
+  .comp-left p { font-size: 20pt; line-height: 1.44; margin-bottom: 2.4mm; text-align: left; }
+  .comp-right { display: flex; flex-direction: column; }
+
+  .ask-line { font-size: 21pt; line-height: 1.46; margin-bottom: 3.6mm; padding-left: 4.5mm; border-left: 2pt solid #6c5ce7; }
+
+  .seam { margin-bottom: 3.4mm; font-size: 19pt; line-height: 1.44; }
+  .seam b { color: #1a1a2e; }
+  .seam .s { color: #e17055; font-weight: 700; }
+
+  /* ── FOOTER ── */
+  .footer {
+    grid-area: footer;
+    background: #f8f9fa; border-top: 1.5pt solid #dfe6e9;
+    display: grid; grid-template-columns: 1.7fr 1fr 1fr; align-items: center;
+    padding: 5.5mm 18mm; font-size: 13pt; color: #636e72;
+  }
+  .footer .refs { line-height: 1.5; }
+  .footer .refs strong { color: #2d3436; }
+  .footer .contact { text-align: center; }
+  .footer .contact .name { font-size: 14.5pt; font-weight: 700; color: #2d3436; }
+  .footer .note { text-align: right; font-size: 12.5pt; font-weight: 700; color: #e17055; }
+  .footer .note span { font-weight: 400; color: #636e72; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>Things I Don't Understand About <span class="accent">Quantum Error Correction</span></h1>
+  <div class="subtitle">Tree-based vs surface codes: questions that only make sense inside the frame</div>
+  <div class="event-line">
+    <strong>CWI Summer School on Quantum Algorithms &amp; Quantum Error Correction</strong> · 24–28 August 2026 ·<br>
+    Poster Session: Wed 26 Aug, 16:30–18:00 · Rowan Brad Quni-Gudzinas · QNFO
+  </div>
+</div>
+
+<div class="main">
+
+  <div class="panel">
+    <h2>Panel 1 — <span>Why this poster exists</span></h2>
+    <p>I am an independent researcher who came to QEC from ultrametric geometry and the energy cost of
+      computation. This poster is a notebook of confusions treated as data.</p>
+    <p>Every question below shares one property: <strong>it makes no sense outside the frame it
+      questions.</strong> That is deliberate: where a question becomes nonsense is exactly where a definition
+      is doing the work.</p>
+    <p><strong>The method, in four steps:</strong></p>
+    <ul>
+      <li>State the construct in its own terms — surface codes, thresholds, logical qubits, decoders.</li>
+      <li>Ask the question I am not supposed to need to ask, exactly as a naive outsider would.</li>
+      <li>Watch where the question stops parsing — that locale is the seam.</li>
+      <li>Treat the seam as data: the construct carried more than its proof.</li>
+    </ul>
+    <div class="seam-box"><strong>Correct me, and the poster has done its job.</strong> I am not claiming the
+      field is wrong; I am asking where the pieces were checked against each other. If the constructs were
+      compatible, the naive questions would answer themselves.</div>
+  </div>
+
+  <div class="panel">
+    <h2>Panel 2 — <span>The comparison</span>: tree-based vs surface codes</h2>
+    <div class="comp-grid">
+      <div class="comp-left">
+        <svg viewBox="0 0 150 150" xmlns="http://www.w3.org/2000/svg" aria-label="Tree motif: a nested distinction tree">
+          <defs><style>.e{stroke:#0e5f6b;stroke-width:2.2;fill:none}.n{fill:#ffffff;stroke:#0e5f6b;stroke-width:2.2}.r{fill:#0e5f6b}</style></defs>
+          <g class="e">
+            <line x1="75" y1="18" x2="45" y2="62"/><line x1="75" y1="18" x2="75" y2="62"/><line x1="75" y1="18" x2="105" y2="62"/>
+            <line x1="45" y1="62" x2="22" y2="106"/><line x1="45" y1="62" x2="55" y2="106"/>
+            <line x1="75" y1="62" x2="66" y2="106"/><line x1="75" y1="62" x2="90" y2="106"/>
+            <line x1="105" y1="62" x2="99" y2="106"/><line x1="105" y1="62" x2="130" y2="106"/>
+          </g>
+          <circle class="r" cx="75" cy="18" r="7"/>
+          <circle class="n" cx="45" cy="62" r="6"/><circle class="n" cx="75" cy="62" r="6"/><circle class="n" cx="105" cy="62" r="6"/>
+          <circle class="n" cx="22" cy="106" r="5"/><circle class="n" cx="55" cy="106" r="5"/><circle class="n" cx="66" cy="106" r="5"/>
+          <circle class="n" cx="90" cy="106" r="5"/><circle class="n" cx="99" cy="106" r="5"/><circle class="n" cx="130" cy="106" r="5"/>
+        </svg>
+        <div class="cap">One instance of the class: the Bruhat–Tits tree T₂.<br>The class: nested, distinction-based ultrametric trees.</div>
+        <p><strong>Surface codes (the standard):</strong> qubits on a 2D lattice; active syndrome
+          measurement; a classical decoder decides what to correct. The code is defined by its boundary.</p>
+        <p><strong>Tree-based codes (the alternative):</strong> nested, distinction-based hierarchical
+          structures — ultrametric trees; the Bruhat–Tits tree T₂ is one instance, not the concept.
+          A [[3,1,1]] perfect tensor at every internal vertex; protection from concatenation across the
+          tree, not from active loops.</p>
+        <p><strong>All numbers are classical simulation.</strong> No tree code has run on hardware.</p>
+      </div>
+      <div class="comp-right">
+        <table>
+          <tr><th>Error model (qubit, code-capacity)</th><th>Tree</th><th>Surface</th><th>Ratio</th></tr>
+          <tr><td>Bit-flip</td><td class="num">50.0%</td><td>~10.9%</td><td>4.6×</td></tr>
+          <tr><td>Depolarizing</td><td class="num">75.0%</td><td>~1.0%</td><td>75×</td></tr>
+          <tr><td>Independent X+Z</td><td class="num">17.30%</td><td>~18.9%</td><td>0.92×</td></tr>
+        </table>
+        <p style="font-size:16pt;color:#636e72;line-height:1.42;">Depolarizing uses the code's structured-noise
+          channel (not yet published); surface comparators are standard published figures. Under independent
+          errors the qudit generalization sits at ≈2×10⁻⁴ — about 55× below surface codes; the qubit claim
+          targets correlated-failure regimes.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="panel">
+    <h2>Panel 3 — <span>Questions 1–4</span></h2>
+    <div class="q-item">
+      <div class="q">1 · What is a logical qubit, physically?</div>
+      <div class="out">Outside the frame: "logical" is not a physical predicate — the question is nonsense.</div>
+      <div class="in"><b>Inside, the answer is a definition:</b> a logical qubit is defined as what the code
+        protects. The code defines the thing it protects; the definition is the protection.</div>
+    </div>
+    <div class="q-item">
+      <div class="q">2 · Why does a surface code need a surface?</div>
+      <div class="out">Outside the frame: a code is a set of states; no geometry is required.</div>
+      <div class="in"><b>Inside, the answer is a definition:</b> the logical operators are defined by the
+        boundary. The surface defines the code that defines the surface — the geometry is the definition.</div>
+    </div>
+    <div class="q-item">
+      <div class="q">3 · Where is the error in the error model?</div>
+      <div class="out">Outside the frame: an error is an error; the question is empty.</div>
+      <div class="in"><b>Inside, the answer is a definition:</b> the noise model defines which errors exist.
+        Correlated errors are defined out of the frame, then declared absent. The definition is the measurement.</div>
+    </div>
+    <div class="q-item">
+      <div class="q">4 · What does the threshold guarantee?</div>
+      <div class="out">Outside the frame: a number guarantees nothing.</div>
+      <div class="in"><b>Inside, the answer is a definition:</b> the threshold is a crossing point inside a
+        model family. The guarantee holds inside the model that defines it, and is undefined outside it.</div>
+    </div>
+  </div>
+
+  <div class="panel">
+    <h2>Panel 4 — <span>Questions 5–8</span></h2>
+    <div class="q-item">
+      <div class="q">5 · Why must correction be a loop?</div>
+      <div class="out">Outside the frame: correction needs no loop.</div>
+      <div class="in"><b>Inside, the answer is a definition:</b> QEC is defined as measure → classical decoder
+        → feedback. A code that corrects by geometry alone is outside the definition — which is the claim under test.</div>
+    </div>
+    <div class="q-item">
+      <div class="q">6 · What is one logical qubit worth?</div>
+      <div class="out">Outside the frame: worth is not a code property.</div>
+      <div class="in"><b>Inside, the answer is a definition:</b> the rate n:k is a definition of the family.
+        The cost stays a definition until it is priced in joules per correct answer.</div>
+    </div>
+    <div class="q-item">
+      <div class="q">7 · What does distance d = 1 mean?</div>
+      <div class="out">Outside the frame: a "code" of distance 1 corrects nothing — it is not a code.</div>
+      <div class="in"><b>Inside, the answer is a definition:</b> d is the minimum logical-operator weight;
+        d = 1 means "corrects nothing by definition" — and concatenation across the tree turns the definition
+        into protection. The tree is where the definition stops being the answer.</div>
+    </div>
+    <div class="q-item">
+      <div class="q">8 · Is the decoder part of the code?</div>
+      <div class="out">Outside the frame: malformed — a decoder is a decoder.</div>
+      <div class="in"><b>Inside, the answer is a definition:</b> the quantum/classical boundary is drawn by
+        convention, and the decoder's energy is priced nowhere. The convention is the frame; the frame is the cost.</div>
+    </div>
+  </div>
+
+  <div class="panel">
+    <h2>Panel 5 — <span>What would change my mind</span></h2>
+    <div class="ask-line"><strong>A matched-noise comparison:</strong> the tree family vs a surface code under
+      the same correlated-noise model, in classical simulation. If the advantage falls to parity, the comparison
+      on this poster is answered.</div>
+    <div class="ask-line"><strong>A decoder reality check:</strong> does a known decoder family already cover
+      tree-structured codes, and how does its complexity scale?</div>
+    <div class="ask-line"><strong>An independent re-run:</strong> the simulator and the protocol are handed over
+      to anyone who wants to run the comparison themselves.</div>
+    <div class="ask-line"><strong>Perfect tensors for p &gt; 2:</strong> the binary [[3,1,1]] case is settled;
+      larger primes are open.</div>
+    <p><strong>What is not claimed:</strong> no hardware result, no fault-tolerance claim under circuit-level
+      noise, no advantage under independent errors — the qudit family sits at ≈2×10⁻⁴ there, below surface
+      codes. The claim is narrow: under correlated failure, the tree geometry may need fewer active
+      interventions, and the matched comparison decides it.</p>
+    <div class="blue-box"><strong>Numeric criteria:</strong> matched-noise parity ⇒ the advantage claim is
+      withdrawn · a decoder that already covers trees ⇒ ask 2 answered · an independent re-run that fails ⇒
+      the simulation claim is withdrawn. Every criterion is stated with its number.</div>
+  </div>
+
+  <div class="panel">
+    <h2>Panel 6 — <span>The statement</span>, the caption, the seams</h2>
+    <div class="statement"><b>The one-line statement:</b> "My confusions are the fault lines: where a question
+      makes no sense outside the frame, the frame is answering with a definition."</div>
+    <p><strong>The caption:</strong> the naive question is the probe. I am not claiming the field is wrong —
+      I am asking where the pieces were checked against each other. <em>If the constructs were compatible, the
+      naive questions would answer themselves.</em></p>
+    <div class="seam"><span class="s">Seam 1 — Discrete abstraction:</span> <b>QEC defends the discreteness of the circuit model; the choice of discreteness is never priced.</b></div>
+    <div class="seam"><span class="s">Seam 2 — Logical qubit:</span> <b>defined as what the code protects; the definition is the protection.</b></div>
+    <div class="seam"><span class="s">Seam 3 — Noise model:</span> <b>the model defines which errors exist; thresholds live inside the model.</b></div>
+    <div class="seam"><span class="s">Seam 4 — Classical control:</span> <b>the decoder is classical; the loop's energy is priced nowhere.</b></div>
+    <div class="seam"><span class="s">Seam 5 — Cost currency:</span> <b>T-count is countable, so it is counted; joules are measurable, and not measured.</b></div>
+    <div class="seam"><span class="s">Seam 6 — Geometry:</span> <b>Euclidean 2D assumed; the tree geometry unexamined. The staircase signature I could not find examined anywhere.</b></div>
+  </div>
+
+</div>
+
+<div class="footer">
+  <div class="refs">
+    <strong>References (verified 2026-08-24)</strong><br>
+    10.5281/zenodo.20109836 (architecture) · 10.5281/zenodo.22038733 (guide + verification script) ·
+    10.5281/zenodo.21046993 (qudit QEC) · 10.5281/zenodo.22025544 (trapped-ion testbed) ·
+    10.5281/zenodo.21809888 (QEC–Darwinism audit) · 10.5281/zenodo.21979060 (prime-valuation correction) ·
+    10.5281/zenodo.21901984 / 21901983 (ignorance audit) · Full plan: github.com/QNFO/cwi-qec-poster-2026
+  </div>
+  <div class="contact">
+    <div class="name">Rowan Brad Quni-Gudzinas</div>
+    QNFO<br>
+    papers.qnfo.org · zenodo.org/communities/qnfo
+  </div>
+  <div class="note">
+    CWI Summer School — Research Semester Programme<br>
+    "Quantum Algorithms &amp; QEC"<br>
+    <span>v6 — naive audit, sharp frame-probe questions, 2026-08-24</span>
+  </div>
+</div>
+
+</body>
+</html>

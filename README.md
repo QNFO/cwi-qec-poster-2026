@@ -47,15 +47,21 @@
 
 ## Which poster to print?
 
-**THE poster (decided 2026-08-21): `poster-v5-treecode/poster-v5.pdf`** — "The Bruhat–Tits
-Tree Code — Status and Test Plan": legibility rework (2026-08-21: opens with WHY IT MATTERS — the surface-code overhead contrast,
-the 4.6–75× simulated threshold promise, the energy angle — then the code and numbers, status
-cards, the five tests with disconfirmation criteria, and the asks for the room; the tree appears as a motif with a one-line caption).
-Self-contained — **no handouts** (user decision: everything lives on the poster).
-TRUE A0 portrait, full-bleed, pixel-verified. A1 backup: `poster-v5-a1-backup.pdf` (for
-smaller boards).
+**THE poster (decided 2026-08-24): `poster-v6/poster-v6.pdf`** — "Things I Don't Understand
+About Quantum Error Correction" — complete overhaul per user directive 2026-08-24: back to the
+naive-audit framing, rebuilt around **tree-based vs surface codes** (the tree class = nested,
+distinction-based ultrametric trees; Bruhat–Tits T₂ is one instance, not the concept). Eight
+sharp, pointed frame-probe questions — each stated with "Outside the frame: …" (where it makes
+no sense) and "Inside, the answer is a definition: …" (the tautology the frame answers with).
+Panels: why this poster exists + method · tree-vs-surface comparison with the verified numbers
+table · questions 1–4 · questions 5–8 · what would change my mind (numeric criteria) · statement,
+caption, 6 seams. TRUE A0 portrait, full-bleed, pixel-verified (content to 1173 mm, bottom margin
+15.6 mm), 0 U+FFFD, all 6 panels zero overflow. Self-contained — **no handouts** (user decision).
+Supersedes v5 (2026-08-21 decision).
 
 Alternates (kept as A0 PDFs if wanted):
+- **poster-v5-treecode/poster-v5.pdf** — "The Bruhat–Tits Tree Code — Status and Test Plan"
+  (previous THE poster; testing roadmap T1–T5, 6 DOIs).
 - **poster-v4-nozx/poster-v4-nozx.pdf** — "Things I Don't Understand About QEC" (naive audit
   without the ZX anchor; 8 questions + 6 seams; verified refs).
 - **poster-v2/poster-v2.pdf** — the verified v2 package (hypothesis → proposed experiment →
