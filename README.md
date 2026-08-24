@@ -33,13 +33,17 @@
 
 > ⚠️ **Print trap (2026-08-21):** do NOT judge the layout from a browser print-preview of the HTML — the preview re-flows the poster onto whatever paper is selected (default Letter/A4 can make the portrait poster LOOK landscape with white margins). The PDF is ground truth: portrait A0, content fills the page (pixel-verified 2026-08-21: content 796 × 1156 mm, bottom margin ≈14 mm = footer padding). If the printer only accepts landscape sheets, use auto-rotate/portrait orientation — never rotate the content itself.
 
-## Workshop Details (verified 2026-08-16)
+## Workshop Details (verified 2026-08-16; poster requirements verified from organizer email 2026-08-17)
 
 - **Event:** CWI Summer School on Quantum Algorithms and Quantum Error Correction
 - **Dates:** 24–28 August 2026
 - **Venue:** WCW Turingzaal, Science Park 125, Amsterdam
 - **Poster Session:** Wednesday 26 August, 16:30–18:00 ("Poster session + Pizza")
 - **Poster Award Ceremony:** Thursday 27 August, 08:50–09:00
+- **POSTER REQUIREMENTS (organizer email, Sebastian Zur, 2026-08-17):** boards accept
+  **up to A0 portrait**; **no submission procedure, no assigned board** — put the poster
+  up at ANY time on Wednesday and use any available board; **remove the poster at the
+  end of the day Wednesday** (boards are taken away early Thursday morning).
 - **Registration:** closed. The event page lists no poster submission procedure → bring the
   poster on-site; confirm board dimensions at registration (Mon 24 Aug).
 - **Lecturers:** Nicolas Delfosse (IonQ), Anthony Leverrier (Inria), Ashwin Nayak (IQC),
