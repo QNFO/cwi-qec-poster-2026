@@ -89,3 +89,13 @@ the protocol?"
   QEC options exist.
 - Poster must speak ZX (Delfosse/IonQ slides show ZX graphs).
 - NEVER assert a better answer; the question is the probe.
+
+## Evidence for Q1/Q4 (2026-08-24, JPCUB computation)
+
+`artifacts/verification/jpcub-trapped-ion-qec/` (v2) — the JPCUB answer for trapped ions:
+high-rate qLDPC [[144,12,12]] wins ~36.7× over surface at p2=1e-3; XZZX bias-tailored
+second; tree/ultrametric excluded under independent noise (verified 2e-4 qudit threshold,
+correlated regime only) — exactly the poster's Q1 number and Q4's LDPC-class answer.
+If asked "which code is most efficient for your trap?", the honest answer is qLDPC-family,
+not the tree class — under independent noise; the tree class enters via correlated-failure
+regimes and T-factory (foliated/treelike distillation) layers.

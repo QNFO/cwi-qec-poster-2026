@@ -89,3 +89,12 @@ Alternates (kept as A0 PDFs if wanted):
 - Adelic Shannon Theory v2.1 — 10.5281/zenodo.21698976
 - Adelic Entropic Numbers v1.1 — 10.5281/zenodo.21698978
 - Adelic Rate-Distortion Theory v1.0 — 10.5281/zenodo.21705076
+
+## Verification artifacts
+
+- `artifacts/verification/jpcub-trapped-ion-qec/` — **JPCUB energy-per-correct-
+  answer for trapped-ion QEC families (v2, 2026-08-24)** — answers poster v7
+  Q1/Q4: qLDPC [[144,12,12]] wins ~36.7× over surface at p2=1e-3; XZZX bias-
+  tailored second; tree/ultrametric excluded under independent noise (correlated
+  regime only). Model + output + references.bib + VERIFICATION.md (red-team
+  findings → remediation). JPCUB record: 10.5281/zenodo.21945415.
