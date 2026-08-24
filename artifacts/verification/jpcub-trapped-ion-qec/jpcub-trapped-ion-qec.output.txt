@@ -1,0 +1,39 @@
+====================================================================================================
+JPCUB: energy per correct answer — trapped-ion QEC families
+workload L=10000 logical gates; target p_L <= 1e-06 (<= 1% end-to-end); units: 1 MS gate = 1.0
+====================================================================================================
+family                        n/log  MS/log    E/log    p_L@1e-3  viable  E_correct@1e-3 E_correct@1e-4
+----------------------------------------------------------------------------------------------------
+surface d=7                      97    1372     1822    1.00e-05   False             nan      1.822e+07
+surface d=11                    241    5324     7060    1.00e-07    True       7.067e+07      7.060e+07
+surface d=15                    449   13500    17895    1.00e-09    True       1.790e+08      1.790e+08
+qLDPC [[144,12,12]]              12     144      191    8.75e-07    True       1.927e+06      1.910e+06
+qLDPC + erasure conv.            12     144      191    4.05e-09    True       1.910e+06      1.910e+06
+XZZX d=5 (bias 10)               49     500      665    6.01e-07    True       6.691e+06      6.651e+06
+XZZX d=7 (bias 10)               97    1372     1822    1.09e-08    True       1.822e+07      1.822e+07
+tree/ultrametric (qudit)          3       9       13    2.50e+00   False             nan            nan
+----------------------------------------------------------------------------------------------------
+
+-- Operating-point scan: gate speed vs fidelity (energy-optimal, not
+   fidelity-optimal). Model: MS energy E ~ A/t (fixed pulse area: power
+   ~ 1/t^2), spontaneous-emission error ~ E, so E2(p2) = E2_ref*(1e-3/p2)
+   capped at the p2 floor 1e-4 (below it, error is floor-limited). The
+   energy-optimal operating point sits at the LARGEST p2 that still meets
+   the logical-error budget (constraint boundary) -- run each code as fast
+   as its budget allows, then compare codes by energy.
+
+  surface          min E_correct=6.718e+06 at p2=2.15e-04, d=5, E/log=665, p_L=1.00e-06
+  XZZX (bias 10)   min E_correct=1.461e+06 at p2=1.74e-04, d=3, E/log=145, p_L=1.00e-06
+  qLDPC [[144,12,12]] min E_correct=1.894e+06 at p2=1.02e-03, d_eff=12, E/log=188, p_L=1.00e-06
+  qLDPC + erasure conv. min E_correct=1.162e+06 at p2=1.79e-03, d_eff=18, E/log=115, p_L=1.00e-06
+
+-- Absolute scale (E2 ~ 0.5 uJ/MS gate):
+  surface d=11             ~    35.335 J per 10000 correct logical gates (at p2=1e-3)
+  qLDPC [[144,12,12]]      ~     0.964 J per 10000 correct logical gates (at p2=1e-3)
+  qLDPC + erasure conv.    ~     0.955 J per 10000 correct logical gates (at p2=1e-3)
+
+-- Sensitivity: tighter budget (L=1e6, target p_L=1e-8):
+  surface d=15             p_L@1e-3=1.00e-09 viable@yes
+  qLDPC [[144,12,12]]      p_L@1e-3=8.75e-07 viable@no
+  qLDPC + erasure conv.    p_L@1e-3=4.05e-09 viable@yes
+EXIT=0
