@@ -40,6 +40,17 @@ trapped-ion quantum computer (JPCUB metric, 10.5281/zenodo.21945415).
 - **Excluded with reason:** GKP (CV hardware); repetition at bias ≤100 (weight-1 X
   error); tree/ultrametric under independent noise (correlated regime only).
 
+## Post-remediation verification (subagent, 2026-08-24)
+
+Independent reviewer (`otWgAxX08_WxVUiMPPic0`) re-verified the v2 remediation
+**10/10 PASS, zero FAILs**: A1 cap gone (only descriptive print remains),
+byte-identical re-run (5622 B, diff empty), winner qLDPC+erasure 1.163e6 /
+XZZX d=3 7.681e6 confirmed, SCOPE + T-factory caveat + idle wiring +
+sensitivity sweep (11 rows) + repetition/Bacon-Shor/Steane + foliated/treelike
++ GKP notes + VERIFICATION/README + check-weight decoder + no EXIT wrapper +
+README/talking-points links + references.bib (9 entries). Artifact safe to
+present/quote in poster v7. No v2.1 required — closed as verified.
+
 ## Model caveats (uncalibrated choices — flagged, not hidden)
 
 XZZX threshold mapping 0.010·(1+bias)/2 · erasure d_eff = 1.5×d · Bacon-Shor and
