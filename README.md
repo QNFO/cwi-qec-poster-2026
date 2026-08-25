@@ -4,7 +4,7 @@
 
 | File | Description | Print Size |
 |---|---|---|
-| `poster-v5-treecode/poster.html` | **THE poster (decided 2026-08-21)** — "The Bruhat–Tits Tree Code: Status and Test Plan": testing roadmap (T1–T5 with numeric disconfirmation criteria), 6 DOIs, plain prose. PDF: `poster-v5.pdf` (A0). | A0 (841×1189 mm) |
+| `poster-v5-treecode/poster.html` | **SUPERSEDED** — "The Bruhat–Tits Tree Code: Status and Test Plan" (2026-08-21; archived). **NO-GO (2026-08-25): no poster printed/presented** — see "Which poster to print?". PDF: `poster-v5.pdf` (A0). | A0 (841×1189 mm) |
 | `poster-v5-treecode/handout.html` | v5 A4 handout — test table + DOIs (internal-only; no handouts, 2026-08-21 decision). PDF: `handout-v5.pdf`. | A4 (210×297 mm) |
 | `poster-v4/poster.html` | **CANDIDATE (user's current direction, 2026-08-18)** — "Things I Don't Understand About Quantum Error Correction": naive-audit framing anchored on *ZX Diagrams at the Seam* (10.5281/zenodo.21992118) — 8 questions, 6 seams, fig4 method panel. PDF: `poster-v4.pdf` (A0). | A0 (841×1189 mm) |
 | `poster-v4/handout.html` | v4 A4 handout — thesis + method + questions + statement. PDF: `handout-v4.pdf`. | A4 (210×297 mm) |
@@ -24,7 +24,7 @@
 | `poster/tree-diagram.svg` | Bruhat-Tits tree diagram (standalone) | Scalable |
 | `poster/handout.html` | v1 A4 handout | A4 (210×297 mm) |
 
-## Quick Start (either poster)
+## Quick Start (archived posters — NO-GO 2026-08-25, do not print)
 
 1. **Open the PDF directly** (`poster-v5-treecode/poster-v5.pdf` etc.) — it is already the exact A0 portrait page (841 × 1189 mm, full-bleed, zero margins; MediaBox-verified).
 2. Press `Ctrl+P` **on the PDF** (not the HTML).
@@ -51,21 +51,18 @@
 
 ## Which poster to print?
 
-**THE poster (decided 2026-08-24, overnight revision 24→25 Aug): `poster-v7/poster-v7.pdf`** —
-"Things I Don't Understand About Quantum Error Correction" (v7.1 standalone, 2026-08-24) — built from the CWI Day-1 talks; v7.1 removes conversational framing and answers Q1 on-poster with the JPCUB computation (qLDPC [[144,12,12]] ~36× vs surface).
-Frame = **tree-based vs surface codes** (the tree class = nested, distinction-based ultrametric
-trees; Bruhat–Tits T₂ one instance among many). Spine = the user's premise rejection: QEC is
-**not necessary in well-designed hardware**; NISQ is an imperfect bridge to better physics;
-even on the bridge, better QEC options exist. Eight **real-unknown questions** (joules-per-
-correct-answer, the Landauer erasure bill, vanishing-overhead codes, decoding complexity
-class, substrate-intrinsic vs algorithm-chosen, model-free quantum speedup, syndrome
-measurement cost, intrinsic definition of "quantum") + the discreteness closer ("We compute
-on discrete matrices yet insist reality is a continuous Hilbert space. Which is the real
-model?"). **ZX bridge panel** (fig4: the tree as a ZX graph state — 22 spiders, 21 H-boxes —
-plus spiders/Pauli-webs/gadgets vocabulary, so the poster speaks the language of the slides).
-TRUE A0 portrait, full-bleed, pixel-verified (content to 1171 mm, bottom margin 18.3 mm),
-0 U+FFFD, all 6 panels zero overflow. Self-contained — **no handouts** (user decision).
-Supersedes v6 (2026-08-24 morning).
+**NO-GO (user decision 2026-08-25): no poster is printed or presented.**
+`poster-v7/poster-v7.pdf` ("Things I Don't Understand About QEC", v7.1) was **withdrawn**
+after the user's GO/NO-GO call — the poster's center is a meta-structure (ultrametric
+trees, ZX, Tanner bounds, eight questions) whose mathematics masks the absence of
+empirical content; at a school where QEC is directly empirical (thresholds, fidelities,
+logical error rates measured in labs) it does not work. **Do not print, do not present.**
+Attend the Wed 26 Aug poster session as participant only. Poster files remain in the repo
+for the record (v1/v2/v3/v4/v5/v6/v7.1 archives).
+
+History: v5 "Bruhat–Tits Tree Code — Status and Test Plan" (2026-08-21) → v6 naive-audit
+(2026-08-24) → v7 CWI-Day-1 overhaul (2026-08-24) → v7.1 standalone (2026-08-24) → **NO-GO
+(2026-08-25).**
 
 Alternates (kept as A0 PDFs if wanted):
 - **poster-v6/poster-v6.pdf** — "Things I Don't Understand About QEC" (naive audit with the
